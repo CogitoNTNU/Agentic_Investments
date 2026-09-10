@@ -1,5 +1,8 @@
+import os
 import re
 import string
+from concurrent.futures import ThreadPoolExecutor
+
 import numpy as np
 
 
@@ -120,52 +123,109 @@ def current_lr(epoch, epochs, lr):
     return lr * max(1e-4, 1 - epoch/epochs)
 
 
-def main():
-    text = "The cat sits on the mat. The dog barks."
+def _train_chunk(pairs, neg_table, k, w_in, w_out, lr):
+    """Hogwild worker: updates shared w_in/w_out in-place without locks."""
+    rng = np.random.default_rng()  # each thread owns its RNG
+    n = len(neg_table)
+    total_loss = 0.0
+    for center, context in pairs:
+        negatives = neg_table[rng.integers(0, n, size=k)]
+        pos_score, neg_score, loss = forward_pass(center, context, negatives, w_in, w_out)
+        grad_u_o, grad_u_ni, grad_v_c = gradient(center, context, negatives, pos_score, neg_score, w_in, w_out)
+        update_params(center, context, negatives, grad_v_c, grad_u_o, grad_u_ni, w_in, w_out, lr)
+        total_loss += loss
+    return total_loss
 
-    # tokenize each sentence SEPARATELY, keep them as separate lists
-    sentences = [tokenize(s) for s in split_sentences(text)]
-    print("sentences (tokenized separately):", sentences)
 
-    # build ONE global vocab/frequency table across all sentences combined
-    flat_tokens = [tok for sent in sentences for tok in sent]
-    word2idx, idx2word, freqs = frequency(flat_tokens)
-    print("word2idx:", word2idx)
+def train(id_sentences, word2idx, freqs, dim=5, epochs=200, k=5, lr=0.05, max_window=4, seed=42, num_workers=None):
+    if num_workers is None:
+        num_workers = min(os.cpu_count() or 4, 8)
 
-    # convert each sentence's words to ids, still keeping sentence structure
-    id_sentences = [[word2idx[w] for w in sent] for sent in sentences]
-    print("id_sentences:", id_sentences)
+    rng = np.random.default_rng(seed)
+    vocab_size = len(word2idx)
 
     keep_prob = subsample_probs(freqs)
-    print("keep_prob:", keep_prob)
-
-    pairs = generate_pairs(id_sentences, keep_prob, max_window=4)
-    print("pairs (as ids):", pairs)
-
-    w_in, w_out = init_embeddings(vocab_size=len(word2idx), dim=5)
-
-    # --- test Step 8/9/10: one full forward -> backward -> update step ---
     neg_probs = negative_sampling(freqs)
-    center, context = word2idx["cat"], word2idx["mat"]
-    negatives = np.random.default_rng(0).choice(len(word2idx), size=5, p=neg_probs)
+    neg_table = rng.choice(vocab_size, size=1_000_000, p=neg_probs)  # build ONCE, not per pair
 
-    pos_score, neg_score, loss = forward_pass(center, context, negatives, w_in, w_out)
-    print(f"\ncenter={idx2word[center]!r}  context={idx2word[context]!r}")
-    print("negatives:", [idx2word[n] for n in negatives])
-    print("pos_score:", pos_score)
-    print("neg_score:", neg_score)
-    print("loss:", loss)
+    w_in, w_out = init_embeddings(vocab_size, dim, seed=seed)
 
-    grad_u_o, grad_u_ni, grad_v_c = gradient(center, context, negatives, pos_score, neg_score, w_in, w_out)
-    w_in, w_out = update_params(center, context, negatives, grad_v_c, grad_u_o, grad_u_ni, w_in, w_out, lr=0.1)
-    _, _, new_loss = forward_pass(center, context, negatives, w_in, w_out)
-    print("loss after one update step:", new_loss, " (should be lower than", loss, ")")
+    print(f"Training with {num_workers} workers ...")
+    for epoch in range(epochs):
+        pairs = generate_pairs(id_sentences, keep_prob, max_window)  # regenerate each epoch
+        rng.shuffle(pairs)                                            # break up sentence-order correlation
+        cur_lr = current_lr(epoch, epochs, lr)
 
-    # --- test Step 11: learning rate schedule ---
-    print("\nlearning rate decay (lr=0.05, epochs=200):")
-    for epoch in [0, 1, 50, 100, 150, 199]:
-        print(f"  epoch {epoch:>3}: cur_lr = {current_lr(epoch, 200, 0.05):.5f}")
+        chunk_size = max(1, len(pairs) // num_workers)
+        chunks = [pairs[i:i + chunk_size] for i in range(0, len(pairs), chunk_size)]
 
+        with ThreadPoolExecutor(max_workers=num_workers) as executor:
+            futures = [executor.submit(_train_chunk, chunk, neg_table, k, w_in, w_out, cur_lr)
+                       for chunk in chunks]
+            total_loss = sum(f.result() for f in futures)
+
+        if pairs:
+            avg_loss = total_loss / len(pairs)
+            print(f"epoch {epoch:4d}  avg loss {avg_loss:.4f}  lr {cur_lr:.4f}  #pairs {len(pairs)}")
+
+    return w_in, w_out
+
+def save_vocab(word2idx, idx2word, prefix="vocab"):
+    np.save(f"{prefix}_word2idx.npy", word2idx)
+    np.save(f"{prefix}_idx2word.npy", idx2word)
+
+
+def load_vocab(prefix="vocab"):
+    word2idx = np.load(f"{prefix}_word2idx.npy", allow_pickle=True).item()
+    idx2word = np.load(f"{prefix}_idx2word.npy", allow_pickle=True).item()
+    return word2idx, idx2word
+
+
+def most_similar(word, word2idx, idx2word, w_in, topn=5):
+    Wn = w_in / np.linalg.norm(w_in, axis=1, keepdims=True)   # normalize every row to unit length
+    v = Wn[word2idx[word]]
+    sims = Wn @ v                                              # cosine similarity to every word at once
+    order = np.argsort(-sims)
+    return [(idx2word[i], sims[i]) for i in order if idx2word[i] != word][:topn]
+
+def load_gutenberg(path: str) -> str:
+    with open(path, encoding="utf-8-sig") as f:  # utf-8-sig strips the BOM
+        raw = f.read()
+    start = re.search(r'\*{3} START OF (THIS|THE) PROJECT GUTENBERG EBOOK', raw)
+    end = re.search(r'\*{3} END OF (THIS|THE) PROJECT GUTENBERG EBOOK', raw)
+    if start:
+        raw = raw[raw.index("\n", start.start()) + 1:]
+        # recalculate end position after slicing
+        end = re.search(r'\*{3} END OF (THIS|THE) PROJECT GUTENBERG EBOOK', raw)
+    if end:
+        raw = raw[:end.start()]
+    return raw
+
+
+def main():
+    corpus_path = "data/War-and-Peace_2600/2600-0.txt"
+    print(f"Loading corpus from {corpus_path} ...")
+    text = load_gutenberg(corpus_path)
+
+    print("Splitting into sentences ...")
+    sentences = [tokenize(s) for s in split_sentences(text)]
+    sentences = [s for s in sentences if s]  # drop empty
+
+    flat_tokens = [tok for sent in sentences for tok in sent]
+    word2idx, idx2word, freqs = frequency(flat_tokens)
+    print(f"Vocab size: {len(word2idx)}  |  Total tokens: {len(flat_tokens)}  |  Sentences: {len(sentences)}")
+
+    save_vocab(word2idx, idx2word)
+    id_sentences = [[word2idx[w] for w in sent] for sent in sentences]
+
+    w_in, w_out = train(id_sentences, word2idx, freqs, dim=100, epochs=5, lr=0.025)
+    np.save("w_in.npy", w_in)
+    np.save("w_out.npy", w_out)
+    print("Saved w_in.npy, w_out.npy, vocab_word2idx.npy, vocab_idx2word.npy")
+
+    for probe in ("cock", "grandmother"):
+        if probe in word2idx:
+            print(f"Most similar to '{probe}':", most_similar(probe, word2idx, idx2word, w_in))
 
 if __name__ == "__main__":
     main()
