@@ -203,7 +203,7 @@ def load_gutenberg(path: str) -> str:
 
 
 def main():
-    corpus_path = "data/War-and-Peace_2600/2600-0.txt"
+    corpus_path = "data/2600-0.txt"
     print(f"Loading corpus from {corpus_path} ...")
     text = load_gutenberg(corpus_path)
 
