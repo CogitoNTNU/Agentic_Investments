@@ -1,7 +1,7 @@
 import os
 import re
 import string
-from concurrent.futures import ThreadPoolExecutor
+from multiprocessing import Pool, shared_memory
 
 import numpy as np
 
@@ -123,9 +123,14 @@ def current_lr(epoch, epochs, lr):
     return lr * max(1e-4, 1 - epoch/epochs)
 
 
-def _train_chunk(pairs, neg_table, k, w_in, w_out, lr):
-    """Hogwild worker: updates shared w_in/w_out in-place without locks."""
-    rng = np.random.default_rng()  # each thread owns its RNG
+def _train_chunk_mp(args):
+    """Hogwild worker: attaches to shared memory and updates w_in/w_out in-place."""
+    pairs, neg_table, k, lr, shm_in_name, shm_out_name, shape_in, shape_out, dtype = args
+    shm_in  = shared_memory.SharedMemory(name=shm_in_name)
+    shm_out = shared_memory.SharedMemory(name=shm_out_name)
+    w_in  = np.ndarray(shape_in,  dtype=dtype, buffer=shm_in.buf)
+    w_out = np.ndarray(shape_out, dtype=dtype, buffer=shm_out.buf)
+    rng = np.random.default_rng()
     n = len(neg_table)
     total_loss = 0.0
     for center, context in pairs:
@@ -134,10 +139,12 @@ def _train_chunk(pairs, neg_table, k, w_in, w_out, lr):
         grad_u_o, grad_u_ni, grad_v_c = gradient(center, context, negatives, pos_score, neg_score, w_in, w_out)
         update_params(center, context, negatives, grad_v_c, grad_u_o, grad_u_ni, w_in, w_out, lr)
         total_loss += loss
+    shm_in.close()
+    shm_out.close()
     return total_loss
 
 
-def train(id_sentences, word2idx, freqs, dim=5, epochs=200, k=5, lr=0.05, max_window=4, seed=42, num_workers=None):
+def train(id_sentences, word2idx, freqs, dim=768, epochs=200, k=5, lr=0.05, max_window=4, seed=42, num_workers=None):
     if num_workers is None:
         num_workers = min(os.cpu_count() or 4, 8)
 
@@ -150,25 +157,42 @@ def train(id_sentences, word2idx, freqs, dim=5, epochs=200, k=5, lr=0.05, max_wi
 
     w_in, w_out = init_embeddings(vocab_size, dim, seed=seed)
 
+    # Put weight matrices in shared memory so worker processes can update them in-place (Hogwild).
+    shm_in  = shared_memory.SharedMemory(create=True, size=w_in.nbytes)
+    shm_out = shared_memory.SharedMemory(create=True, size=w_out.nbytes)
+    shared_w_in  = np.ndarray(w_in.shape,  dtype=w_in.dtype,  buffer=shm_in.buf)
+    shared_w_out = np.ndarray(w_out.shape, dtype=w_out.dtype, buffer=shm_out.buf)
+    shared_w_in[:]  = w_in
+    shared_w_out[:] = w_out
+
     print(f"Training with {num_workers} workers ...")
-    for epoch in range(epochs):
-        pairs = generate_pairs(id_sentences, keep_prob, max_window)  # regenerate each epoch
-        rng.shuffle(pairs)                                            # break up sentence-order correlation
-        cur_lr = current_lr(epoch, epochs, lr)
+    try:
+        with Pool(num_workers) as pool:
+            for epoch in range(epochs):
+                pairs  = generate_pairs(id_sentences, keep_prob, max_window)
+                rng.shuffle(pairs)
+                cur_lr = current_lr(epoch, epochs, lr)
 
-        chunk_size = max(1, len(pairs) // num_workers)
-        chunks = [pairs[i:i + chunk_size] for i in range(0, len(pairs), chunk_size)]
+                chunk_size = max(1, len(pairs) // num_workers)
+                chunks = [pairs[i:i + chunk_size] for i in range(0, len(pairs), chunk_size)]
 
-        with ThreadPoolExecutor(max_workers=num_workers) as executor:
-            futures = [executor.submit(_train_chunk, chunk, neg_table, k, w_in, w_out, cur_lr)
-                       for chunk in chunks]
-            total_loss = sum(f.result() for f in futures)
+                args = [
+                    (chunk, neg_table, k, cur_lr,
+                     shm_in.name, shm_out.name,
+                     shared_w_in.shape, shared_w_out.shape, shared_w_in.dtype)
+                    for chunk in chunks
+                ]
+                total_loss = sum(pool.map(_train_chunk_mp, args))
 
-        if pairs:
-            avg_loss = total_loss / len(pairs)
-            print(f"epoch {epoch:4d}  avg loss {avg_loss:.4f}  lr {cur_lr:.4f}  #pairs {len(pairs)}")
+                if pairs:
+                    print(f"epoch {epoch:4d}  avg loss {total_loss/len(pairs):.4f}  lr {cur_lr:.4f}  #pairs {len(pairs)}")
+    finally:
+        result_w_in  = shared_w_in.copy()
+        result_w_out = shared_w_out.copy()
+        shm_in.close();  shm_in.unlink()
+        shm_out.close(); shm_out.unlink()
 
-    return w_in, w_out
+    return result_w_in, result_w_out
 
 def save_vocab(word2idx, idx2word, prefix="vocab"):
     np.save(f"{prefix}_word2idx.npy", word2idx)
