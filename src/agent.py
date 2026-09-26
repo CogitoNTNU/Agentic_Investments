@@ -1,21 +1,37 @@
-"""The core agent execution loop.
+from agents import Agent
 
-This is the most important file in the first exercise.
-
-The agent should repeatedly:
-    model decision
-        -> tool call OR final answer
-
-If the model requests a tool:
-    execute tool
-        -> save observation in history
-        -> ask model again
-"""
-
-from src.schemas import FinalAnswer, ToolCall
+# Imports from other files here
 
 
-class Agent:
-    """Coordinates a model and a set of executable tools."""
+stock_agent = Agent(
+    name = "Stock Research Agent",
+    # model = get_model(),
+    instructions="""
+    You are an equity research agent.
 
-    
+    Your job is to analyze publicly traded companies.
+
+    Use the available tools to obtain factual market data.
+
+    Consider:
+    - market data
+    - company fundamentals
+    - recent news
+    - catalysts
+    - risks
+
+    Separate facts from interpretation.
+
+    Never invent financial data.
+
+    If reliable information is unavailable,
+    return INSUFFICIENT_DATA.
+
+    Produce a structured investment research recommendation.
+    """,
+    # tools = ,
+    # output_type = 
+
+)
+
+
