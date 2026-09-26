@@ -8,6 +8,7 @@ from agent import stock_agent
 
 set_tracing_disabled(True)
 
+
 async def analyze_stock(ticker: str):
 
     ticker = ticker.strip().upper()
@@ -33,9 +34,7 @@ async def main():
 
     result = await analyze_stock(ticker)
 
-    print(
-        result
-    )
+    print(result)
 
 
 if __name__ == "__main__":

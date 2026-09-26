@@ -1,13 +1,18 @@
-from agents import Agent
+from datetime import UTC, datetime
+
+from agents import Agent, ModelSettings
 
 # Imports from other files here
 from model import get_model
 from tools import data_for_one_day
 
+today: str = datetime.now(tz=UTC).date().isoformat()
+
 stock_agent = Agent(
     name="Stock Research Agent",
     model=get_model(),
-    instructions="""
+    model_settings=ModelSettings(extra_body={"reasoning_effort": "low"}),
+    instructions=f"""
     You are an equity research agent.
 
     Your job is to analyze publicly traded companies.
@@ -28,7 +33,8 @@ stock_agent = Agent(
     If reliable information is unavailable,
     return INSUFFICIENT_DATA.
 
-    Produce a structured investment research recommendation.
+    Produce a structured investment research recommendation. Today is {today}.
+    If market-data retrieval fails, report the exact tool error and do not fill the gap with unverified claims.
     """,
     tools=[data_for_one_day],
     # output_type =
