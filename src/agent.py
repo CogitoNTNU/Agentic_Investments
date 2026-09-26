@@ -1,11 +1,12 @@
 from agents import Agent
 
 # Imports from other files here
+from model import get_model
 
 
 stock_agent = Agent(
     name = "Stock Research Agent",
-    # model = get_model(),
+    model = get_model(),
     instructions="""
     You are an equity research agent.
 

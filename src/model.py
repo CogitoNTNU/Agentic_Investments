@@ -37,6 +37,7 @@ import os
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 from agents import OpenAIChatCompletionsModel
+from pathlib import Path
 
 
 load_dotenv()

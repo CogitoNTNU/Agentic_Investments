@@ -2,10 +2,11 @@
 
 import asyncio
 
-from agents import Runner
+from agents import Runner, set_tracing_disabled
 
 from agent import stock_agent
 
+set_tracing_disabled(True)
 
 async def analyze_stock(ticker: str):
 
@@ -17,12 +18,12 @@ async def analyze_stock(ticker: str):
     Use the available tools before producing
     your recommendation.
     """
-
+    print("Starting agent")
     result = await Runner.run(
         stock_agent,
         prompt,
     )
-
+    print("Agent finished")
     return result.final_output
 
 
@@ -33,9 +34,7 @@ async def main():
     result = await analyze_stock(ticker)
 
     print(
-        result.model_dump_json(
-            indent=2
-        )
+        result
     )
 
 
