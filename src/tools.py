@@ -8,6 +8,5 @@ Learning goal:
 
 from typing import Any, Protocol
 
-
 class Tool:
-   
+   pass
