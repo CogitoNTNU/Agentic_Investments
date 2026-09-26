@@ -2,11 +2,11 @@ from agents import Agent
 
 # Imports from other files here
 from model import get_model
-
+from tools import data_for_one_day
 
 stock_agent = Agent(
-    name = "Stock Research Agent",
-    model = get_model(),
+    name="Stock Research Agent",
+    model=get_model(),
     instructions="""
     You are an equity research agent.
 
@@ -30,9 +30,6 @@ stock_agent = Agent(
 
     Produce a structured investment research recommendation.
     """,
-    # tools = ,
-    # output_type = 
-
+    tools=[data_for_one_day],
+    # output_type =
 )
-
-
