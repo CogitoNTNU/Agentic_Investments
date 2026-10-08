@@ -34,7 +34,7 @@
 
 import os
 
-from agents import OpenAIChatCompletionsModel
+from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
@@ -51,12 +51,9 @@ def get_model():
     if not api_key:
         raise ValueError("IDUN_API_KEY is not set")
 
-    client = AsyncOpenAI(
-        base_url=BASE_URL,
-        api_key=api_key,
-    )
 
-    return OpenAIChatCompletionsModel(
+    return ChatOpenAI(
         model=MODEL_NAME,
-        openai_client=client,
+        api_key= api_key,
+        base_url= BASE_URL
     )
