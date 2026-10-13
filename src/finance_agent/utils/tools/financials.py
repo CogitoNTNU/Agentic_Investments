@@ -1,38 +1,8 @@
 from langchain.tools import tool
 import yfinance as yf
+from linear_models import LinearRegression, LogisticRegression
 
 # financials of single ticker 
-@tool
-def get_income(ticker: str):
-    """Get income statement for a given stock ticker using yfinance."""
-    ticker = yf.Ticker(ticker)
-    return ticker.income_stmt
-
-#quarterly_income 
-@tool 
-def get_quarterly_income(ticker: str):
-    ticker = yf.Ticker(ticker)
-    return ticker.quarterly_income_stmt
-
-
-#balance sheet 
-@tool 
-def get_balance_sheet(ticker: str):
-    ticker = yf.Ticker(ticker)
-    return ticker.balance_sheet
-
-@tool
-def get_balance_sheet_period(ticker: str, freq: str):
-    ticker_obj = yf.Ticker(ticker)
-
-    return ticker_obj.get_balance_sheet(freq=freq)
-
-# cashflow 
-@tool 
-def get_cashflow(ticker: str):
-    ticker = yf.Ticker(ticker)
-    return ticker.cashflow
-
 @tool
 def get_financials(
         ticker: str, 
@@ -51,4 +21,29 @@ def get_financials(
         "cashflow": ticker.cashflow,
         "quarterly_cashflow": ticker.quarterly_cashflow,
     }
-    return statements.get(statement, "Invalid statement type. Choose from: income, quarterly_income, balance_sheet, quarterly_balance_sheet, cashflow, quarterly_cashflow.")
+
+    if statement not in statements: 
+        return "Invalid statement type."
+
+    df = statements[statement]
+
+    if df is None or df.empty: 
+        return f"No financial data available for {ticker}"
+
+    # rows become financial metrics; columns are reporting dates.
+
+    df = df.copy()
+    df.columns = [str(c) for c in df.columns]
+    #return statements.get(statement, "Invalid statement type. Choose from: income, quarterly_income, balance_sheet, quarterly_balance_sheet, cashflow, quarterly_cashflow.")
+    returm df.to_json(orient="split", date_format="iso")
+
+@tool
+def regression(type: str, data: str):
+    """Perform regression analysis on a given stock ticker using yfinance."""
+    if type == "linear":
+        LR = LinearRegression(0.001, 1000)
+        X = data[['Net_Activity']]
+        y = data['Energy']
+
+        LR.fit(X, y)
+        return "Performing linear regression analysis."
