@@ -2,6 +2,8 @@ from pydantic import BaseModel, Field
 from typing import Literal
 
 class NewsEvent(BaseModel):
+    source_uuid : str
+
     ticker: str
 
     event_type: Literal[
@@ -16,6 +18,10 @@ class NewsEvent(BaseModel):
         "management_change",
         "financing",
         "insider_activity",
+        "analyst_rating",
+        "dividend",
+        "share_buyback",
+        "market_move",
         "other",
     ]
 
