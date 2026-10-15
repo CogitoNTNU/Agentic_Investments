@@ -14,15 +14,20 @@ tools, tools_by_name = get_tools()
 BASE_URL = "https://llm.hpc.ntnu.no/v1"
 MODEL_NAME = "Inferact/GLM-5.3-NVFP4"
 
-model_with_tools = ChatOpenAI(
-    api_key = os.getenv("IDUN_API_KEY"),
-    model=MODEL_NAME,
-    base_url= BASE_URL
-).bind_tools(tools)
+def get_finance_agent():
+
+    model_with_tools = ChatOpenAI(
+        api_key = os.getenv("IDUN_API_KEY"),
+        model=MODEL_NAME,
+        base_url= BASE_URL
+    ).bind_tools(tools)
+
+    return model_with_tools
 
 
 def llm_call(state: dict):
     """LLM decides whether to call a tool or not"""
+    model_with_tools = get_finance_agent()
 
     return {
         "messages": [

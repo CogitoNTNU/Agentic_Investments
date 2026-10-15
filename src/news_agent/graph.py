@@ -12,4 +12,4 @@ builder.add_edge(START, "fetch_news")
 builder.add_edge("fetch_news", "analyze_article")
 builder.add_edge("analyze_article", END)
 
-graph = builder.compile()
+graph = builder.compile(name="news_agent")

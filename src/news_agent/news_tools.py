@@ -52,7 +52,7 @@ def get_news():
 URL = "https://feeds.finance.yahoo.com/rss/2.0/headline?s={ticker}&region=US&lang=en-US"
 
 @tool
-def get_news_from_tickerer(ticker: List[str], limit: int = 10, days: int = 7) -> str:
+def get_news_from_tickerer(ticker: list[str], limit: int = 10, days: int = 7) -> str:
     """Get last news from a list of stocks
 
     Args:

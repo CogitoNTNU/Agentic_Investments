@@ -2,9 +2,10 @@ from typing import Literal
 from langgraph.graph import StateGraph, START, END
 from langchain.messages import HumanMessage
 
+from pathlib import Path
 
-from utils.state import MessagesState
-from utils.nodes import llm_call, tool_node
+from .utils.state import MessagesState
+from .utils.nodes import llm_call, tool_node
 
 
 def should_continue(state: MessagesState) -> Literal["tool_node", END]:
@@ -37,14 +38,11 @@ agent_builder.add_conditional_edges(
 agent_builder.add_edge("tool_node", "llm_call")
 
 # Compile the agent
-agent = agent_builder.compile()
+agent = agent_builder.compile(name="finance_agent")
 
-# Show the agent
-from IPython.display import Image, display
-display(Image(agent.get_graph(xray=True).draw_mermaid_png()))
-
-# Invoke
-messages = [HumanMessage(content="Whats apples total revenue?")]
-messages = agent.invoke({"messages": messages})
-for m in messages["messages"]:
-    m.pretty_print()
+if __name__ == "__main__":
+    # Invoke
+    messages = [HumanMessage(content="Whats apples total revenue?")]
+    messages = agent.invoke({"messages": messages})
+    for m in messages["messages"]:
+        m.pretty_print()
