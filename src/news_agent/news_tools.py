@@ -43,13 +43,6 @@ def get_news():
     
     return data.get("data",[])
 
-# Når du er ferdig med å lage din tool kan du prøve å forstå arkitekturen rundt langgraph og hvordan du kobler opp din tool til måde modell og graf. 
-# Jeg har laget filene slik at agenten fungerer med min tool. 
-# Du kan teste den ut ved å kommentere ut din tool (eller bare gjøre den ferdig først) og kjøre uv run python -m src.news_agent.test
-# Du kan gjerne bruke arkitekturen jeg har laget som utgangspunkt men det er viktig at du forstår hva som foregår
-# Prøv gjerne å lek deg litt rundt og test hva som funker og hva som ikke funker. Vi lærer best ved å ha det gøy!
-# Se også på hvorfor importene er som de er i de andre filene
-
 URL = "https://feeds.finance.yahoo.com/rss/2.0/headline?s={ticker}&region=US&lang=en-US"
 
 @tool
