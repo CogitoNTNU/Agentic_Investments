@@ -3,8 +3,8 @@ import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 
-from tools import FINANCIAL_TOOLS
-from schemas import EconomicAnalysis
+from src.economic_agent.tools import FINANCIAL_TOOLS
+from src.economic_agent.schemas import EconomicAnalysis
 
 
 load_dotenv()

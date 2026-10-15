@@ -1,9 +1,9 @@
 from langchain_core.messages import SystemMessage, HumanMessage
 
-from state import AgentState
-from llm import llm_with_tools, structured_llm
-from prompts import ANALYST_PROMPT, FINAL_ANALYSIS_PROMPT
-from report_fetcher import fetch_latest_quarterly_report
+from src.economic_agent.state import AgentState
+from src.economic_agent.llm import llm_with_tools, structured_llm
+from src.economic_agent.prompts import ANALYST_PROMPT, FINAL_ANALYSIS_PROMPT
+from src.economic_agent.report_fetcher import fetch_latest_quarterly_report
 
 
 def fetch_report_node(state: AgentState):

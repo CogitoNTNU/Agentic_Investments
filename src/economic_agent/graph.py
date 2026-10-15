@@ -1,8 +1,8 @@
 from langgraph.graph import StateGraph, START, END 
-from state import AgentState
-from nodes import fetch_report_node, prepare_analysis_node, financial_agent_node, route_after_agent, final_analysis_node
+from src.economic_agent.state import AgentState
+from src.economic_agent.nodes import fetch_report_node, prepare_analysis_node, financial_agent_node, route_after_agent, final_analysis_node
 from langgraph.prebuilt import ToolNode
-from tools import FINANCIAL_TOOLS 
+from src.economic_agent.tools import FINANCIAL_TOOLS 
 
 builder = StateGraph(AgentState)
 

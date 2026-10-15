@@ -1,4 +1,4 @@
-from graph import graph
+from src.economic_agent.graph import graph
 
 def main(): 
     company = input("Which company do you want to analyze?")

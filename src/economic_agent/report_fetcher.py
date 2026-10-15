@@ -10,8 +10,8 @@ import requests
 from dotenv import load_dotenv
 from langchain_tavily import TavilySearch
 
-from llm import llm
-from schemas import ReportSearchChoice
+from src.economic_agent.llm import llm
+from src.economic_agent.schemas import ReportSearchChoice
 
 
 load_dotenv()
