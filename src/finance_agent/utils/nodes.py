@@ -12,7 +12,7 @@ load_dotenv()
 tools, tools_by_name = get_tools()
 
 BASE_URL = "https://llm.hpc.ntnu.no/v1"
-MODEL_NAME = "Inferact/GLM-5.3-NVFP4"
+MODEL_NAME = "deepseek-ai/DeepSeek-V4.1-Flash-1017"
 
 def get_finance_agent():
 
@@ -34,7 +34,20 @@ def llm_call(state: dict):
             model_with_tools.invoke(
                 [
                     SystemMessage(
-                        content="You are a helpful assistant tasked with performing arithmetic on a set of inputs."
+                        content=f"""
+                        You are a financial agent that can answer questions about companies and their financial data.
+                        You have access to the following tools:
+                        {tools}
+
+                        Focus on objective facts about financial data and avoid speculation. 
+                        If you don't know the answer, say "I don't know" instead of making up an answer.
+
+                        If you know a company that is a direct competitor to the company in question, 
+                        you can compare their financial data to provide context.
+                        Use specifically the compare_key_metrics tool to compare key metrics of two companies.
+
+                        Do not provide any personal opinions or speculations about the companies or their financial performance.
+                        """
                     )
                 ]
                 + state["messages"]

@@ -4,8 +4,8 @@ from langchain.messages import HumanMessage
 
 from pathlib import Path
 
-from .utils.state import MessagesState
-from .utils.nodes import llm_call, tool_node
+from utils.state import MessagesState
+from utils.nodes import llm_call, tool_node
 
 
 def should_continue(state: MessagesState) -> Literal["tool_node", END]:
@@ -42,7 +42,7 @@ agent = agent_builder.compile(name="finance_agent")
 
 if __name__ == "__main__":
     # Invoke
-    messages = [HumanMessage(content="Whats apples total revenue?")]
+    messages = [HumanMessage(content="Give me an analysis of Apple Inc.'s financial data and compare it to Microsoft.")]
     messages = agent.invoke({"messages": messages})
     for m in messages["messages"]:
         m.pretty_print()
