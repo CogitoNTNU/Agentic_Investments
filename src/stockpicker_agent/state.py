@@ -5,4 +5,5 @@ class NewsDiscoveryState(TypedDict):
     articles: list[dict]
     events: list[dict]
     candidates: list[dict]
-    
+    grouped_candidates: list[dict]
+

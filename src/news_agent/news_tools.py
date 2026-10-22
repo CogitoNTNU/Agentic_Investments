@@ -9,43 +9,6 @@ from typing import List
 URL = "https://feeds.finance.yahoo.com/rss/2.0/headline?s={ticker}&region=US&lang=en-US"
 
 @tool
-def get_news():
-    """
-    Find recent market-wide news about publicly traded companies. 
-    Used for discovering potentially important company events.
-    """
-
-    api_key = os.getenv("MARKETAUX_API_KEY")
-
-    if not api_key:
-        return {"error": "MARKETAUX_API_KEY is not found"}
-
-    since = (
-        datetime.now(timezone.utc) 
-        - timedelta(hours=6)
-    ).strftime("%Y-%m-%dT%H:%M:%S")
-
-    response = requests.get(
-        "https://api.marketaux.com/v1/news/all",
-        params={
-            "api_token" : api_key,
-            "entity_types": "equity",
-            # "countries": "",
-            "language": "en",
-            "must_have_entities": "true",
-            "published_after": since,
-            
-        }
-    )
-
-    response.raise_for_status()
-    data = response.json()
-    
-    return data.get("data",[])
-
-URL = "https://feeds.finance.yahoo.com/rss/2.0/headline?s={ticker}&region=US&lang=en-US"
-
-@tool
 def get_news_from_tickerer(ticker: str, limit: int = 10, days: int = 7) -> str:
     """Get the latest news for a single stock.
 
@@ -81,4 +44,4 @@ def get_news_from_tickerer(ticker: str, limit: int = 10, days: int = 7) -> str:
             })
     return json.dumps({"ticker": ticker, "articles": articles})
 
-print(get_news_from_tickerer.invoke({"ticker": "AAPL"}))
+# print(get_news_from_tickerer.invoke({"ticker": "AAPL"}))
