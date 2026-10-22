@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from src.news_agent.graph import graph as news_agent
 from src.finance_agent.agent import agent as finance_agent
+from src.economic_agent.graph import graph as economic_agent
 
 load_dotenv()
 
@@ -26,9 +27,11 @@ model = ChatOpenAI(
 )
 
 supervisor = create_supervisor(
-    [news_agent, finance_agent],
+    [news_agent, finance_agent, economic_agent],
     model=model,
-    prompt="You are a supervisor of a hedge fund. Use your agents to research stocks and make investment decisions. You have access to a news agent and a finance agent. Use the news agent to find recent news about publicly traded companies and the finance agent to analyze financial data and perform calculations. Make sure to use the agents in a way that is efficient and effective. Your goal is to maximize returns for the hedge fund."
+    prompt="""
+
+"""
 ).compile()
 
 result = supervisor.invoke({"messages": [SystemMessage(content="Find recent news about Apple and analyze its financial data. Do not use news agent")]})
