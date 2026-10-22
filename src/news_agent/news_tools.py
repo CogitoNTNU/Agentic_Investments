@@ -6,42 +6,102 @@ import json
 import time
 import feedparser
 from typing import List
+from .sp500 import load_sp500
+import random
 URL = "https://feeds.finance.yahoo.com/rss/2.0/headline?s={ticker}&region=US&lang=en-US"
 
+
+
+sp500 = load_sp500()
+
+symbols = ",".join(sorted(sp500))
+
 @tool
-def get_news():
+def get_news() -> list[dict]:
     """
-    Find recent market-wide news about publicly traded companies. 
-    Used for discovering potentially important company events.
+    Fetch recent financial news for S&P 500 companies
+    using the Marketaux API.
+
+    Returns a list of news articles containing company
+    information, stock tickers, and sentiment scores.
     """
 
     api_key = os.getenv("MARKETAUX_API_KEY")
 
     if not api_key:
-        return {"error": "MARKETAUX_API_KEY is not found"}
+        raise RuntimeError("MARKETAUX_API_KEY missing")
 
     since = (
-        datetime.now(timezone.utc) 
-        - timedelta(hours=6)
+        datetime.now(timezone.utc)
+        - timedelta(hours=26)
     ).strftime("%Y-%m-%dT%H:%M:%S")
 
-    response = requests.get(
-        "https://api.marketaux.com/v1/news/all",
-        params={
-            "api_token" : api_key,
-            "entity_types": "equity",
-            # "countries": "",
-            "language": "en",
-            "must_have_entities": "true",
-            "published_after": since,
-            
-        }
+    # Load S&P 500 tickers
+    tickers = sorted(load_sp500())
+
+    TEST_MODE = True
+
+    GROUP_SIZE = 25
+    PAGES_PER_GROUP = 1 if TEST_MODE else 2
+    LIMIT = 3
+
+    all_articles = {}
+
+    # Split the index into groups
+    groups = [
+        tickers[i:i + GROUP_SIZE]
+        for i in range(0, len(tickers), GROUP_SIZE)
+    ]
+    
+    selected_groups = (
+    random.Random(43).sample(groups, 3)
+    if TEST_MODE
+    else groups
     )
 
-    response.raise_for_status()
-    data = response.json()
-    
-    return data.get("data",[])
+    for group_number, group in enumerate(selected_groups, start=1):
+
+        symbols = ",".join(group)
+
+        for page in range(1, PAGES_PER_GROUP + 1):
+
+            response = requests.get(
+                "https://api.marketaux.com/v1/news/all",
+                params={
+                    "api_token": api_key,
+                    "symbols": symbols,
+                    "entity_types": "equity",
+                    "language": "en",
+                    "filter_entities": "true",
+                    "group_similar": "false",
+                    "published_after": since,
+                    "limit": LIMIT,
+                    "page": page,
+                },
+                timeout=20,
+            )
+
+            response.raise_for_status()
+
+            articles = response.json().get("data", [])
+
+            for article in articles:
+                uuid = article.get("uuid")
+
+                if uuid:
+                    all_articles[uuid] = article
+
+            print(
+                f"Group {group_number}/{len(groups)}, "
+                f"page {page}: {len(articles)} articles"
+            )
+
+            if len(articles) < LIMIT:
+                break
+
+    print(f"Unique articles: {len(all_articles)}")
+
+    return list(all_articles.values())
 
 URL = "https://feeds.finance.yahoo.com/rss/2.0/headline?s={ticker}&region=US&lang=en-US"
 
@@ -81,4 +141,4 @@ def get_news_from_tickerer(ticker: str, limit: int = 10, days: int = 7) -> str:
             })
     return json.dumps({"ticker": ticker, "articles": articles})
 
-print(get_news_from_tickerer.invoke({"ticker": "AAPL"}))
+# print(get_news_from_tickerer.invoke({"ticker": "AAPL"}))
