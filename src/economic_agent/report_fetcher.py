@@ -70,17 +70,23 @@ def extract_report_text(html: str) -> str:
     return text
 
 
-def fetch_latest_quarterly_report(ticker: str) -> dict:
-    """Fetch the newest 10-Q or newer 10-K (year-end), with source metadata."""
-    ticker = normalize_ticker(ticker)
+def sec_session() -> requests.Session:
+    """Create an identified SEC client."""
     load_dotenv()
     user_agent = os.getenv("SEC_USER_AGENT", "").strip()
     if not user_agent:
         raise ValueError(
             "Set SEC_USER_AGENT to your application name and contact email."
         )
-    with requests.Session() as session:
-        session.headers.update({"User-Agent": user_agent})
+    session = requests.Session()
+    session.headers.update({"User-Agent": user_agent})
+    return session
+
+
+def get_latest_report(ticker: str) -> dict:
+    """Check the latest filing without downloading its document."""
+    ticker = normalize_ticker(ticker)
+    with sec_session() as session:
         cik = get_sp500_company(ticker, session)["cik"]
         response = session.get(
             f"https://data.sec.gov/submissions/CIK{cik:010d}.json", timeout=30
@@ -90,14 +96,24 @@ def fetch_latest_quarterly_report(ticker: str) -> dict:
         report = select_latest_report(submissions["filings"]["recent"])
         accession = report["accessionNumber"].replace("-", "")
         url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{accession}/{report['primaryDocument']}"
-        response = session.get(url, timeout=60)
-        response.raise_for_status()
         return {
             "ticker": ticker,
+            "report_id": report["accessionNumber"],
             "company_name": submissions["name"],
             "report_url": url,
             "report_form": report["form"],
             "report_date": report["reportDate"],
             "filing_date": report["filingDate"],
-            "report_text": extract_report_text(response.text),
         }
+
+
+def download_report(report: dict) -> dict:
+    with sec_session() as session:
+        response = session.get(report["report_url"], timeout=60)
+        response.raise_for_status()
+        return {**report, "report_text": extract_report_text(response.text)}
+
+
+def fetch_latest_quarterly_report(ticker: str) -> dict:
+    """Fetch the newest 10-Q or newer 10-K (year-end), with source metadata."""
+    return download_report(get_latest_report(ticker))

@@ -80,7 +80,8 @@ For example: OS version, programs, libraries, etc.
 
 ### Economic agent
 
-The economic agent is a LangChain tool with one argument, `ticker`. Register it
+The economic agent is a LangChain tool with required argument `ticker` and
+optional `force_refresh` (default `False`). Register it
 in the supervisor's tool list, or call it directly:
 
 ```python
@@ -123,7 +124,30 @@ The returned dictionary includes `ticker`, `company_name`, `report_url`,
 financial points, positives, risks, score, reasoning). Internal messages and
 report text are excluded. Invalid tickers, unavailable sources, missing
 configuration and model failures raise errors for the supervisor to handle.
-No report files are written.
+Completed analyses are saved to `data/economic_analysis/<TICKER>.json`, relative
+to the project root (not the terminal's working directory). Each call still
+checks S&P 500 membership and the latest SEC filing. If the filing metadata and
+`analysis_version` match the saved result, it returns that result without
+downloading the report or calling the model. New filings, missing/damaged cache
+files or a changed analysis version trigger a new analysis.
+
+Results also include `report_id` (SEC accession number), `analyzed_at` (UTC), and
+`analysis_version`. Only a complete, successful analysis replaces the old file.
+Cache files are ignored by Git. Full report text is not saved. Network failures
+during the freshness check raise an error rather than returning an unverified
+old result. Amendment handling remains unchanged: only original 10-Q/10-K filings
+are selected. Simultaneous calls may duplicate analysis work; writes use separate
+temporary files and atomic replacement to avoid partially written JSON.
+
+To force a new analysis:
+
+```python
+result = economic_agent.invoke({"ticker": "AAPL", "force_refresh": True})
+```
+
+Or run `uv run python -m src.economic_agent.main AAPL --force-refresh`.
+Increment `ANALYSIS_VERSION` in `src/economic_agent/cache.py` when changing
+analysis prompts or logic so old analyses are regenerated.
 
 Run the offline tests with `uv run pytest tests/test_economic_agent.py -q`.
 

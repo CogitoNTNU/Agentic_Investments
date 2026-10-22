@@ -8,6 +8,7 @@ class AgentState(TypedDict):
     ticker: str
     messages: Annotated[list[AnyMessage], add_messages]
     report_text: NotRequired[str]
+    report_id: NotRequired[str]
     report_form: NotRequired[str]
     report_date: NotRequired[str]
     filing_date: NotRequired[str]
