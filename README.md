@@ -78,6 +78,55 @@ For example: OS version, programs, libraries, etc.
 
 ## Usage
 
+### Economic agent
+
+The economic agent is a LangChain tool with one argument, `ticker`. Register it
+in the supervisor's tool list, or call it directly:
+
+```python
+from src.economic_agent.main import economic_agent
+
+tools = [economic_agent]  # Pass to the LangChain/LangGraph supervisor.
+result = economic_agent.invoke({"ticker": "AAPL"})
+```
+
+For a manual run: `uv run python -m src.economic_agent.main AAPL`.
+Run `uv sync` to install dependencies. Configure these environment variables
+(or put them in `.env`):
+
+```dotenv
+MODEL=your-model
+IDUN_API_KEY=your-api-key
+IDUN_BASE_URL=your-model-endpoint
+SEC_USER_AGENT=YourApp your-real-contact-email@example.com
+```
+
+Use your own contact email in `SEC_USER_AGENT`; it identifies requests to SEC.
+No Tavily API key or PDF tooling is needed by the economic agent.
+
+The tool normalizes tickers (`aapl` → `AAPL`, `BRK-B` → `BRK.B`), checks the
+[current S&P 500 constituent table](https://en.wikipedia.org/wiki/List_of_S%26P_500_companies),
+and uses its CIK to retrieve filings from the
+[SEC submissions API](https://www.sec.gov/search-filings/edgar-application-programming-interfaces).
+S&P 500 membership defines the supported US equity universe; this is not an
+additional headquarters/incorporation-country filter. The constituent source is
+Wikipedia, not a licensed S&P feed, and must be available for each call.
+
+It selects the latest original `10-Q` or `10-K` by reporting period, then filing
+date, from SEC's recent filing history. A newer `10-K` covers year-end and is
+explicitly labeled annual; amendments (`10-Q/A`, `10-K/A`) are excluded because
+they may not contain the full report. The full HTML report is supplied to the
+model without truncation, so the configured model needs sufficient context.
+
+The returned dictionary includes `ticker`, `company_name`, `report_url`,
+`report_form`, `report_date`, `filing_date`, and the analysis fields (summary,
+financial points, positives, risks, score, reasoning). Internal messages and
+report text are excluded. Invalid tickers, unavailable sources, missing
+configuration and model failures raise errors for the supervisor to handle.
+No report files are written.
+
+Run the offline tests with `uv run pytest tests/test_economic_agent.py -q`.
+
 To run the project, run the following command from the root directory of the project:
 
 ```bash

@@ -1,8 +1,15 @@
-from langgraph.graph import StateGraph, START, END 
-from src.economic_agent.state import AgentState
-from src.economic_agent.nodes import fetch_report_node, prepare_analysis_node, financial_agent_node, route_after_agent, final_analysis_node
+from langgraph.graph import END, START, StateGraph
 from langgraph.prebuilt import ToolNode
-from src.economic_agent.tools import FINANCIAL_TOOLS 
+
+from src.economic_agent.nodes import (
+    fetch_report_node,
+    final_analysis_node,
+    financial_agent_node,
+    prepare_analysis_node,
+    route_after_agent,
+)
+from src.economic_agent.state import AgentState
+from src.economic_agent.tools import FINANCIAL_TOOLS
 
 builder = StateGraph(AgentState)
 
@@ -22,9 +29,13 @@ builder.add_edge("fetch_report", "prepare_analysis")
 
 builder.add_edge("prepare_analysis", "financial_agent")
 
-builder.add_conditional_edges("financial_agent", route_after_agent, {"tools": "tools", "final_analysis": "final_analysis"})
+builder.add_conditional_edges(
+    "financial_agent",
+    route_after_agent,
+    {"tools": "tools", "final_analysis": "final_analysis"},
+)
 
-builder.add_edge("tools", "final_analysis")
+builder.add_edge("tools", "financial_agent")
 
 builder.add_edge("final_analysis", END)
 
