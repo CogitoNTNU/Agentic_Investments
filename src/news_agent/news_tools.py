@@ -54,7 +54,7 @@ def get_news() -> list[dict]:
     ]
     
     selected_groups = (
-    random.Random(43).sample(groups, 3)
+    random.Random(44).sample(groups, 3)
     if TEST_MODE
     else groups
     )

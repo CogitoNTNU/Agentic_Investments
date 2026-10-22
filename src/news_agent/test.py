@@ -60,9 +60,7 @@ print(f"Saved {len(result['candidates'])} candidates")
 print(f"File: {latest_path}")
 
 
-# ----------------------------------
-# NEW: Save grouped candidates
-# ----------------------------------
+
 
 grouped_output = {
     "generated_at": now.isoformat(),
@@ -70,15 +68,34 @@ grouped_output = {
     "candidates": result["grouped_candidates"],
 }
 
+grouped_json_data = json.dumps(
+    grouped_output,
+    indent=2,
+    ensure_ascii=False
+)
+
 grouped_path = output_dir / "grouped_candidates.json"
 
 grouped_path.write_text(
-    json.dumps(
-        grouped_output,
-        indent=2,
-        ensure_ascii=False
-    ),
+    grouped_json_data,
+    encoding="utf-8"
+)
+
+grouped_history_dir = history_dir / "grouped"
+
+grouped_history_dir.mkdir(
+    parents=True,
+    exist_ok=True
+)
+
+grouped_history_path = (
+    grouped_history_dir / history_path.name
+)
+
+grouped_history_path.write_text(
+    grouped_json_data,
     encoding="utf-8"
 )
 
 print(f"Grouped file: {grouped_path}")
+print(f"Grouped history: {grouped_history_path}")

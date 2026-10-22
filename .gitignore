@@ -253,3 +253,8 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# News gathering agent history
+/data/news_discovery/history/
+/data/news_discovery/latest_candidates.json
+/data/news_discovery/grouped_candidates.json
