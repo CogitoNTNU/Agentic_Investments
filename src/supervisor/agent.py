@@ -30,9 +30,10 @@ supervisor = create_supervisor(
     [news_agent, finance_agent, economic_agent],
     model=model,
     prompt="""
-
+    
 """
 ).compile()
 
-result = supervisor.invoke({"messages": [SystemMessage(content="Find recent news about Apple and analyze its financial data. Do not use news agent")]})
-print(result)
+if __name__ == "__main__":
+    result = supervisor.invoke({"messages": [SystemMessage(content="Find recent news about Apple and analyze its financial data. Do not use news agent")]})
+    print(result)
