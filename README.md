@@ -87,6 +87,73 @@ It fetches the last day of news from Marketaux, filters for S&P 500 tickers, cla
 
 `src/news_agent/` provides a tool that fetches recent headlines for a single ticker from the Yahoo Finance RSS feed.
 
+### Decision agent
+
+`src/decision_agent/` receives the full state after the bull/bear debate.
+The debate graph automatically loads the ticker's holding into
+`state["number_of_stocks"]` before the debate, runs the decision agent after
+`assemble_debate`, and returns `state["decision"]` in this fixed format:
+
+```json
+{"ticker": "AAPL", "action": "buy", "number_of_stocks": 3}
+```
+
+`action` is `buy`, `sell`, or `hold`. The quantity is the positive integer number
+to buy or sell, not the target holding; `hold` requires 0. A decision to avoid
+investing is `hold`; an existing position can also be reduced with `sell`.
+After the decision, `state["number_of_stocks"]` contains the updated holding.
+
+The agent can also receive arbitrary research directly, without a research schema.
+Pass the ticker separately so its current holding can be read before the model runs:
+
+```python
+from src.decision_agent import run_decision
+
+decision = run_decision("Any research text or debate output", ticker="AAPL")
+```
+
+Buy/sell decisions submit market DAY orders through the existing Alpaca paper
+trading client. Set `ALPACA_API_KEY` and `ALPACA_SECRET_KEY` in `.env`.
+`hold` does not submit an order. The agent checks that the ticker's Alpaca holding
+matches the local holding before submitting a trade; resolve any mismatch first.
+Confirmed fills update `portfolio.json` in the project root, independent of
+the working directory. The file contains only positions:
+
+```json
+[{"ticker": "AAPL", "number_of_stocks": 3}]
+```
+
+Executed buys add to the holding, executed sells subtract, and zero removes the
+entry. Partial fills record only the executed quantity. Invalid model output,
+overselling, changed holdings, or malformed JSON prevents order submission.
+Rejected orders without fills leave the portfolio unchanged.
+
+The agent polls order status for up to 30 seconds. If the order remains pending
+(for example outside market hours), it raises `TimeoutError` and saves its client
+order ID in `portfolio.pending.json`. This file also protects against repeat
+submission following ambiguous network failures or a failed portfolio write.
+Subsequent calls reconcile it before allowing another decision. To update an
+existing order without requesting a new decision, call:
+
+```python
+from src.decision_agent import sync_pending_order
+
+sync_pending_order()
+```
+
+This queries Alpaca and updates confirmed fills; it never submits another order.
+While still pending it raises `RuntimeError`; call it again later. No background
+worker is installed, so pending orders need a later call to synchronize. If a
+submission failed before reaching Alpaca and lookup reports no matching order,
+verify the client order ID in Alpaca before manually removing the pending file.
+Keep the pending file if the submission outcome is uncertain.
+
+Portfolio writes are atomic, and updates are serialized within one Python
+process. Use one process and let this agent manage its tracked positions.
+Each new `run_decision` invocation requests a new decision and can execute another
+trade. The structured decision contains the requested trade size; JSON holdings
+always reflect confirmed fills, including partial fills on canceled orders.
+
 ### Alpaca tools
 
 `src/alpaca_tools/` wraps the Alpaca Trading API as LangChain tools. The client is always configured for paper trading. Tools are grouped by risk level:
