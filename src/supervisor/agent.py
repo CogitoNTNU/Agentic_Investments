@@ -14,6 +14,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.news_agent.graph import graph as news_agent
 from src.finance_agent.agent import agent as finance_agent
 from src.economic_agent.graph import graph as economic_agent
+from src.debate_agent.graph import graph as debate_agent
+from src.supervisor.prompt import SUPERVISOR_PROMPT
 
 load_dotenv()
 
@@ -27,13 +29,11 @@ model = ChatOpenAI(
 )
 
 supervisor = create_supervisor(
-    [news_agent, finance_agent, economic_agent],
+    [news_agent, finance_agent, economic_agent, debate_agent],
     model=model,
-    prompt="""
-    
-"""
+    prompt=SUPERVISOR_PROMPT,
 ).compile()
 
 if __name__ == "__main__":
-    result = supervisor.invoke({"messages": [SystemMessage(content="Find recent news about Apple and analyze its financial data. Do not use news agent")]})
+    result = supervisor.invoke({"messages": [SystemMessage(content="Research APPLE")]})
     print(result)
