@@ -9,9 +9,9 @@ Run from the `src` folder so the package imports work:
 from typing import List, Literal, Optional
 
 from langchain.agents import create_agent
-from langchain_core.messages import HumanMessage
+#from langchain_core.messages import HumanMessage
 from langchain_core.tools import tool
-from langgraph.graph import END, START, StateGraph
+# from langgraph.graph import StateGraph, START, END
 from pydantic import BaseModel, Field
 from typing_extensions import TypedDict
 
@@ -142,29 +142,3 @@ def news_node(state: NewsState) -> dict:
 
 def payload_node(state: NewsState) -> dict:
     return {"payload": report_to_llm_payload(state["report"])}
-
-
-builder = StateGraph(NewsState)
-builder.add_node("run_news_agent", news_node)
-builder.add_node("make_payload", payload_node)
-builder.add_edge(START, "run_news_agent")
-builder.add_edge("run_news_agent", "make_payload")
-builder.add_edge("make_payload", END)
-news_graph = builder.compile(name="news_graph")
-
-
-# ---------- Manual test ----------
-if __name__ == "__main__":
-    # 1. Debug: see every step of the LLM agent (comment out to save one API call)
-    result = agent.invoke({
-        "messages": [HumanMessage(content="Ticker: AAPL\nPeriod: last 7 days")]
-    })
-    for m in result["messages"]:
-        m.pretty_print()
-    print("\nStructured response:")
-    print(result["structured_response"].model_dump_json(indent=2))
-
-    # 2. Full path, as the larger system would use it
-    out = news_graph.invoke({"ticker": "AAPL", "days": 7})
-    print("\nPayload for the next agent:")
-    print(out["payload"])
