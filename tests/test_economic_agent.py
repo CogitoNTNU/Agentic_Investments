@@ -114,25 +114,115 @@ def test_http_failure_is_not_an_analysis(monkeypatch):
         fetcher.fetch_latest_quarterly_report("AAPL")
 
 
-def test_supervisor_tool_contract(monkeypatch):
+@pytest.fixture
+def cached_agent(monkeypatch, tmp_path):
+    import importlib
+
+    from src.economic_agent import cache
+
+    entry = importlib.import_module("src.economic_agent.main")
+    monkeypatch.setattr(cache, "CACHE_DIR", tmp_path)
+    report = {
+        "ticker": "AAPL",
+        "company_name": "Apple Inc.",
+        "report_id": "0000320193-26-000001",
+        "report_url": "https://www.sec.gov/report.htm",
+        "report_form": "10-Q",
+        "report_date": "2026-03-28",
+        "filing_date": "2026-05-01",
+    }
+    lookup = MagicMock(return_value=report)
+    monkeypatch.setattr(entry, "get_latest_report", lookup)
     graph = MagicMock()
     graph.invoke.return_value = {
-        "ticker": "AAPL",
+        **report,
         "summary": "Analysis",
-        "report_url": "https://www.sec.gov/report",
+        "key_financial_points": [],
+        "positive_factors": [],
+        "risk_factors": [],
+        "outlook_score": 6,
+        "outlook_reasoning": "Growth",
         "messages": ["internal"],
         "report_text": "large report",
     }
     monkeypatch.setitem(
         sys.modules, "src.economic_agent.graph", SimpleNamespace(graph=graph)
     )
+    return graph, lookup, tmp_path / "AAPL.json"
+
+
+def test_supervisor_tool_contract(cached_agent):
+    import json
+
+    graph, lookup, path = cached_agent
     result = economic_agent.invoke({"ticker": " aapl "})
+    lookup.assert_called_once_with("AAPL")
     graph.invoke.assert_called_once_with(
-        {"ticker": "AAPL", "messages": []}, config={"recursion_limit": 30}
+        {**lookup.return_value, "messages": []}, config={"recursion_limit": 30}
     )
     assert result["summary"] == "Analysis"
     assert "messages" not in result and "report_text" not in result
+    assert json.loads(path.read_text(encoding="utf-8")) == result
     assert economic_agent.args_schema.model_json_schema()["required"] == ["ticker"]
+
+
+def test_same_report_reuses_saved_analysis(cached_agent):
+    graph, lookup, _path = cached_agent
+    first = economic_agent.invoke({"ticker": "AAPL"})
+    graph.invoke.side_effect = AssertionError("Model must not run on cache hit")
+    second = economic_agent.invoke({"ticker": "AAPL"})
+    assert first == second
+    assert graph.invoke.call_count == 1
+    assert lookup.call_count == 2  # SEC freshness is checked on every call.
+
+
+@pytest.mark.parametrize(
+    "reason", ["new_report", "force_refresh", "version", "corrupt", "incomplete"]
+)
+def test_cache_is_refreshed_when_needed(cached_agent, monkeypatch, reason):
+    from src.economic_agent import cache
+
+    graph, lookup, path = cached_agent
+    economic_agent.invoke({"ticker": "AAPL"})
+    arguments = {"ticker": "AAPL"}
+    if reason == "new_report":
+        # Even the same reporting date must refresh if the accession changes.
+        lookup.return_value["report_id"] = "0000320193-26-000002"
+        graph.invoke.return_value["report_id"] = lookup.return_value["report_id"]
+    elif reason == "force_refresh":
+        arguments["force_refresh"] = True
+    elif reason == "version":
+        monkeypatch.setattr(cache, "ANALYSIS_VERSION", 2)
+    elif reason == "corrupt":
+        path.write_text("{broken", encoding="utf-8")
+    else:
+        import json
+
+        saved = json.loads(path.read_text(encoding="utf-8"))
+        del saved["summary"]
+        path.write_text(json.dumps(saved), encoding="utf-8")
+    economic_agent.invoke(arguments)
+    assert graph.invoke.call_count == 2
+
+
+def test_analysis_failure_preserves_previous_file(cached_agent):
+    graph, _lookup, path = cached_agent
+    economic_agent.invoke({"ticker": "AAPL"})
+    previous = path.read_bytes()
+    graph.invoke.side_effect = RuntimeError("Model unavailable")
+    with pytest.raises(RuntimeError, match="Model unavailable"):
+        economic_agent.invoke({"ticker": "AAPL", "force_refresh": True})
+    assert path.read_bytes() == previous
+    assert list(path.parent.glob("*.tmp")) == []
+
+
+def test_failed_freshness_check_does_not_return_stale_cache(cached_agent):
+    graph, lookup, _path = cached_agent
+    economic_agent.invoke({"ticker": "AAPL"})
+    lookup.side_effect = requests.HTTPError("SEC unavailable")
+    with pytest.raises(requests.HTTPError):
+        economic_agent.invoke({"ticker": "AAPL"})
+    assert graph.invoke.call_count == 1
 
 
 def test_graph_runs_calculation_before_final_analysis(monkeypatch):

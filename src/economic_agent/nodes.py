@@ -2,12 +2,28 @@ from langchain_core.messages import HumanMessage, SystemMessage
 
 from src.economic_agent.llm import llm_with_tools, structured_llm
 from src.economic_agent.prompts import ANALYST_PROMPT, FINAL_ANALYSIS_PROMPT
-from src.economic_agent.report_fetcher import fetch_latest_quarterly_report
+from src.economic_agent.report_fetcher import (
+    download_report,
+    fetch_latest_quarterly_report,
+)
 from src.economic_agent.state import AgentState
 
 
 def fetch_report_node(state: AgentState):
-
+    if state.get("report_id"):
+        report = {
+            key: state[key]
+            for key in (
+                "ticker",
+                "company_name",
+                "report_id",
+                "report_url",
+                "report_form",
+                "report_date",
+                "filing_date",
+            )
+        }
+        return download_report(report)
     return fetch_latest_quarterly_report(state["ticker"])
 
 
