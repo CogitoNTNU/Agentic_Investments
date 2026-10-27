@@ -170,6 +170,7 @@ cython_debug/
 /out-tsc
 
 # Runtime data
+portfolio.pending.json
 pids
 *.pid
 *.seed
