@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-10-22T16:02:19.554828+00:00",
+  "total_candidates": 3,
+  "candidates": [
+    {
+      "source_uuid": "39e78231-dc36-4c2a-8225-794e28093cb1",
+      "ticker": "SMCI",
+      "event_type": "guidance",
+      "summary": "The article reports Super Micro Computer is guiding $18.5–19.5 billion, a development it credits (alongside SpaceX's revenue jump) with lifting AI stocks. The metric and period covered are not specified in the available text, and it is unclear whether this is newly issued or previously announced guidance.",
+      "sentiment": 1.0,
+      "materiality": 6.0,
+      "novelty": 5.0,
+      "confidence": 0.75,
+      "investigate": true,
+      "headline": "Nasdaq 100: SpaceX 161% Revenue Jump vs 28 Oct Fed Rate Risk",
+      "source_url": "https://financefeeds.com/nasdaq-100-swings-as-strong-tech-earnings-meet-rising-rate-fears/",
+      "published_at": "2026-10-22T14:01:04.000000Z",
+      "qualifies_for_investigation": true,
+      "priority_score": 6.38,
+      "events": [
+        {
+          "source_uuid": "39e78231-dc36-4c2a-8225-794e28093cb1",
+          "ticker": "SMCI",
+          "event_type": "guidance",
+          "summary": "The article reports Super Micro Computer is guiding $18.5–19.5 billion, a development it credits (alongside SpaceX's revenue jump) with lifting AI stocks. The metric and period covered are not specified in the available text, and it is unclear whether this is newly issued or previously announced guidance.",
+          "sentiment": 1.0,
+          "materiality": 6.0,
+          "novelty": 5.0,
+          "confidence": 0.75,
+          "investigate": true,
+          "headline": "Nasdaq 100: SpaceX 161% Revenue Jump vs 28 Oct Fed Rate Risk",
+          "source_url": "https://financefeeds.com/nasdaq-100-swings-as-strong-tech-earnings-meet-rising-rate-fears/",
+          "published_at": "2026-10-22T14:01:04.000000Z",
+          "qualifies_for_investigation": true
+        },
+        {
+          "source_uuid": "f338735c-edc5-44ce-baac-e5b9c1435511",
+          "ticker": "SMCI",
+          "event_type": "product_launch",
+          "summary": "Super Micro Computer announced the NVIDIA Vera CPU rack, a 256-CPU, 100% liquid-cooled rack-scale solution complementing the NVIDIA Vera Rubin platform for agentic AI workloads; the release also notes that the complementary NVIDIA Vera Rubin NVL72 rack is now shipping. No financial terms, orders, or customer commitments were disclosed.",
+          "sentiment": 1.0,
+          "materiality": 4.0,
+          "novelty": 4.0,
+          "confidence": 1.0,
+          "investigate": true,
+          "headline": "Supermicro Introduces the NVIDIA Vera CPU Rack, a 256 CPU, 100% Liquid-Cooled Rack-Scale Solution, Complementing the NVIDIA Vera Rubin Platform, for Agentic AI at Scale",
+          "source_url": "https://www.manilatimes.net/2026/10/22/tmt-newswire/pr-newswire/supermicro-introduces-the-nvidia-vera-cpu-rack-a-256-cpu-100-liquid-cooled-rack-scale-solution-complementing-the-nvidia-vera-rubin-platform-for-agentic-ai-at-scale/2451511",
+          "published_at": "2026-10-22T08:15:26.000000Z",
+          "qualifies_for_investigation": true
+        }
+      ],
+      "event_count": 2
+    },
+    {
+      "source_uuid": "5f561c3d-730d-4c06-9a15-b2e3f6075458",
+      "ticker": "TSLA",
+      "event_type": "earnings",
+      "summary": "Tesla's Q3 2026 results beat EPS expectations, with margins improving on Full Self-Driving (FSD) and energy storage, according to the article. Detailed financial figures are not provided in the available text.",
+      "sentiment": 1.0,
+      "materiality": 5.0,
+      "novelty": 6.0,
+      "confidence": 0.75,
+      "investigate": true,
+      "headline": "Tesla: Profits No Longer Matter (NASDAQ:TSLA)",
+      "source_url": "https://seekingalpha.com/article/4956374-tesla-profits-no-longer-matter",
+      "published_at": "2026-10-22T13:50:02.000000Z",
+      "qualifies_for_investigation": true,
+      "priority_score": 5.62,
+      "events": [
+        {
+          "source_uuid": "5f561c3d-730d-4c06-9a15-b2e3f6075458",
+          "ticker": "TSLA",
+          "event_type": "earnings",
+          "summary": "Tesla's Q3 2026 results beat EPS expectations, with margins improving on Full Self-Driving (FSD) and energy storage, according to the article. Detailed financial figures are not provided in the available text.",
+          "sentiment": 1.0,
+          "materiality": 5.0,
+          "novelty": 6.0,
+          "confidence": 0.75,
+          "investigate": true,
+          "headline": "Tesla: Profits No Longer Matter (NASDAQ:TSLA)",
+          "source_url": "https://seekingalpha.com/article/4956374-tesla-profits-no-longer-matter",
+          "published_at": "2026-10-22T13:50:02.000000Z",
+          "qualifies_for_investigation": true
+        }
+      ],
+      "event_count": 1
+    },
+    {
+      "source_uuid": "8a4d24eb-4054-457e-9c8a-9a7d23b1be0c",
+      "ticker": "NFLX",
+      "event_type": "earnings",
+      "summary": "Netflix reported Q3 2026 results that were followed by a post-earnings share price drop. The article states Netflix faces slowing growth, rising content costs, and tougher YouTube competition, and advises against buying the post-earnings dip. Detailed financial figures are not provided in the available text.",
+      "sentiment": -1.0,
+      "materiality": 5.0,
+      "novelty": 5.0,
+      "confidence": 0.7,
+      "investigate": true,
+      "headline": "Netflix: Don’t Start Buying After The Q3 Post-Earnings Price Drop (NASDAQ:NFLX)",
+      "source_url": "https://seekingalpha.com/article/4956392-netflix-dont-start-buying-after-q3-post-earnings-price-drop",
+      "published_at": "2026-10-22T14:40:44.000000Z",
+      "qualifies_for_investigation": true,
+      "priority_score": 5.5,
+      "events": [
+        {
+          "source_uuid": "8a4d24eb-4054-457e-9c8a-9a7d23b1be0c",
+          "ticker": "NFLX",
+          "event_type": "earnings",
+          "summary": "Netflix reported Q3 2026 results that were followed by a post-earnings share price drop. The article states Netflix faces slowing growth, rising content costs, and tougher YouTube competition, and advises against buying the post-earnings dip. Detailed financial figures are not provided in the available text.",
+          "sentiment": -1.0,
+          "materiality": 5.0,
+          "novelty": 5.0,
+          "confidence": 0.7,
+          "investigate": true,
+          "headline": "Netflix: Don’t Start Buying After The Q3 Post-Earnings Price Drop (NASDAQ:NFLX)",
+          "source_url": "https://seekingalpha.com/article/4956392-netflix-dont-start-buying-after-q3-post-earnings-price-drop",
+          "published_at": "2026-10-22T14:40:44.000000Z",
+          "qualifies_for_investigation": true
+        }
+      ],
+      "event_count": 1
+    }
+  ]
+}

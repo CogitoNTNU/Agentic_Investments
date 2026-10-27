@@ -44,4 +44,4 @@ def get_news_from_tickerer(ticker: str, limit: int = 10, days: int = 7) -> str:
             })
     return json.dumps({"ticker": ticker, "articles": articles})
 
-# print(get_news_from_tickerer.invoke({"ticker": "AAPL"}))
+#print(get_news_from_tickerer.invoke({"ticker": "AAPL"}))
