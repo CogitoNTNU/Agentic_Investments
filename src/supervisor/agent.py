@@ -11,7 +11,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from src.news_agent.graph import graph as news_agent
+from src.news_agent.news_agent import news_graph as news_agent
 from src.finance_agent.agent import agent as finance_agent
 from src.economic_agent.graph import graph as economic_agent
 from src.debate_agent.graph import graph as debate_agent
