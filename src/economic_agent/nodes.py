@@ -1,28 +1,42 @@
-from langchain_core.messages import SystemMessage, HumanMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 
-from src.economic_agent.state import AgentState
 from src.economic_agent.llm import llm_with_tools, structured_llm
 from src.economic_agent.prompts import ANALYST_PROMPT, FINAL_ANALYSIS_PROMPT
-from src.economic_agent.report_fetcher import fetch_latest_quarterly_report
+from src.economic_agent.report_fetcher import (
+    download_report,
+    fetch_latest_quarterly_report,
+)
+from src.economic_agent.state import AgentState
 
 
 def fetch_report_node(state: AgentState):
-
-    company_query = state["company_query"]
-
-    report = fetch_latest_quarterly_report(company_query)
-
-    print(f"Report found for: {report['company_name']}")
-    print(f"Report URL: {report['report_url']}")
-
-    return report
+    if state.get("report_id"):
+        report = {
+            key: state[key]
+            for key in (
+                "ticker",
+                "company_name",
+                "report_id",
+                "report_url",
+                "report_form",
+                "report_date",
+                "filing_date",
+            )
+        }
+        return download_report(report)
+    return fetch_latest_quarterly_report(state["ticker"])
 
 
 def prepare_analysis_node(state: AgentState):
 
     message = HumanMessage(
         content=f"""
-Analyse the following quarterly report.
+Analyse the following SEC financial report.
+
+Ticker: {state["ticker"]}
+Form: {state["report_form"]}
+Period ended: {state["report_date"]}
+Filed: {state["filing_date"]}
 
 Company:
 {state["company_name"]}
@@ -36,26 +50,16 @@ QUARTERLY REPORT:
 """
     )
 
-    return {
-        "messages": [message]
-    }
+    return {"messages": [message]}
 
 
 def financial_agent_node(state: AgentState):
 
-    messages = [
-        SystemMessage(
-            content=ANALYST_PROMPT
-        )
-    ] + state["messages"]
+    messages = [SystemMessage(content=ANALYST_PROMPT)] + state["messages"]
 
-    response = llm_with_tools.invoke(
-        messages
-    )
+    response = llm_with_tools.invoke(messages)
 
-    return {
-        "messages": [response]
-    }
+    return {"messages": [response]}
 
 
 def route_after_agent(state: AgentState):
@@ -70,22 +74,15 @@ def route_after_agent(state: AgentState):
 
 def final_analysis_node(state: AgentState):
 
-    messages = [
-        SystemMessage(
-            content=FINAL_ANALYSIS_PROMPT
-        )
-    ] + state["messages"]
+    messages = [SystemMessage(content=FINAL_ANALYSIS_PROMPT)] + state["messages"]
 
-    analysis = structured_llm.invoke(
-        messages
-    )
+    analysis = structured_llm.invoke(messages)
 
     return {
-        "company_name": analysis.company_name,
         "summary": analysis.summary,
         "key_financial_points": analysis.key_financial_points,
         "positive_factors": analysis.positive_factors,
         "risk_factors": analysis.risk_factors,
         "outlook_score": analysis.outlook_score,
-        "outlook_reasoning": analysis.outlook_reasoning
+        "outlook_reasoning": analysis.outlook_reasoning,
     }

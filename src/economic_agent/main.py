@@ -1,82 +1,53 @@
-from src.economic_agent.graph import graph
+"""Economic analysis tool for a supervisor agent."""
 
-def main(): 
-    company = input("Which company do you want to analyze?")
+import argparse
+import json
 
-    initial_state = {
-        "company_query": company, 
-        "messages": []
+from langchain_core.tools import tool
+
+from src.economic_agent.cache import load_analysis, save_analysis
+from src.economic_agent.report_fetcher import get_latest_report, normalize_ticker
+
+
+@tool
+def economic_agent(ticker: str, force_refresh: bool = False) -> dict:
+    """Analyze the latest SEC financial report for an S&P 500 ticker (e.g. AAPL).
+
+    Returns analysis, normalized ticker, report URL, form and dates.
+    Uses a newer annual 10-K when available instead of an older quarterly 10-Q.
+    Reuses a saved analysis of the latest filing unless force_refresh is true.
+    """
+    ticker = normalize_ticker(ticker)
+    report = get_latest_report(ticker)
+    if not force_refresh:
+        cached = load_analysis(report)
+        if cached is not None:
+            return cached
+    # Registering the tool should not initialize the LLM.
+    from src.economic_agent.graph import graph
+
+    result = graph.invoke({**report, "messages": []}, config={"recursion_limit": 30})
+    analysis = {
+        key: value
+        for key, value in result.items()
+        if key not in {"messages", "report_text"}
     }
+    return save_analysis(analysis)
 
-    result = graph.invoke(
-        initial_state,
-        config = {
-            "recursion_limit": 30
-        }
-    )
 
+def main():
+    parser = argparse.ArgumentParser(description="Analyze an S&P 500 ticker.")
+    parser.add_argument("ticker")
+    parser.add_argument("--force-refresh", action="store_true")
+    args = parser.parse_args()
     print(
-        "\n\n=== FINANCIAL ANALYSIS ===\n"
-    )
-
-    print(
-        f"Company: "
-        f"{result['company_name']}"
-    )
-
-    print(
-        f"\nReport: "
-        f"{result['report_url']}"
-    )
-
-    print(
-        f"\nSummary:\n"
-        f"{result['summary']}"
-    )
-
-    print(
-        "\nKey financial points:"
-    )
-
-    for point in result[
-        "key_financial_points"
-    ]:
-        print(
-            f"- {point}"
+        json.dumps(
+            economic_agent.invoke(
+                {"ticker": args.ticker, "force_refresh": args.force_refresh}
+            ),
+            indent=2,
         )
-
-    print(
-        "\nPositive factors:"
     )
-
-    for factor in result[
-        "positive_factors"
-    ]:
-        print(
-            f"- {factor}"
-        )
-
-    print(
-        "\nRisk factors:"
-    )
-
-    for risk in result[
-        "risk_factors"
-    ]:
-        print(
-            f"- {risk}"
-        )
-
-    print(
-        f"\nOutlook score: "
-        f"{result['outlook_score']}/10"
-    )
-
-    print(
-        f"\nReasoning:\n"
-        f"{result['outlook_reasoning']}"
-    )
-
 
 
 if __name__ == "__main__":

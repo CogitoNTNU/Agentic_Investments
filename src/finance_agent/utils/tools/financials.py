@@ -35,7 +35,7 @@ def get_financials(
     df = df.copy()
     df.columns = [str(c) for c in df.columns]
     #return statements.get(statement, "Invalid statement type. Choose from: income, quarterly_income, balance_sheet, quarterly_balance_sheet, cashflow, quarterly_cashflow.")
-    returm df.to_json(orient="split", date_format="iso")
+    return df.to_json(orient="split", date_format="iso")
 
 @tool
 def regression(type: str, data: str):
