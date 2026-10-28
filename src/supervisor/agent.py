@@ -13,10 +13,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from langchain.agents import create_agent
 
-from src.news_agent.news_agent import get_stock_news_report
-from src.finance_agent.agent import agent as finance_agent
-from src.economic_agent.main import economic_agent as economic_report_tool
 from src.debate_agent.tool import run_debate
+from src.supervisor.research import gather_research_data
 from src.supervisor.prompt import SUPERVISOR_PROMPT
 
 load_dotenv()
@@ -30,22 +28,8 @@ model = ChatOpenAI(
     base_url= BASE_URL
 )
 
-# The supervisor only passes messages, so agents with their own state
-# are wrapped as named tool-calling agents.
-news_agent = create_agent(
-    model,
-    tools=[get_stock_news_report],
-    name="news_agent",
-    system_prompt="Call get_stock_news_report for the requested ticker and return the full JSON report unchanged.",
-)
-
-economic_agent = create_agent(
-    model,
-    tools=[economic_report_tool],
-    name="economic_agent",
-    system_prompt="Call economic_agent for the requested ticker and return the full analysis unchanged.",
-)
-
+# The supervisor only passes messages, so the debate agent with its own state
+# is wrapped as a named tool-calling agent.
 debate_agent = create_agent(
     model,
     tools=[run_debate],
@@ -54,8 +38,10 @@ debate_agent = create_agent(
 )
 
 supervisor = create_supervisor(
-    [news_agent, finance_agent, economic_agent, debate_agent],
+    [debate_agent],
     model=model,
+    # The data agents are independent, so one tool runs them in parallel.
+    tools=[gather_research_data],
     prompt=SUPERVISOR_PROMPT,
 ).compile()
 

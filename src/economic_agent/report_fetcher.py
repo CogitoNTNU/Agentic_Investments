@@ -9,6 +9,20 @@ from dotenv import load_dotenv
 
 SP500_URL = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
 
+# Full filings are 100k-400k characters and are re-sent on every LLM call in the
+# tool loop, so only the sections the analysis needs are kept, each with a cap.
+# Body headings have the title on the same line; table-of-contents entries and
+# page headers ("Item 1A") do not, so they are not matched.
+ITEM_HEADING = re.compile(r"(?im)^item\s+\d+[a-z]?\.\s*[a-z].*$")
+REPORT_SECTIONS = (
+    # (title pattern, max characters); core statements come first in their item.
+    (re.compile(r"(?i)management.s discussion"), 30_000),
+    (re.compile(r"(?i)^item\s+\d+[a-z]?\.\s*financial statements"), 25_000),
+    (re.compile(r"(?i)risk factors"), 12_000),
+    (re.compile(r"(?i)disclosures about market risk"), 3_000),
+)
+MAX_REPORT_CHARS = sum(limit for _, limit in REPORT_SECTIONS)
+
 
 def normalize_ticker(ticker: str) -> str:
     ticker = ticker.strip().upper().replace("-", ".")
@@ -70,6 +84,25 @@ def extract_report_text(html: str) -> str:
     return text
 
 
+def condense_report_text(text: str) -> str:
+    """Keep MD&A, financial statements, risk factors and market risk, each capped."""
+    headings = list(ITEM_HEADING.finditer(text))
+    sections = []
+    for i, heading in enumerate(headings):
+        end = headings[i + 1].start() if i + 1 < len(headings) else len(text)
+        for pattern, limit in REPORT_SECTIONS:
+            if pattern.search(heading.group()):
+                section = text[heading.start():end]
+                if len(section) > limit:
+                    section = section[:limit] + "\n[... section truncated ...]"
+                sections.append(section)
+                break
+    if not sections:
+        # Unusual layout: fall back to the start of the filing.
+        return text[:MAX_REPORT_CHARS]
+    return "\n\n".join(sections)
+
+
 def sec_session() -> requests.Session:
     """Create an identified SEC client."""
     load_dotenv()
@@ -111,7 +144,8 @@ def download_report(report: dict) -> dict:
     with sec_session() as session:
         response = session.get(report["report_url"], timeout=60)
         response.raise_for_status()
-        return {**report, "report_text": extract_report_text(response.text)}
+        text = condense_report_text(extract_report_text(response.text))
+        return {**report, "report_text": text}
 
 
 def fetch_latest_quarterly_report(ticker: str) -> dict:

@@ -1,9 +1,9 @@
-from src.model import get_model
+from src.model import FLASH_MODEL_NAME, get_model
 from src.economic_agent.tools import FINANCIAL_TOOLS
 from src.economic_agent.schemas import EconomicAnalysis
 
 
-llm = get_model()
+llm = get_model(FLASH_MODEL_NAME)
 llm.temperature = 0
 
 

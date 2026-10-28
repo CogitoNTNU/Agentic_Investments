@@ -61,9 +61,11 @@ Do not assume missing financial numbers.
 When performing forecasts, only use historical
 values or assumptions supported by the report.
 
-Continue analysing and using tools until you have
-enough information to make a well-supported
-assessment of the company's financial outlook.
+Make all needed calculations in as few rounds as
+possible: request every calculation you need in one
+response, using parallel tool calls. You have at most
+3 rounds of tool calls. Do not repeat a calculation
+that has already returned a result.
 
 When you believe the analysis is complete,
 respond without calling another tool.
