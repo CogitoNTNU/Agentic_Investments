@@ -9,6 +9,8 @@ load_dotenv()
 
 BASE_URL = "https://llm.hpc.ntnu.no/v1"
 MODEL_NAME = "Inferact/GLM-5.3-NVFP4"
+# Much faster: GLM spends ~25k reasoning tokens on a single report analysis.
+FLASH_MODEL_NAME = "deepseek-ai/DeepSeek-V4.1-Flash-1017"
 
 
 def get_model(model_name: str = MODEL_NAME):

@@ -4,8 +4,12 @@ from langchain.messages import HumanMessage
 
 from pathlib import Path
 
-from utils.state import MessagesState
-from utils.nodes import llm_call, tool_node
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from src.finance_agent.utils.state import MessagesState
+from src.finance_agent.utils.nodes import llm_call, tool_node
 
 
 def should_continue(state: MessagesState) -> Literal["tool_node", END]:

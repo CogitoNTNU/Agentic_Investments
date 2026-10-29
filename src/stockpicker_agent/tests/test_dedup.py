@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from .event_dedup import group_candidate_events
+from ..event_dedup import group_candidate_events
 
 
 path = Path("data/news_discovery/latest_candidates.json")

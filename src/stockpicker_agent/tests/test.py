@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from datetime import datetime, timezone
 
-from .graph import graph
+from ..graph import graph
 
 
 result = graph.invoke({})

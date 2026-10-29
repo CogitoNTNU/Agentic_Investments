@@ -1,0 +1,2696 @@
+{
+  "generated_at": "2026-10-29T15:13:40.815047+00:00",
+  "total_candidates": 39,
+  "candidates": [
+    {
+      "ticker": "GOOGL",
+      "priority_score": 8.5,
+      "event_count": 3,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Alphabet (GOOGL) reported Q3 (July–September quarter) results that missed Wall Street expectations, and its shares fell in after-hours trading, dragging Nasdaq futures lower ahead of key GDP, inflation, and earnings reports. One source reports net income of $26.17 billion, down from $34.98 billion a year earlier; another reports Q3 capital expenditures of $51.4 billion and free cash flow of -$9.1 billion, with Cloud revenue growing 103%, and shares falling roughly 10% after hours to $292.50. The sources are consistent in describing a miss, though each highlights different financial figures.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Alphabet",
+            "Alphabet (Google)"
+          ],
+          "source_count": 3,
+          "sources": [
+            {
+              "source_uuid": "b486132f-326c-4369-8e89-c07e2f0db60a",
+              "headline": "Nasdaq futures lead losses as Alphabet results disappoint (SPX:)",
+              "source_url": "https://seekingalpha.com/news/4659915-sp500-nasdaq-dow-jones-outlook-stock-market",
+              "published_at": "2026-10-29T08:16:14.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Alphabet",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Alphabet's quarterly results disappointed, with the stock sinking and dragging Nasdaq futures lower ahead of key GDP, inflation, and earnings reports. No specific financial figures are provided in the article.",
+              "sentiment": -1.0,
+              "materiality": 5.0,
+              "novelty": 4.0,
+              "confidence": 0.75,
+              "investigate": true
+            },
+            {
+              "source_uuid": "52a45047-f9aa-4eb8-85d3-a3f6ca0e7240",
+              "headline": "Alphabet Stock $292 After Q3 Miss: -$9B Free Cash Flow",
+              "source_url": "https://financefeeds.com/alphabet-googl-stock-292-after-q3-profit-miss-negative-9-billion-free-cash-flow-bull-325-bear-266/",
+              "published_at": "2026-10-29T06:52:31.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Alphabet",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Alphabet reported Q3 results that missed expectations: Q3 capital expenditures hit $51.4B and free cash flow turned to -$9.1B, while Cloud revenue grew 103%. Shares fell roughly 10% after hours to $292.50.",
+              "sentiment": -1.0,
+              "materiality": 8.0,
+              "novelty": 6.0,
+              "confidence": 1.0,
+              "investigate": true
+            },
+            {
+              "source_uuid": "94eef92a-14df-4892-8a90-6183007b8342",
+              "headline": "Google earnings report: Google misses Wall Street expectations, Alphabet stock sinks in early after-hours trading",
+              "source_url": "https://economictimes.indiatimes.com/tech/technology/google-misses-wall-street-expectations-alphabet-stock-sinks-in-early-after-hours-trading/articleshow/135287119.cms",
+              "published_at": "2026-10-29T02:41:46.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Alphabet (Google)",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Alphabet reported net income of $26.17 billion for the July-September quarter, down from $34.98 billion in the same period a year earlier, missing Wall Street expectations; Alphabet shares declined in early after-hours trading.",
+              "sentiment": -1.0,
+              "materiality": 8.0,
+              "novelty": 6.0,
+              "confidence": 1.0,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "GOOG",
+      "priority_score": 8.5,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Alphabet reported net income of $26.17 billion for the July-September quarter, down from $34.98 billion in the same period a year earlier, missing Wall Street expectations; Alphabet shares declined in early after-hours trading.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Alphabet (Google)"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "94eef92a-14df-4892-8a90-6183007b8342",
+              "headline": "Google earnings report: Google misses Wall Street expectations, Alphabet stock sinks in early after-hours trading",
+              "source_url": "https://economictimes.indiatimes.com/tech/technology/google-misses-wall-street-expectations-alphabet-stock-sinks-in-early-after-hours-trading/articleshow/135287119.cms",
+              "published_at": "2026-10-29T02:41:46.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Alphabet (Google)",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Alphabet reported net income of $26.17 billion for the July-September quarter, down from $34.98 billion in the same period a year earlier, missing Wall Street expectations; Alphabet shares declined in early after-hours trading.",
+              "sentiment": -1.0,
+              "materiality": 8.0,
+              "novelty": 6.0,
+              "confidence": 1.0,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "EQT",
+      "priority_score": 8.25,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "EQT Corporation's acquisition of Range Resources Corporation creates a roughly $50 billion natural gas company, according to a Seeking Alpha analysis of the combination, which cites cost synergies, a low breakeven point, and a long inventory runway for the combined company. The available text does not specify the deal's announcement date or completion status.",
+          "event_types": [
+            "merger_acquisition"
+          ],
+          "primary_companies": [
+            "EQT Corporation"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "0c4d71cd-4a1a-4d15-971c-e3b74d3985a3",
+              "headline": "First Look At EQT's And Range Resources' Combination (NYSE:EQT)",
+              "source_url": "https://seekingalpha.com/article/4958856-first-look-at-eqt-and-range-resources-combination",
+              "published_at": "2026-10-28T21:08:05.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "EQT Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "merger_acquisition",
+              "summary": "EQT Corporation's acquisition of Range Resources Corporation creates a roughly $50 billion natural gas company, according to a Seeking Alpha analysis of the combination, which cites cost synergies, a low breakeven point, and a long inventory runway for the combined company. The available text does not specify the deal's announcement date or completion status.",
+              "sentiment": 1.0,
+              "materiality": 8.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "EIX",
+      "priority_score": 7.62,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "A judge ruled that Southern California Edison cannot escape a jury trial over a central claim in lawsuits concerning its equipment's role in the 2025 Eaton Fire, described in the article as the most destructive blaze. The utility will now face a jury over the claim, leaving it exposed to potential liability from the litigation.",
+          "event_types": [
+            "lawsuit"
+          ],
+          "primary_companies": [
+            "Southern California Edison"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "e4749b22-228d-4329-9949-c8b4fc0329b0",
+              "headline": "Edison Must Face Jury Over Equipment’s Role in Massive California Fire",
+              "source_url": "https://www.insurancejournal.com/news/west/2026/10/28/890584.htm",
+              "published_at": "2026-10-28T13:19:34.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Southern California Edison",
+              "ticker_relationship": "direct",
+              "event_type": "lawsuit",
+              "summary": "A judge ruled that Southern California Edison cannot escape a jury trial over a central claim in lawsuits concerning its equipment's role in the 2025 Eaton Fire, described in the article as the most destructive blaze. The utility will now face a jury over the claim, leaving it exposed to potential liability from the litigation.",
+              "sentiment": -1.0,
+              "materiality": 7.0,
+              "novelty": 6.0,
+              "confidence": 0.95,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "MSFT",
+      "priority_score": 7.62,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Microsoft's fiscal Q1 2027 earnings report (published ~October 29, 2026), announced alongside fiscal Q2 2027 guidance in the same release. The article describes the Q1 results as a beat, with Azure growing 48% amid surging AI demand; no detailed quarterly revenue or earnings figures were provided in the excerpt. In the same report, Microsoft issued Q2 FY2027 guidance that topped estimates, including revenue of $96B–$97.1B, Azure growth of 49%–50%, and capital expenditures indicated to move above $50B. Both records derive from the same source article (identical source UUID, headline, and publication timestamp) covering this single earnings event, with one record emphasizing the reported results and the other the accompanying forward guidance.",
+          "event_types": [
+            "earnings",
+            "guidance"
+          ],
+          "primary_companies": [
+            "Microsoft"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "b7074e50-1e40-40de-a09d-1742cb102edd",
+              "headline": "Microsoft outlines Q2 revenue $96B-$97.1B and Azure growth 49%-50% as CapEx moves above $50B (NASDAQ:MSFT)",
+              "source_url": "https://seekingalpha.com/news/4659820-microsoft-outlines-q2-revenue-96b-97_1b-and-azure-growth-49-percentminus-50-percent-as-capex",
+              "published_at": "2026-10-29T02:33:53.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Microsoft",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Microsoft reported fiscal Q1 2027 results that the article describes as a beat, with Azure growing 48% amid surging AI demand. The excerpt does not provide detailed revenue or earnings figures for the quarter.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            },
+            {
+              "source_uuid": "b7074e50-1e40-40de-a09d-1742cb102edd",
+              "headline": "Microsoft outlines Q2 revenue $96B-$97.1B and Azure growth 49%-50% as CapEx moves above $50B (NASDAQ:MSFT)",
+              "source_url": "https://seekingalpha.com/news/4659820-microsoft-outlines-q2-revenue-96b-97_1b-and-azure-growth-49-percentminus-50-percent-as-capex",
+              "published_at": "2026-10-29T02:33:53.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Microsoft",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "Microsoft outlined fiscal Q2 2027 guidance that topped estimates, including revenue of $96 billion to $97.1 billion and Azure growth of 49% to 50%, with capital expenditures indicated to move above $50 billion.",
+              "sentiment": 1.0,
+              "materiality": 7.0,
+              "novelty": 5.0,
+              "confidence": 0.95,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "FDX",
+      "priority_score": 7.5,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "In conjunction with its Q3 2026 earnings, FedEx issued a calendar-year 2026 outlook of adjusted EPS of $18.00-$18.60 and approximately $4 billion in adjusted free cash flow; the article characterizes the EPS outlook as raised and notes margin risks tied to Network 2.0 changes as the company's portfolio reshaping advances.",
+          "event_types": [
+            "guidance"
+          ],
+          "primary_companies": [
+            "FedEx"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "c6b66fe1-281f-4382-ba6a-030ea3c2d911",
+              "headline": "FedEx expects CY '26 adjusted EPS of $18-$18.60 and about $4B in adjusted free cash flow as portfolio reshaping advances (NYSE:FDX)",
+              "source_url": "https://seekingalpha.com/news/4659819-fedex-expects-cy-26-adjusted-eps-of-18-18_60-and-about-4b-in-adjusted-free-cash-flow-as",
+              "published_at": "2026-10-29T02:32:49.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "FedEx",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "In conjunction with its Q3 2026 earnings, FedEx issued a calendar-year 2026 outlook of adjusted EPS of $18.00-$18.60 and approximately $4 billion in adjusted free cash flow; the article characterizes the EPS outlook as raised and notes margin risks tied to Network 2.0 changes as the company's portfolio reshaping advances.",
+              "sentiment": 1.0,
+              "materiality": 7.0,
+              "novelty": 4.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "V",
+      "priority_score": 7.5,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Visa Inc. (V) announced its fiscal fourth-quarter 2026 earnings, reporting adjusted earnings per share of $3.48. One article states the result came in slightly above analyst expectations while the company signaled a growth slowdown for fiscal year 2027; the other characterizes the results as robust financial performance. Both records report the same adjusted EPS figure of $3.48 and describe the same quarterly earnings announcement, with no material contradictions between them. Additional financial details were truncated in both sources.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Visa Inc."
+          ],
+          "source_count": 2,
+          "sources": [
+            {
+              "source_uuid": "e7fae6d2-210f-4af0-9b6e-711814451f8f",
+              "headline": "Visa (V) Reports Strong Q4 Earnings but Signals Growth Slowdown for FY 2027",
+              "source_url": "https://www.gurufocus.com/news/9148119/visa-v-reports-strong-q4-earnings-but-signals-growth-slowdown-for-fy-2027",
+              "published_at": "2026-10-28T18:57:06.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Visa Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, Visa announced fiscal fourth-quarter results, reporting adjusted earnings per share of $3.48, slightly above analyst expectations, while signaling a growth slowdown for fiscal year 2027. The description is truncated; additional financial details are not available in the source.",
+              "sentiment": 0.0,
+              "materiality": 7.0,
+              "novelty": 4.0,
+              "confidence": 0.9,
+              "investigate": true
+            },
+            {
+              "source_uuid": "3b5f0260-b073-4f5e-ab91-d4c63623fd1c",
+              "headline": "Visa Reports Strong Q4 Earnings with EPS of $3.48 (V)",
+              "source_url": "https://www.gurufocus.com/news/9148073/visa-reports-strong-q4-earnings-with-eps-of-348-v",
+              "published_at": "2026-10-28T18:30:33.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Visa Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, Visa announced fourth-quarter earnings, reporting adjusted earnings per share of $3.48, which the article characterizes as robust financial performance. The description is truncated; additional financial details are not available in the source.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [
+        {
+          "summary": "A separate analyst rating event: BMO Capital maintained an Outperform rating on Visa Inc. (V) and raised its price target to $438. According to the article, published October 28, 2026, the underlying analyst action took place on October 26, 2023. The prior price target is not fully specified due to a truncated description. This is distinct from Visa's fiscal Q4 2026 earnings announcement despite sharing the same target ticker and publication date.",
+          "event_types": [
+            "analyst_rating"
+          ],
+          "primary_companies": [
+            "Visa Inc."
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "8fab8b20-cb68-4722-b7b1-9c80823420d0",
+              "headline": "V Maintained by BMO Capital -- Price Target Raised to $438",
+              "source_url": "https://www.gurufocus.com/news/9148260/v-maintained-by-bmo-capital-price-target-raised-to-438",
+              "published_at": "2026-10-28T19:37:55.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "Visa Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "analyst_rating",
+              "summary": "On October 26, 2023, BMO Capital maintained an Outperform rating on Visa and raised its price target to $438. The prior price target is not fully specified due to a truncated description. The article was published on October 28, 2026, re-reporting this earlier analyst action.",
+              "sentiment": 1.0,
+              "materiality": 2.0,
+              "novelty": 0.0,
+              "confidence": 0.9,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_events": [
+        {
+          "source_uuid": "8fab8b20-cb68-4722-b7b1-9c80823420d0",
+          "ticker": "V",
+          "primary_company": "Visa Inc.",
+          "ticker_relationship": "direct",
+          "event_type": "analyst_rating",
+          "summary": "On October 26, 2023, BMO Capital maintained an Outperform rating on Visa and raised its price target to $438. The prior price target is not fully specified due to a truncated description. The article was published on October 28, 2026, re-reporting this earlier analyst action.",
+          "sentiment": 1.0,
+          "materiality": 2.0,
+          "novelty": 0.0,
+          "confidence": 0.9,
+          "investigate": false,
+          "headline": "V Maintained by BMO Capital -- Price Target Raised to $438",
+          "source_url": "https://www.gurufocus.com/news/9148260/v-maintained-by-bmo-capital-price-target-raised-to-438",
+          "published_at": "2026-10-28T19:37:55.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 1
+    },
+    {
+      "ticker": "CVNA",
+      "priority_score": 7.38,
+      "event_count": 3,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Carvana's Q3 2026 earnings announcement (published late October 2026): the company posted record third-quarter results, including record/rising sales and approximately $8 billion in revenue, with positive free cash flow. Alongside the results, Carvana said it expects full-year 2026 adjusted EBITDA at the higher end of its $2.7B–$3.0B range and cited targets of 3 million units and a 13.5% margin (described as long-term/target figures; no specific timeframe beyond 'targets' was stated for the unit and margin goals). No material contradictions exist across the records; they are complementary descriptions of the same quarterly release. Note: records 1 and 2 cite the same underlying article (one tagged as guidance, one as earnings), and record 0 is a separate article covering the same Q3 earnings event.",
+          "event_types": [
+            "earnings",
+            "guidance"
+          ],
+          "primary_companies": [
+            "Carvana"
+          ],
+          "source_count": 2,
+          "sources": [
+            {
+              "source_uuid": "ba981731-9f34-4d13-8367-479179d9c06f",
+              "headline": "Carvana Continuing To Improve (NYSE:CVNA)",
+              "source_url": "https://seekingalpha.com/article/4959007-carvana-q3-continuing-to-improve",
+              "published_at": "2026-10-29T02:36:03.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Carvana",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Carvana posted record third-quarter results, with rising sales, positive free cash flow, and long-term margin targets, according to the article.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 3.0,
+              "confidence": 0.75,
+              "investigate": true
+            },
+            {
+              "source_uuid": "a1abfa10-5b94-447d-aa65-23784b855fe2",
+              "headline": "Carvana expects full-year 2026 adjusted EBITDA in the higher end of $2.7B-$3.0B range as it targets 3M units and 13.5% margin (NYSE:CVNA)",
+              "source_url": "https://seekingalpha.com/news/4659817-carvana-expects-full-year-2026-adjusted-ebitda-in-the-higher-end-of-2_7b-3_0b-range-as-it",
+              "published_at": "2026-10-29T02:32:09.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Carvana",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "Carvana stated it expects full-year 2026 adjusted EBITDA at the higher end of its $2.7B–$3.0B range and said it targets 3 million units and a 13.5% margin; the article also characterizes the EBITDA outlook as rising. No timeframe for the unit and margin targets beyond 'targets' is specified in the provided text.",
+              "sentiment": 1.0,
+              "materiality": 7.0,
+              "novelty": 5.0,
+              "confidence": 0.85,
+              "investigate": true
+            },
+            {
+              "source_uuid": "a1abfa10-5b94-447d-aa65-23784b855fe2",
+              "headline": "Carvana expects full-year 2026 adjusted EBITDA in the higher end of $2.7B-$3.0B range as it targets 3M units and 13.5% margin (NYSE:CVNA)",
+              "source_url": "https://seekingalpha.com/news/4659817-carvana-expects-full-year-2026-adjusted-ebitda-in-the-higher-end-of-2_7b-3_0b-range-as-it",
+              "published_at": "2026-10-29T02:32:09.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Carvana",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Carvana reported Q3 2026 earnings with record sales and approximately $8 billion in revenue, per the article description.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 4.0,
+              "confidence": 0.8,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "TER",
+      "priority_score": 7.38,
+      "event_count": 5,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Teradyne, Inc. (TER) released its Q3 2026 earnings results, which were characterized as strong, with significant revenue growth driven by AI-focused demand (one report cites 70% revenue growth attributed to AI demand). Alongside the results, Teradyne issued Q4 2026 revenue guidance of $1.25B–$1.35B and an upbeat 2027 outlook targeting a mid-2027 compute ramp. Despite the strong results and bullish guidance, TER shares declined 4.6% on the day of the release. All records describe the same underlying earnings announcement and its immediate market reaction; no material contradictions were identified across sources.",
+          "event_types": [
+            "earnings",
+            "guidance",
+            "market_move"
+          ],
+          "primary_companies": [
+            "Teradyne, Inc."
+          ],
+          "source_count": 3,
+          "sources": [
+            {
+              "source_uuid": "762dcc08-10a0-4b66-a69a-0a34d9ff5a5e",
+              "headline": "Teradyne (TER) Reports Strong Q3 2026 Results Amid Strategic AI Revenue Growth",
+              "source_url": "https://www.gurufocus.com/news/9148270/teradyne-ter-reports-strong-q3-2026-results-amid-strategic-ai-revenue-growth",
+              "published_at": "2026-10-28T19:57:00.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Teradyne, Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, Teradyne announced robust third-quarter results, highlighting significant revenue growth driven by its AI-focused business segment (description truncated in available text).",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 3.0,
+              "confidence": 0.85,
+              "investigate": true
+            },
+            {
+              "source_uuid": "6380827f-e68d-43c1-807c-0ea5b09852ca",
+              "headline": "Teradyne expects Q4 2026 revenue of $1.25B-$1.35B as it targets a mid-2027 compute ramp (NASDAQ:TER)",
+              "source_url": "https://seekingalpha.com/news/4659441-teradyne-expects-q4-2026-revenue-of-1_25b-1_35b-as-it-targets-a-midminus-2027-compute-ramp",
+              "published_at": "2026-10-28T18:41:39.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Teradyne, Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Teradyne reported Q3 2026 results in which AI demand drove 70% revenue growth, per the article.",
+              "sentiment": 1.0,
+              "materiality": 7.0,
+              "novelty": 3.0,
+              "confidence": 0.85,
+              "investigate": true
+            },
+            {
+              "source_uuid": "6380827f-e68d-43c1-807c-0ea5b09852ca",
+              "headline": "Teradyne expects Q4 2026 revenue of $1.25B-$1.35B as it targets a mid-2027 compute ramp (NASDAQ:TER)",
+              "source_url": "https://seekingalpha.com/news/4659441-teradyne-expects-q4-2026-revenue-of-1_25b-1_35b-as-it-targets-a-midminus-2027-compute-ramp",
+              "published_at": "2026-10-28T18:41:39.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Teradyne, Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "Teradyne issued Q4 2026 revenue guidance of $1.25 billion to $1.35 billion and an upbeat 2027 outlook targeting a mid-2027 compute ramp; the article characterizes the guidance as strong.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 3.0,
+              "confidence": 0.9,
+              "investigate": true
+            },
+            {
+              "source_uuid": "9f251623-8926-45c3-a573-18ea8c63f64a",
+              "headline": "Teradyne (TER) Shares Fall Despite Strong Q3 Results and Bullish Guidance",
+              "source_url": "https://www.gurufocus.com/news/9148014/teradyne-ter-shares-fall-despite-strong-q3-results-and-bullish-guidance",
+              "published_at": "2026-10-28T18:00:33.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Teradyne, Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, Teradyne released third-quarter earnings showing robust revenue growth; the article characterizes the results as strong with bullish guidance (description truncated in available text).",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 3.0,
+              "confidence": 0.8,
+              "investigate": true
+            },
+            {
+              "source_uuid": "9f251623-8926-45c3-a573-18ea8c63f64a",
+              "headline": "Teradyne (TER) Shares Fall Despite Strong Q3 Results and Bullish Guidance",
+              "source_url": "https://www.gurufocus.com/news/9148014/teradyne-ter-shares-fall-despite-strong-q3-results-and-bullish-guidance",
+              "published_at": "2026-10-28T18:00:33.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Teradyne, Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "market_move",
+              "summary": "Teradyne (TER) shares declined 4.6% on October 28, 2026, following the release of its third-quarter earnings report, despite strong results and bullish guidance.",
+              "sentiment": -1.0,
+              "materiality": 4.0,
+              "novelty": 4.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "BIIB",
+      "priority_score": 7.0,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Biogen Inc (NASDAQ: BIIB) reported a third-quarter loss of $20.6 million, or a loss of $0.14 per share, despite an 11% rise in a metric not fully specified in the truncated description. Alongside the results, Biogen adjusted its EPS guidance amid the Q3 losses; the direction, revised figures, and prior guidance are not specified in the available text. Both records come from the same underlying article (identical source and headline) and describe the same event.",
+          "event_types": [
+            "earnings",
+            "guidance"
+          ],
+          "primary_companies": [
+            "Biogen Inc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "2d8a7828-3721-41e4-b8df-c34d0915b825",
+              "headline": "Biotech Company Adjusts EPS Guidance Amid Q3 Losses",
+              "source_url": "https://www.gurufocus.com/news/9147736/biotech-company-adjusts-eps-guidance-amid-q3-losses",
+              "published_at": "2026-10-28T16:12:06.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Biogen Inc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, Biogen (NASDAQ: BIIB) reported a third-quarter loss of $20.6 million, translating to a loss of $0.14 per share, despite an 11% rise in a metric not fully specified in the truncated description.",
+              "sentiment": -1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 1.0,
+              "investigate": true
+            },
+            {
+              "source_uuid": "2d8a7828-3721-41e4-b8df-c34d0915b825",
+              "headline": "Biotech Company Adjusts EPS Guidance Amid Q3 Losses",
+              "source_url": "https://www.gurufocus.com/news/9147736/biotech-company-adjusts-eps-guidance-amid-q3-losses",
+              "published_at": "2026-10-28T16:12:06.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Biogen Inc",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "According to the article title, Biogen adjusted its EPS guidance amid its third-quarter losses; the provided description is truncated and does not specify the direction, revised figures, or prior guidance.",
+              "sentiment": 0.0,
+              "materiality": 5.0,
+              "novelty": 5.0,
+              "confidence": 0.7,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [
+        {
+          "summary": "On October 28, 2026, Barclays maintained its Equal-Weight rating on Biogen (BIIB) while raising its price target to $230; the prior price target value is not specified due to a truncated description. This is a separate analyst rating action, distinct from Biogen's Q3 earnings report.",
+          "event_types": [
+            "analyst_rating"
+          ],
+          "primary_companies": [
+            "Biogen Inc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "5e160122-a323-496a-8d08-cad3ae019401",
+              "headline": "BIIB Maintained by Barclays -- Price Target Raised to $230",
+              "source_url": "https://www.gurufocus.com/news/9147870/biib-maintained-by-barclays-price-target-raised-to-230",
+              "published_at": "2026-10-28T17:01:05.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "Biogen Inc",
+              "ticker_relationship": "direct",
+              "event_type": "analyst_rating",
+              "summary": "On October 28, 2026, Barclays maintained its Equal-Weight rating on Biogen (BIIB) while increasing its price target to $230; the prior price target value is cut off in the truncated description.",
+              "sentiment": 0.0,
+              "materiality": 2.0,
+              "novelty": 3.0,
+              "confidence": 1.0,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_events": [
+        {
+          "source_uuid": "5e160122-a323-496a-8d08-cad3ae019401",
+          "ticker": "BIIB",
+          "primary_company": "Biogen Inc",
+          "ticker_relationship": "direct",
+          "event_type": "analyst_rating",
+          "summary": "On October 28, 2026, Barclays maintained its Equal-Weight rating on Biogen (BIIB) while increasing its price target to $230; the prior price target value is cut off in the truncated description.",
+          "sentiment": 0.0,
+          "materiality": 2.0,
+          "novelty": 3.0,
+          "confidence": 1.0,
+          "investigate": false,
+          "headline": "BIIB Maintained by Barclays -- Price Target Raised to $230",
+          "source_url": "https://www.gurufocus.com/news/9147870/biib-maintained-by-barclays-price-target-raised-to-230",
+          "published_at": "2026-10-28T17:01:05.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 1
+    },
+    {
+      "ticker": "FTNT",
+      "priority_score": 7.0,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Fortinet's Q3 2026 earnings announcement (published 2026-10-29): Fortinet reported that billings rose 29%, which the article links to continued strong AI security demand, and alongside the results it raised its guidance again, now outlining full-year 2026 billings of $9.568 billion to $9.718 billion. No revenue or EPS figures were provided in the available text. Both records cite the same source article and timestamp; one record is tagged as the earnings results and the other as the guidance raise issued within the same announcement.",
+          "event_types": [
+            "earnings",
+            "guidance"
+          ],
+          "primary_companies": [
+            "Fortinet"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "30c74094-ff0e-491c-8d5d-80a4f09f07ba",
+              "headline": "Fortinet outlines 2026 billings $9.568B-$9.718B as it raises guidance again (NASDAQ:FTNT)",
+              "source_url": "https://seekingalpha.com/news/4659806-fortinet-outlines-2026-billings-9_568b-9_718b-as-it-raises-guidance-again",
+              "published_at": "2026-10-29T01:51:00.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Fortinet",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "In its Q3 2026 results, Fortinet reported that billings rose 29%, which the article links to continued strong AI security demand. No revenue or EPS figures are provided in the available text.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            },
+            {
+              "source_uuid": "30c74094-ff0e-491c-8d5d-80a4f09f07ba",
+              "headline": "Fortinet outlines 2026 billings $9.568B-$9.718B as it raises guidance again (NASDAQ:FTNT)",
+              "source_url": "https://seekingalpha.com/news/4659806-fortinet-outlines-2026-billings-9_568b-9_718b-as-it-raises-guidance-again",
+              "published_at": "2026-10-29T01:51:00.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Fortinet",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "Fortinet raised its guidance again, now outlining 2026 billings of $9.568 billion to $9.718 billion.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 3.0,
+              "confidence": 1.0,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "AEP",
+      "priority_score": 6.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, American Electric Power (AEP) reported third quarter 2026 operating earnings of $2.23 per share, up from $1.80, which the article characterizes as strong results. The comparison period for the prior $1.80 figure is not specified in the available text.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "American Electric Power Co Inc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "d83a2274-772c-4c5e-b905-45fe1c561e3a",
+              "headline": "American Electric Power (AEP) Reports Strong Q3 Earnings and Confirms Robust Dividend Outlook",
+              "source_url": "https://www.gurufocus.com/news/9148281/american-electric-power-aep-reports-strong-q3-earnings-and-confirms-robust-dividend-outlook",
+              "published_at": "2026-10-28T19:59:38.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "American Electric Power Co Inc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, American Electric Power announced third quarter 2026 operating earnings of $2.23 per share, up from $1.80, which the article characterizes as strong results. The description is truncated before specifying the comparison period for the prior $1.80 figure.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [
+        {
+          "summary": "Alongside its Q3 2026 earnings announcement on October 28, 2026, American Electric Power (AEP) confirmed a robust dividend outlook, per the article's title. No further details on the dividend outlook are available; the record is truncated.",
+          "event_types": [
+            "dividend"
+          ],
+          "primary_companies": [
+            "American Electric Power Co Inc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "d83a2274-772c-4c5e-b905-45fe1c561e3a",
+              "headline": "American Electric Power (AEP) Reports Strong Q3 Earnings and Confirms Robust Dividend Outlook",
+              "source_url": "https://www.gurufocus.com/news/9148281/american-electric-power-aep-reports-strong-q3-earnings-and-confirms-robust-dividend-outlook",
+              "published_at": "2026-10-28T19:59:38.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "American Electric Power Co Inc",
+              "ticker_relationship": "direct",
+              "event_type": "dividend",
+              "summary": "Alongside its Q3 2026 earnings announcement, American Electric Power confirmed a robust dividend outlook, according to the article's title. The description is truncated and provides no further details on the dividend outlook.",
+              "sentiment": 1.0,
+              "materiality": 3.0,
+              "novelty": 2.0,
+              "confidence": 0.65,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_events": [
+        {
+          "source_uuid": "d83a2274-772c-4c5e-b905-45fe1c561e3a",
+          "ticker": "AEP",
+          "primary_company": "American Electric Power Co Inc",
+          "ticker_relationship": "direct",
+          "event_type": "dividend",
+          "summary": "Alongside its Q3 2026 earnings announcement, American Electric Power confirmed a robust dividend outlook, according to the article's title. The description is truncated and provides no further details on the dividend outlook.",
+          "sentiment": 1.0,
+          "materiality": 3.0,
+          "novelty": 2.0,
+          "confidence": 0.65,
+          "investigate": false,
+          "headline": "American Electric Power (AEP) Reports Strong Q3 Earnings and Confirms Robust Dividend Outlook",
+          "source_url": "https://www.gurufocus.com/news/9148281/american-electric-power-aep-reports-strong-q3-earnings-and-confirms-robust-dividend-outlook",
+          "published_at": "2026-10-28T19:59:38.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 1
+    },
+    {
+      "ticker": "BKR",
+      "priority_score": 6.75,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Baker Hughes Company (NYSE: BKR) reported better-than-expected third-quarter earnings; despite the beat, shares fell 5.4% during trading, with the article attributing the decline to Middle East demand concerns. No specific revenue, earnings, or other financial figures were included in the available text. Both records come from the same article, one focusing on the earnings beat and the other on the associated share-price decline.",
+          "event_types": [
+            "earnings",
+            "market_move"
+          ],
+          "primary_companies": [
+            "Baker Hughes Company"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "3949b004-6dea-4b9b-aedc-25eed6f5ea8c",
+              "headline": "Baker Hughes (BKR) Shares Fall 5.4% Despite Q3 Beat Amid Middle East Demand Concerns",
+              "source_url": "https://www.gurufocus.com/news/9147805/baker-hughes-bkr-shares-fall-54-despite-q3-beat-amid-middle-east-demand-concerns",
+              "published_at": "2026-10-28T16:58:21.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Baker Hughes Company",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, Baker Hughes reported better-than-expected third-quarter earnings, according to the article. The provided description is truncated and does not include specific revenue, earnings, or other financial figures.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 6.0,
+              "confidence": 0.9,
+              "investigate": true
+            },
+            {
+              "source_uuid": "3949b004-6dea-4b9b-aedc-25eed6f5ea8c",
+              "headline": "Baker Hughes (BKR) Shares Fall 5.4% Despite Q3 Beat Amid Middle East Demand Concerns",
+              "source_url": "https://www.gurufocus.com/news/9147805/baker-hughes-bkr-shares-fall-54-despite-q3-beat-amid-middle-east-demand-concerns",
+              "published_at": "2026-10-28T16:58:21.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Baker Hughes Company",
+              "ticker_relationship": "direct",
+              "event_type": "market_move",
+              "summary": "On October 28, 2026, Baker Hughes (NYSE: BKR) shares declined 5.4% during trading despite the company's better-than-expected third-quarter earnings; the article title attributes the decline to Middle East demand concerns.",
+              "sentiment": -1.0,
+              "materiality": 4.0,
+              "novelty": 5.0,
+              "confidence": 1.0,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "FTV",
+      "priority_score": 6.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Fortive signaled full-year 2026 guidance of adjusted EPS of $3.10-$3.14, with reported revenue expected just above $4.4 billion; the article describes the EPS guidance as raised and, in its Q3 2026 earnings coverage, also references strong core growth, share buybacks, and Q4 headwinds.",
+          "event_types": [
+            "guidance"
+          ],
+          "primary_companies": [
+            "Fortive"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "b2d7ae7e-4029-4e24-a23c-d8379f27a749",
+              "headline": "Fortive signals full-year 2026 adjusted EPS of $3.10-$3.14 while expecting reported revenue just north of $4.4B (NYSE:FTV)",
+              "source_url": "https://seekingalpha.com/news/4659780-fortive-signals-full-year-2026-adjusted-eps-of-3_10-3_14-while-expecting-reported-revenue",
+              "published_at": "2026-10-28T23:50:49.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Fortive",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "Fortive signaled full-year 2026 guidance of adjusted EPS of $3.10-$3.14, with reported revenue expected just above $4.4 billion; the article describes the EPS guidance as raised and, in its Q3 2026 earnings coverage, also references strong core growth, share buybacks, and Q4 headwinds.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 4.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "IEX",
+      "priority_score": 6.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "IDEX Corporation reported record sales and earnings in its Q3 2026 results, driven by growth in AI, data center, and semiconductor demand, as summarized in its earnings call coverage. No specific financial figures were provided in the available text.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "IDEX Corporation"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "aa2d3298-2aaf-4e96-8594-60f82a560dd3",
+              "headline": "IDEX (IEX) Q3 2026 Earnings Call Transcript",
+              "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/28/idex-iex-q3-2026-earnings-call-transcript/",
+              "published_at": "2026-10-28T17:56:59.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "IDEX Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "IDEX Corporation reported record sales and earnings in its Q3 2026 results, driven by growth in AI, data center, and semiconductor demand, as summarized in its earnings call coverage. No specific financial figures were provided in the available text.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 4.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "KLAC",
+      "priority_score": 6.75,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "KLA Corporation (NASDAQ: KLAC) held its Q1 2027 earnings call on October 28, 2026, with the article published October 29, 2026. The company highlighted record revenue and margin expansion, though specific revenue, earnings, or margin figures for the quarter are not provided in the available article text. As part of the same call, KLA issued guidance forecasting December-quarter revenue of $4.7 billion and said it expects the wafer equipment market to exceed $200 billion in 2027, characterizing the 2027 wafer equipment market outlook as strong. Both records describe the same underlying event (the same earnings call and article), with one record focusing on the earnings report and the other on the guidance issued during that call.",
+          "event_types": [
+            "earnings",
+            "guidance"
+          ],
+          "primary_companies": [
+            "KLA Corporation"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "f4e9bffd-19b7-48d2-8e7c-423cf5d5617a",
+              "headline": "KLA forecasts $4.7B December-quarter revenue and expects wafer equipment market to exceed $200B in 2027 (NASDAQ:KLAC)",
+              "source_url": "https://seekingalpha.com/news/4659858-kla-forecasts-4_7b-december-quarter-revenue-and-expects-wafer-equipment-market-to-exceed-200b",
+              "published_at": "2026-10-29T05:11:21.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "KLA Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "KLA reported results on its Q1 2027 earnings call held October 28, 2026; the article highlights record revenue and margin expansion. Specific revenue, earnings, or margin figures are not provided in the available article text.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 0.8,
+              "investigate": true
+            },
+            {
+              "source_uuid": "f4e9bffd-19b7-48d2-8e7c-423cf5d5617a",
+              "headline": "KLA forecasts $4.7B December-quarter revenue and expects wafer equipment market to exceed $200B in 2027 (NASDAQ:KLAC)",
+              "source_url": "https://seekingalpha.com/news/4659858-kla-forecasts-4_7b-december-quarter-revenue-and-expects-wafer-equipment-market-to-exceed-200b",
+              "published_at": "2026-10-29T05:11:21.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "KLA Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "KLA forecast December-quarter revenue of $4.7 billion and said it expects the wafer equipment market to exceed $200 billion in 2027, per its Q1 2027 earnings call; the article characterizes the 2027 wafer equipment market outlook as strong.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 3.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "LII",
+      "priority_score": 6.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Lennox International's shares fell 7.28% (losing $27.08 to $344.97) on Wednesday following the company's third-quarter results, in which net income declined. The article reports net income falling to $221, but the description is truncated at that figure, so the units and the prior-period comparison are not shown in the source excerpt.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Lennox International Inc."
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "a7d1389c-5482-40af-aa6a-cfce3c067971",
+              "headline": "Lennox International Stock Falls 7% After Q3 Profit Declines",
+              "source_url": "https://www.rttnews.com/story.aspx?Id=3704520",
+              "published_at": "2026-10-28T14:48:56.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Lennox International Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Lennox International's shares fell 7.28% (losing $27.08 to $344.97) on Wednesday following the company's third-quarter results, in which net income declined. The article reports net income falling to $221, but the description is truncated at that figure, so the units and the prior-period comparison are not shown in the source excerpt.",
+              "sentiment": -1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "NVDA",
+      "priority_score": 6.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, the U.S. Department of Justice initiated an inquiry into Nvidia Corp's planned $12.93 billion acquisition of Hugging Face amid antitrust concerns. The acquisition is described as a planned transaction, not as completed.",
+          "event_types": [
+            "regulatory"
+          ],
+          "primary_companies": [
+            "Nvidia Corp"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "6a4d8655-eb35-4b88-9d71-5cafea68e99d",
+              "headline": "DOJ Probes Nvidia's $12.93B Hugging Face Acquisition Amid Antitrust Concerns (NVDA)",
+              "source_url": "https://www.gurufocus.com/news/9148333/doj-probes-nvidias-1293b-hugging-face-acquisition-amid-antitrust-concerns-nvda",
+              "published_at": "2026-10-28T20:26:26.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Nvidia Corp",
+              "ticker_relationship": "direct",
+              "event_type": "regulatory",
+              "summary": "On October 28, 2026, the U.S. Department of Justice initiated an inquiry into Nvidia Corp's planned $12.93 billion acquisition of Hugging Face amid antitrust concerns. The acquisition is reported as a planned transaction and is not described as completed.",
+              "sentiment": -1.0,
+              "materiality": 6.0,
+              "novelty": 6.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [
+        {
+          "summary": "Microsoft reported results that beat expectations and guided capital expenditures above $50 billion. The results were discussed in a Nvidia stock commentary, but Nvidia's role or how the results affect it was not explicitly established.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Microsoft"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "47c00f40-ccea-4f41-8428-3a038764a174",
+              "headline": "Nvidia Stock $215: Microsoft Beat vs Alphabet $51B Capex",
+              "source_url": "https://financefeeds.com/nvidia-nvda-stock-215-thursday-after-microsoft-beat-alphabet-51-billion-capex-quarter-bull-243-bear-190/",
+              "published_at": "2026-10-29T06:52:48.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "Microsoft",
+              "ticker_relationship": "unclear",
+              "event_type": "earnings",
+              "summary": "Microsoft reported results that beat expectations and guided capital expenditures above $50B. The article discusses these results in a Nvidia stock commentary but does not explicitly establish Nvidia's role or how the results affect it.",
+              "sentiment": 1.0,
+              "materiality": 7.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": false
+        },
+        {
+          "summary": "Alphabet reported capital expenditures of $51.4 billion, and its shares fell 10% in after-hours trading. The results were discussed in a Nvidia stock commentary, but Nvidia's role or how the results affect it was not explicitly established. Although this record shares the same underlying article as the Microsoft earnings record, it describes a different company's earnings event.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Alphabet"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "47c00f40-ccea-4f41-8428-3a038764a174",
+              "headline": "Nvidia Stock $215: Microsoft Beat vs Alphabet $51B Capex",
+              "source_url": "https://financefeeds.com/nvidia-nvda-stock-215-thursday-after-microsoft-beat-alphabet-51-billion-capex-quarter-bull-243-bear-190/",
+              "published_at": "2026-10-29T06:52:48.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "Alphabet",
+              "ticker_relationship": "unclear",
+              "event_type": "earnings",
+              "summary": "Alphabet's capital expenditures totaled $51.4B, and its shares fell 10% in after-hours trading. The article discusses these results in a Nvidia stock commentary but does not explicitly establish Nvidia's role or how the results affect it.",
+              "sentiment": -1.0,
+              "materiality": 7.0,
+              "novelty": 5.0,
+              "confidence": 1.0,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_events": [
+        {
+          "source_uuid": "47c00f40-ccea-4f41-8428-3a038764a174",
+          "ticker": "NVDA",
+          "primary_company": "Microsoft",
+          "ticker_relationship": "unclear",
+          "event_type": "earnings",
+          "summary": "Microsoft reported results that beat expectations and guided capital expenditures above $50B. The article discusses these results in a Nvidia stock commentary but does not explicitly establish Nvidia's role or how the results affect it.",
+          "sentiment": 1.0,
+          "materiality": 7.0,
+          "novelty": 5.0,
+          "confidence": 0.9,
+          "investigate": false,
+          "headline": "Nvidia Stock $215: Microsoft Beat vs Alphabet $51B Capex",
+          "source_url": "https://financefeeds.com/nvidia-nvda-stock-215-thursday-after-microsoft-beat-alphabet-51-billion-capex-quarter-bull-243-bear-190/",
+          "published_at": "2026-10-29T06:52:48.000000Z",
+          "qualifies_for_investigation": false
+        },
+        {
+          "source_uuid": "47c00f40-ccea-4f41-8428-3a038764a174",
+          "ticker": "NVDA",
+          "primary_company": "Alphabet",
+          "ticker_relationship": "unclear",
+          "event_type": "earnings",
+          "summary": "Alphabet's capital expenditures totaled $51.4B, and its shares fell 10% in after-hours trading. The article discusses these results in a Nvidia stock commentary but does not explicitly establish Nvidia's role or how the results affect it.",
+          "sentiment": -1.0,
+          "materiality": 7.0,
+          "novelty": 5.0,
+          "confidence": 1.0,
+          "investigate": false,
+          "headline": "Nvidia Stock $215: Microsoft Beat vs Alphabet $51B Capex",
+          "source_url": "https://financefeeds.com/nvidia-nvda-stock-215-thursday-after-microsoft-beat-alphabet-51-billion-capex-quarter-bull-243-bear-190/",
+          "published_at": "2026-10-29T06:52:48.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 2,
+      "context_unique_event_count": 2
+    },
+    {
+      "ticker": "NOW",
+      "priority_score": 6.75,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "ServiceNow's Q3 2026 earnings announcement and accompanying guidance, reported in a single article. Alongside its Q3 2026 results, ServiceNow announced it is targeting more than $1.7 billion in AI ACV by year-end and raised its 2026 free cash flow margin goal to 36%, with the article characterizing the company's guidance as rising overall. The article characterizes the quarter's earnings as showing accelerating AI growth and notes that concerns around Q4 cRPO were explained. No specific quarterly financial figures were provided in the available article text.",
+          "event_types": [
+            "guidance",
+            "earnings"
+          ],
+          "primary_companies": [
+            "ServiceNow"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "5c767166-802d-4605-9401-7d6a5f430217",
+              "headline": "Servicenow targets $1.7B+ AI ACV by year-end while raising 2026 free cash flow margin goal to 36% (NYSE:NOW)",
+              "source_url": "https://seekingalpha.com/news/4659779-servicenow-targets-1_7b-ai-acv-by-year-end-while-raising-2026-free-cash-flow-margin-goal-to",
+              "published_at": "2026-10-28T23:41:06.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "ServiceNow",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "Alongside its Q3 2026 earnings, ServiceNow announced it is targeting more than $1.7 billion in AI ACV by year-end and raised its 2026 free cash flow margin goal to 36%. The article characterizes the company's guidance as rising overall.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            },
+            {
+              "source_uuid": "5c767166-802d-4605-9401-7d6a5f430217",
+              "headline": "Servicenow targets $1.7B+ AI ACV by year-end while raising 2026 free cash flow margin goal to 36% (NYSE:NOW)",
+              "source_url": "https://seekingalpha.com/news/4659779-servicenow-targets-1_7b-ai-acv-by-year-end-while-raising-2026-free-cash-flow-margin-goal-to",
+              "published_at": "2026-10-28T23:41:06.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "ServiceNow",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "ServiceNow reported Q3 2026 earnings, which the article characterizes as showing accelerating AI growth, and notes that concerns around Q4 cRPO were explained. No specific financial figures are provided in the available article text.",
+              "sentiment": 0.0,
+              "materiality": 5.0,
+              "novelty": 4.0,
+              "confidence": 0.8,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "PPG",
+      "priority_score": 6.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "In its Q3 2026 earnings call held October 28, 2026, PPG reported record adjusted earnings, driven by 5% organic growth and outperformance in its aerospace segment, according to the earnings call transcript article. The article does not provide absolute dollar figures or comparison to prior periods.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "PPG"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "6de040d6-58a4-4d24-bcfc-98e160c16e03",
+              "headline": "PPG (PPG) Q3 2026 Earnings Call Transcript",
+              "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/28/ppg-ppg-q3-2026-earnings-call-transcript/",
+              "published_at": "2026-10-28T16:40:36.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "PPG",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "In its Q3 2026 earnings call held October 28, 2026, PPG reported record adjusted earnings, driven by 5% organic growth and outperformance in its aerospace segment, according to the earnings call transcript article. The article does not provide absolute dollar figures or comparison to prior periods.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 2.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "RJF",
+      "priority_score": 6.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Raymond James Financial reported its fourth quarter and fiscal 2026 results, per a company press release dated October 28, 2026 (St. Petersburg, Fla., distributed via GlobeNewswire). The provided article text is truncated after the dateline and does not include the specific financial figures or comparisons from the release, so the quality of the results cannot be assessed from this source.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Raymond James Financial"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "564632c5-7e52-479a-b919-c941f88fee34",
+              "headline": "Raymond James Financial Reports Fourth Quarter and Fiscal 2026 Results",
+              "source_url": "https://www.manilatimes.net/2026/10/29/tmt-newswire/globenewswire/raymond-james-financial-reports-fourth-quarter-and-fiscal-2026-results/2456691",
+              "published_at": "2026-10-28T21:08:43.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Raymond James Financial",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Raymond James Financial reported its fourth quarter and fiscal 2026 results, per a company press release dated October 28, 2026 (St. Petersburg, Fla., distributed via GlobeNewswire). The provided article text is truncated after the dateline and does not include the specific financial figures or comparisons from the release, so the quality of the results cannot be assessed from this source.",
+              "sentiment": 0.0,
+              "materiality": 6.0,
+              "novelty": 2.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "VZ",
+      "priority_score": 6.75,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Verizon Communications Inc. (VZ) held its Q3 2026 earnings call, reporting total revenue of $34.3 billion, up 1.5% year-over-year, with mobility and broadband service revenue up 2.9% year-over-year; the call highlighted record margins and surging subscriber growth. On the same call, Verizon raised its outlook, with Q4 mobility and broadband service revenue growth expected to accelerate. Both records derive from the same earnings-call coverage: no specific updated guidance figures were provided, and no expectations or surprise comparisons were given for the reported results.",
+          "event_types": [
+            "earnings",
+            "guidance"
+          ],
+          "primary_companies": [
+            "Verizon Communications Inc."
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "3e63b867-f7a0-4763-b391-6c33e04dfb58",
+              "headline": "Verizon Communications Inc (VZ) Q3 2026 Earnings Call Highlights: Record Margins, Surging Subscriber Growth and a Raised Outlook",
+              "source_url": "https://www.gurufocus.com/news/9147869/verizon-communications-inc-vz-q3-2026-earnings-call-highlights-record-margins-surging-subscriber-growth-and-a-raised-outlook",
+              "published_at": "2026-10-28T17:00:48.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Verizon Communications Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Verizon reported Q3 2026 results highlighted on its earnings call: total revenue of $34.3 billion, up 1.5% year-over-year, with mobility and broadband service revenue up 2.9% year-over-year; the article's title also cites record margins and surging subscriber growth. The article provides no expectations or surprise comparisons for these results.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 2.0,
+              "confidence": 0.9,
+              "investigate": true
+            },
+            {
+              "source_uuid": "3e63b867-f7a0-4763-b391-6c33e04dfb58",
+              "headline": "Verizon Communications Inc (VZ) Q3 2026 Earnings Call Highlights: Record Margins, Surging Subscriber Growth and a Raised Outlook",
+              "source_url": "https://www.gurufocus.com/news/9147869/verizon-communications-inc-vz-q3-2026-earnings-call-highlights-record-margins-surging-subscriber-growth-and-a-raised-outlook",
+              "published_at": "2026-10-28T17:00:48.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Verizon Communications Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "Per the article's title and earnings-call highlights, Verizon raised its outlook, with Q4 mobility and broadband service revenue growth expected to accelerate (description truncated); no specific updated guidance figures are provided.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 4.0,
+              "confidence": 0.8,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "CHRW",
+      "priority_score": 6.62,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, C.H. Robinson Worldwide (CHRW) announced its third-quarter 2026 results, and its shares fell more than 10% in morning trading on the same day. The sources conflict in their characterization of the report: one article describes the results as strong, highlighting significant revenue growth, dividend sustainability, and strategic growth, while another describes the quarter as a beat yet reports the stock declined over 10% amid concerns about the company's dividend and guidance. No specific financial figures were provided in any of the records, and the basis for the beat comparison is not stated, so the actual results remain uncertain. All three records refer to the same underlying event: C.H. Robinson's Q3 2026 earnings release and the immediate market reaction to it.",
+          "event_types": [
+            "earnings",
+            "market_move"
+          ],
+          "primary_companies": [
+            "C.H. Robinson Worldwide Inc"
+          ],
+          "source_count": 2,
+          "sources": [
+            {
+              "source_uuid": "96c376b2-7670-4339-aac5-92b6f06c85c3",
+              "headline": "C.H. Robinson (CHRW) Reports Strong Q3 2026 Results with Focus on Dividend Sustainability and Strategic Growth",
+              "source_url": "https://www.gurufocus.com/news/9148032/ch-robinson-chrw-reports-strong-q3-2026-results-with-focus-on-dividend-sustainability-and-strategic-growth",
+              "published_at": "2026-10-28T18:01:11.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "C.H. Robinson Worldwide Inc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, C.H. Robinson Worldwide announced third-quarter 2026 results that the article characterizes as robust and highlighted by significant revenue growth, with the company's discussion focusing on dividend sustainability and strategic growth. The article description is truncated and does not provide specific financial figures.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 2.0,
+              "confidence": 0.7,
+              "investigate": true
+            },
+            {
+              "source_uuid": "65815e2c-33a0-4968-a16b-5bc213ed3f9f",
+              "headline": "C.H. Robinson Worldwide (CHRW) Shares Fall Over 10% Despite Q3 Beat Amid Dividend and Guidance Concerns",
+              "source_url": "https://www.gurufocus.com/news/9147827/ch-robinson-worldwide-chrw-shares-fall-over-10-despite-q3-beat-amid-dividend-and-guidance-concerns",
+              "published_at": "2026-10-28T17:00:14.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "C.H. Robinson Worldwide Inc",
+              "ticker_relationship": "direct",
+              "event_type": "market_move",
+              "summary": "On October 28, 2026, shares of C.H. Robinson Worldwide declined more than 10% in morning trading despite the company reporting third-quarter results that the article characterizes as a beat, amid concerns about the company's dividend and guidance.",
+              "sentiment": -1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 0.85,
+              "investigate": true
+            },
+            {
+              "source_uuid": "65815e2c-33a0-4968-a16b-5bc213ed3f9f",
+              "headline": "C.H. Robinson Worldwide (CHRW) Shares Fall Over 10% Despite Q3 Beat Amid Dividend and Guidance Concerns",
+              "source_url": "https://www.gurufocus.com/news/9147827/ch-robinson-worldwide-chrw-shares-fall-over-10-despite-q3-beat-amid-dividend-and-guidance-concerns",
+              "published_at": "2026-10-28T17:00:14.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "C.H. Robinson Worldwide Inc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, C.H. Robinson Worldwide reported third-quarter 2026 results that the article's title characterizes as a beat. The truncated description provides no specific financial figures and does not state the basis for the beat comparison; the report coincided with a more than 10% share decline amid dividend and guidance concerns.",
+              "sentiment": 0.0,
+              "materiality": 5.0,
+              "novelty": 2.0,
+              "confidence": 0.6,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [
+        {
+          "source_uuid": "65815e2c-33a0-4968-a16b-5bc213ed3f9f",
+          "ticker": "CHRW",
+          "primary_company": "C.H. Robinson Worldwide Inc",
+          "ticker_relationship": "direct",
+          "event_type": "earnings",
+          "summary": "On October 28, 2026, C.H. Robinson Worldwide reported third-quarter 2026 results that the article's title characterizes as a beat. The truncated description provides no specific financial figures and does not state the basis for the beat comparison; the report coincided with a more than 10% share decline amid dividend and guidance concerns.",
+          "sentiment": 0.0,
+          "materiality": 5.0,
+          "novelty": 2.0,
+          "confidence": 0.6,
+          "investigate": false,
+          "headline": "C.H. Robinson Worldwide (CHRW) Shares Fall Over 10% Despite Q3 Beat Amid Dividend and Guidance Concerns",
+          "source_url": "https://www.gurufocus.com/news/9147827/ch-robinson-worldwide-chrw-shares-fall-over-10-despite-q3-beat-amid-dividend-and-guidance-concerns",
+          "published_at": "2026-10-28T17:00:14.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "OKE",
+      "priority_score": 6.62,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, ONEOK (OKE) announced strong third-quarter 2026 results, highlighted by record Permian Basin volumes and system-wide growth, and raised its full-year 2026 guidance, with pipeline expansion cited as context. Both records reference the same underlying article (identical source UUID, headline, and publication timestamp), with one tagged as an earnings event and the other as a guidance event; together they describe a single announcement covering the Q3 2026 results and the accompanying guidance increase. The provided descriptions are truncated, so specific quarterly financial figures and the updated guidance figures are not available.",
+          "event_types": [
+            "earnings",
+            "guidance"
+          ],
+          "primary_companies": [
+            "ONEOK Inc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "433a8f5c-6a53-43ac-9317-32d91458820c",
+              "headline": "ONEOK (OKE) Raises 2026 Guidance Amid Strong Q3 Results and Pipeline Expansion",
+              "source_url": "https://www.gurufocus.com/news/9148269/oneok-oke-raises-2026-guidance-amid-strong-q3-results-and-pipeline-expansion",
+              "published_at": "2026-10-28T19:56:40.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "ONEOK Inc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, ONEOK announced robust third-quarter 2026 results highlighted by record Permian Basin volumes and system-wide growth. The provided description is truncated and does not include specific financial figures for the quarter.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 0.8,
+              "investigate": true
+            },
+            {
+              "source_uuid": "433a8f5c-6a53-43ac-9317-32d91458820c",
+              "headline": "ONEOK (OKE) Raises 2026 Guidance Amid Strong Q3 Results and Pipeline Expansion",
+              "source_url": "https://www.gurufocus.com/news/9148269/oneok-oke-raises-2026-guidance-amid-strong-q3-results-and-pipeline-expansion",
+              "published_at": "2026-10-28T19:56:40.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "ONEOK Inc",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "ONEOK raised its full-year 2026 guidance following strong third-quarter results; the article title also cites pipeline expansion as context. The provided description is truncated and the specific updated guidance figures are not shown.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 4.0,
+              "confidence": 0.85,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "UHS",
+      "priority_score": 6.62,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Universal Health Services released its third-quarter 2026 results, reporting a decline in adjusted EPS. The description is truncated mid-sentence regarding adjusted EBITDA figures; additional financial details are not available in the source.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Universal Health Services Inc."
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "69709cdc-f37d-45ce-884e-310941f3953c",
+              "headline": "Universal Health Services (UHS) Reports Q3 2026 Earnings Amid Modest Valuation Discount",
+              "source_url": "https://www.gurufocus.com/news/9148060/universal-health-services-uhs-reports-q3-2026-earnings-amid-modest-valuation-discount",
+              "published_at": "2026-10-28T18:06:20.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Universal Health Services Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, Universal Health Services released its third-quarter 2026 results, reporting a decline in adjusted EPS. The description is truncated mid-sentence regarding adjusted EBITDA figures; additional financial details are not available in the source.",
+              "sentiment": -1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 0.85,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "EBAY",
+      "priority_score": 6.5,
+      "event_count": 3,
+      "unique_event_count": 3,
+      "event_groups": [
+        {
+          "summary": "eBay reported Q3 2026 results in which GMV and revenue beat expectations, with its Live and Depop offerings accelerating, though take-rate pressure remains. The magnitude of the beat is not disclosed.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "eBay"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "9e5967a9-e3eb-4e16-a87d-a44302aad250",
+              "headline": "EBay forecasts Q4 GMV $23.7B-$24.1B while cutting workforce by ~9% (NASDAQ:EBAY)",
+              "source_url": "https://seekingalpha.com/news/4659870-ebay-forecasts-q4-gmv-23_7b-24_1b-while-cutting-workforce-by-9-percent",
+              "published_at": "2026-10-29T05:42:27.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "eBay",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "eBay reported Q3 2026 results in which GMV and revenue beat expectations, with its Live and Depop offerings accelerating, though take-rate pressure remains, per the article. The magnitude of the beat is not disclosed.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 4.0,
+              "confidence": 0.75,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        },
+        {
+          "summary": "eBay issued guidance forecasting Q4 GMV of $23.7B-$24.1B. No comparison to prior guidance or consensus expectations is provided.",
+          "event_types": [
+            "guidance"
+          ],
+          "primary_companies": [
+            "eBay"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "9e5967a9-e3eb-4e16-a87d-a44302aad250",
+              "headline": "EBay forecasts Q4 GMV $23.7B-$24.1B while cutting workforce by ~9% (NASDAQ:EBAY)",
+              "source_url": "https://seekingalpha.com/news/4659870-ebay-forecasts-q4-gmv-23_7b-24_1b-while-cutting-workforce-by-9-percent",
+              "published_at": "2026-10-29T05:42:27.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "eBay",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "eBay issued guidance forecasting Q4 GMV of $23.7B–$24.1B, per the article. No comparison to prior guidance or consensus expectations is provided.",
+              "sentiment": 0.0,
+              "materiality": 5.0,
+              "novelty": 4.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        },
+        {
+          "summary": "eBay announced a workforce reduction of approximately 9%, reported alongside its Q3 2026 earnings. The financial impact and timing of the reduction are not disclosed.",
+          "event_types": [
+            "other"
+          ],
+          "primary_companies": [
+            "eBay"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "9e5967a9-e3eb-4e16-a87d-a44302aad250",
+              "headline": "EBay forecasts Q4 GMV $23.7B-$24.1B while cutting workforce by ~9% (NASDAQ:EBAY)",
+              "source_url": "https://seekingalpha.com/news/4659870-ebay-forecasts-q4-gmv-23_7b-24_1b-while-cutting-workforce-by-9-percent",
+              "published_at": "2026-10-29T05:42:27.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "eBay",
+              "ticker_relationship": "direct",
+              "event_type": "other",
+              "summary": "eBay is cutting its workforce by approximately 9%, per the article, reported alongside its Q3 2026 earnings. The financial impact and timing of the reduction are not disclosed.",
+              "sentiment": 0.0,
+              "materiality": 6.0,
+              "novelty": 6.0,
+              "confidence": 0.8,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "MAS",
+      "priority_score": 6.25,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "While reporting third-quarter financial results, Masco Corporation raised its earnings and adjusted earnings guidance for full-year 2026, citing the strength of its operational performance year-to-date. Shares rose 4.9% following the news. The headline indicates this is a repeat boost of the FY26 outlook; specific guidance figures are not provided in the excerpt.",
+          "event_types": [
+            "guidance"
+          ],
+          "primary_companies": [
+            "Masco Corporation"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "1cb153b6-b3f0-4f18-b36b-ba9d8b995cb8",
+              "headline": "Masco Again Boosts FY26 Outlook; Shares Up 4.9% - Update",
+              "source_url": "https://www.rttnews.com/story.aspx?Id=3704332",
+              "published_at": "2026-10-28T11:38:41.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Masco Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "While reporting third-quarter financial results, Masco Corporation raised its earnings and adjusted earnings guidance for full-year 2026, citing the strength of its operational performance year-to-date. Shares rose 4.9% following the news. The headline indicates this is a repeat boost of the FY26 outlook; specific guidance figures are not provided in the excerpt.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 1.0,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "ORCL",
+      "priority_score": 6.25,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Oracle reaffirmed its fiscal 2027 guidance during its financial analyst day, and Oracle shares jumped more than 9% following the confirmation. The specific guidance figures are not provided in the article.",
+          "event_types": [
+            "guidance"
+          ],
+          "primary_companies": [
+            "Oracle Corp"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "17c29311-ebc1-411b-b855-ec6b741eb4f0",
+              "headline": "Oracle (ORCL) Shares Surge Over 9% Following Fiscal 2027 Outlook Confirmation",
+              "source_url": "https://www.gurufocus.com/news/9148266/oracle-orcl-shares-surge-over-9-following-fiscal-2027-outlook-confirmation",
+              "published_at": "2026-10-28T19:55:54.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Oracle Corp",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "On October 28, 2026, Oracle reaffirmed its fiscal 2027 guidance during its financial analyst day, and Oracle shares jumped more than 9% following the confirmation. The specific guidance figures are not provided in the article.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 1.0,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "AAPL",
+      "priority_score": 6.12,
+      "event_count": 3,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Apple unveiled a redesigned MacBook Pro featuring a touchscreen, marking its entry into touchscreen laptops and a notable shift in product strategy after roughly two decades of rejecting the concept. Multiple reports describe the same product launch event, with no material contradictions among them.",
+          "event_types": [
+            "product_launch"
+          ],
+          "primary_companies": [
+            "Apple Inc."
+          ],
+          "source_count": 3,
+          "sources": [
+            {
+              "source_uuid": "260b9517-455d-4b94-aaa2-4f73c011eb91",
+              "headline": "Apple Launches Touchscreen MacBook Pro with Cutting-Edge Features (AAPL)",
+              "source_url": "https://www.gurufocus.com/news/9148264/apple-launches-touchscreen-macbook-pro-with-cuttingedge-features-aapl",
+              "published_at": "2026-10-28T19:55:24.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Apple Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "product_launch",
+              "summary": "On October 28, 2026, Apple officially entered the touchscreen laptop market with the unveiling of its latest MacBook Pro model featuring a touchscreen. The description is truncated before detailing further features.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 5.0,
+              "confidence": 0.85,
+              "investigate": true
+            },
+            {
+              "source_uuid": "ce749c7e-022b-430f-a258-07cd7dae8136",
+              "headline": "Apple Unveils Touchscreen MacBook Pro, Stock Ticker AAPL",
+              "source_url": "https://www.gurufocus.com/news/9148228/apple-unveils-touchscreen-macbook-pro-stock-ticker-aapl",
+              "published_at": "2026-10-28T19:10:49.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Apple Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "product_launch",
+              "summary": "On October 28, 2026, Apple launched a redesigned MacBook Pro with a touchscreen, which the article describes as a significant shift in its product strategy as the company embraces touchscreen technology. The description is truncated.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 6.0,
+              "confidence": 0.85,
+              "investigate": true
+            },
+            {
+              "source_uuid": "2bb8009f-4406-42a7-be0a-bcce5e521782",
+              "headline": "Apple Unveils Touch-Screen MacBook Pro, Reversing Long-Held Jobs Stance",
+              "source_url": "https://www.livemint.com/companies/apple-unveils-touch-screen-macbook-pro-reversing-long-held-jobs-stance-11793212673842.html",
+              "published_at": "2026-10-28T18:37:53.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Apple Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "product_launch",
+              "summary": "Apple unveiled an overhauled MacBook Pro that includes a touch screen, after two decades of spurning the idea, giving its flagship laptop a feature the article says has become a must-have in the personal computer industry.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 7.0,
+              "confidence": 0.95,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "ORLY",
+      "priority_score": 5.88,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "O'Reilly Automotive announced updated full-year 2026 guidance, stating it now expects earnings per share in a range of $3.25 to $3.35 and total revenue in a range of $19 (the revenue range is truncated in the provided description, so the full figure and units are not shown). The article does not state whether the update represents an increase or decrease from prior guidance.",
+          "event_types": [
+            "guidance"
+          ],
+          "primary_companies": [
+            "O'Reilly Automotive, Inc."
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "b70b55df-1c31-42ac-85d7-f411d83bdb0f",
+              "headline": "O'Reilly Announces Updated 2026 Guidance",
+              "source_url": "https://www.rttnews.com/story.aspx?Id=3704842",
+              "published_at": "2026-10-29T06:19:59.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "O'Reilly Automotive, Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "O'Reilly Automotive announced updated full-year 2026 guidance, stating it now expects earnings per share in a range of $3.25 to $3.35 and total revenue in a range of $19 (the revenue range is truncated in the provided description, so the full figure and units are not shown). The article does not state whether the update represents an increase or decrease from prior guidance.",
+              "sentiment": 0.0,
+              "materiality": 5.0,
+              "novelty": 4.0,
+              "confidence": 0.85,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "OTIS",
+      "priority_score": 5.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Otis Worldwide announced a strong third-quarter performance highlighted by organic sales growth and margin expansion; the article also frames the results as boosting the stock's dividend appeal. The provided description is truncated and does not include specific financial figures.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Otis Worldwide Corporation"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "c0a76369-6b54-4d96-abf2-64d0874da779",
+              "headline": "Otis Worldwide (OTIS) Reports Solid Q3 Growth, Boosting Dividend Appeal",
+              "source_url": "https://www.gurufocus.com/news/9148043/otis-worldwide-otis-reports-solid-q3-growth-boosting-dividend-appeal",
+              "published_at": "2026-10-28T18:02:51.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Otis Worldwide Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, Otis Worldwide announced a strong third-quarter performance highlighted by organic sales growth and margin expansion; the article also frames the results as boosting the stock's dividend appeal. The provided description is truncated and does not include specific financial figures.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 0.8,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "STX",
+      "priority_score": 5.75,
+      "event_count": 2,
+      "unique_event_count": 2,
+      "event_groups": [
+        {
+          "summary": "Seagate Technology Holdings plc reported higher first-quarter earnings, with net income rising. The specific net income figure is truncated in the available source text.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Seagate Technology Holdings plc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "d60392b5-c697-489a-ab10-44f5b7ffc359",
+              "headline": "Seagate Technology Stock Falls 4%",
+              "source_url": "https://www.rttnews.com/story.aspx?Id=3704507",
+              "published_at": "2026-10-28T14:30:50.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Seagate Technology Holdings plc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Seagate Technology Holdings plc reported higher first-quarter earnings, with net income rising; the specific net income figure is truncated in the available source text.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 0.8,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        },
+        {
+          "summary": "Seagate Technology (STX) shares fell 4.10% on Wednesday, losing $27.40 to $640.45, despite the company reporting higher first-quarter earnings.",
+          "event_types": [
+            "market_move"
+          ],
+          "primary_companies": [
+            "Seagate Technology Holdings plc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "d60392b5-c697-489a-ab10-44f5b7ffc359",
+              "headline": "Seagate Technology Stock Falls 4%",
+              "source_url": "https://www.rttnews.com/story.aspx?Id=3704507",
+              "published_at": "2026-10-28T14:30:50.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Seagate Technology Holdings plc",
+              "ticker_relationship": "direct",
+              "event_type": "market_move",
+              "summary": "Seagate Technology (STX) shares fell 4.10% on Wednesday, losing $27.40 to $640.45, despite the company reporting higher first-quarter earnings.",
+              "sentiment": -1.0,
+              "materiality": 4.0,
+              "novelty": 4.0,
+              "confidence": 0.95,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "UPS",
+      "priority_score": 5.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "United Parcel Service estimates that the surge in artificial intelligence data centers represents a $15 billion logistics opportunity. The timeframe, underlying assumptions, and the portion of the opportunity UPS expects to capture were not specified in the available information.",
+          "event_types": [
+            "other"
+          ],
+          "primary_companies": [
+            "United Parcel Service Inc."
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "04eba7f5-a425-4439-94e8-7363bec39eee",
+              "headline": "UPS Eyes $15 Billion AI Data Center Logistics Opportunity",
+              "source_url": "https://www.gurufocus.com/news/9147915/ups-eyes-15-billion-ai-data-center-logistics-opportunity",
+              "published_at": "2026-10-28T20:15:10.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "United Parcel Service Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "other",
+              "summary": "United Parcel Service estimates that the surge in artificial intelligence data centers represents a $15 billion logistics opportunity. The description is truncated; the article does not specify the timeframe, underlying assumptions, or the portion of the opportunity UPS expects to capture.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 5.0,
+              "confidence": 0.8,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [
+        {
+          "summary": "On October 28, 2026, Truist Securities maintained a 'Buy' rating on United Parcel Service and raised its price target to $120. The prior price target was not specified.",
+          "event_types": [
+            "analyst_rating"
+          ],
+          "primary_companies": [
+            "United Parcel Service Inc."
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "9e7ce9d8-46fd-4cc5-9547-95f2b4124844",
+              "headline": "UPS Maintained by Truist Securities -- Price Target Raised to $120",
+              "source_url": "https://www.gurufocus.com/news/9148106/ups-maintained-by-truist-securities-price-target-raised-to-120",
+              "published_at": "2026-10-28T18:40:55.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "United Parcel Service Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "analyst_rating",
+              "summary": "On October 28, 2026, Truist Securities maintained a 'Buy' rating on United Parcel Service and raised its price target to $120. The description is truncated; the prior price target is not specified.",
+              "sentiment": 1.0,
+              "materiality": 2.0,
+              "novelty": 2.0,
+              "confidence": 0.9,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": false
+        },
+        {
+          "summary": "On October 28, 2026, TD Cowen maintained a Hold rating on United Parcel Service and raised its price target to $116. The prior price target was not specified.",
+          "event_types": [
+            "analyst_rating"
+          ],
+          "primary_companies": [
+            "United Parcel Service"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "88cd0ac0-504a-4465-ab89-52a2c3f7184b",
+              "headline": "UPS Maintained by TD Cowen -- Price Target Raised to $116",
+              "source_url": "https://www.gurufocus.com/news/9148104/ups-maintained-by-td-cowen-price-target-raised-to-116",
+              "published_at": "2026-10-28T18:40:14.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "United Parcel Service",
+              "ticker_relationship": "direct",
+              "event_type": "analyst_rating",
+              "summary": "On October 28, 2026, TD Cowen maintained a Hold rating on United Parcel Service and raised its price target to $116. The description is truncated; the prior price target is not specified.",
+              "sentiment": 0.0,
+              "materiality": 2.0,
+              "novelty": 2.0,
+              "confidence": 0.9,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_events": [
+        {
+          "source_uuid": "9e7ce9d8-46fd-4cc5-9547-95f2b4124844",
+          "ticker": "UPS",
+          "primary_company": "United Parcel Service Inc.",
+          "ticker_relationship": "direct",
+          "event_type": "analyst_rating",
+          "summary": "On October 28, 2026, Truist Securities maintained a 'Buy' rating on United Parcel Service and raised its price target to $120. The description is truncated; the prior price target is not specified.",
+          "sentiment": 1.0,
+          "materiality": 2.0,
+          "novelty": 2.0,
+          "confidence": 0.9,
+          "investigate": false,
+          "headline": "UPS Maintained by Truist Securities -- Price Target Raised to $120",
+          "source_url": "https://www.gurufocus.com/news/9148106/ups-maintained-by-truist-securities-price-target-raised-to-120",
+          "published_at": "2026-10-28T18:40:55.000000Z",
+          "qualifies_for_investigation": false
+        },
+        {
+          "source_uuid": "88cd0ac0-504a-4465-ab89-52a2c3f7184b",
+          "ticker": "UPS",
+          "primary_company": "United Parcel Service",
+          "ticker_relationship": "direct",
+          "event_type": "analyst_rating",
+          "summary": "On October 28, 2026, TD Cowen maintained a Hold rating on United Parcel Service and raised its price target to $116. The description is truncated; the prior price target is not specified.",
+          "sentiment": 0.0,
+          "materiality": 2.0,
+          "novelty": 2.0,
+          "confidence": 0.9,
+          "investigate": false,
+          "headline": "UPS Maintained by TD Cowen -- Price Target Raised to $116",
+          "source_url": "https://www.gurufocus.com/news/9148104/ups-maintained-by-td-cowen-price-target-raised-to-116",
+          "published_at": "2026-10-28T18:40:14.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 2,
+      "context_unique_event_count": 2
+    },
+    {
+      "ticker": "BSX",
+      "priority_score": 5.5,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Both records derive from the same article (identical source, headline, and publication time) reporting that on October 28, 2026, JPMorgan downgraded Boston Scientific (NYSE: BSX) from Overweight to Neutral and cut its price target from $56 to $46, citing pipeline delays and lower guidance as context. One record is tagged as a guidance event based on the headline's phrase 'lower guidance,' but the article does not specify which guidance was lowered, its magnitude, or when it was issued, and does not explicitly confirm that the guidance reduction was made by the company itself; beyond the headline mention, the guidance reduction is unverified, so the confirmed event is the JPMorgan downgrade.",
+          "event_types": [
+            "analyst_rating",
+            "guidance"
+          ],
+          "primary_companies": [
+            "Boston Scientific Corporation"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "7f69e170-31eb-4150-ad9a-da91514e5046",
+              "headline": "JPMorgan Downgrades Boston Scientific (BSX) Amid Pipeline Delays and Lower Guidance",
+              "source_url": "https://www.gurufocus.com/news/9148335/jpmorgan-downgrades-boston-scientific-bsx-amid-pipeline-delays-and-lower-guidance",
+              "published_at": "2026-10-28T20:26:56.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Boston Scientific Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "analyst_rating",
+              "summary": "On October 28, 2026, JPMorgan downgraded Boston Scientific (NYSE: BSX) from Overweight to Neutral and cut its price target from $56 to $46. The article title cites pipeline delays and lower guidance as the context for the downgrade.",
+              "sentiment": -1.0,
+              "materiality": 4.0,
+              "novelty": 4.0,
+              "confidence": 1.0,
+              "investigate": true
+            },
+            {
+              "source_uuid": "7f69e170-31eb-4150-ad9a-da91514e5046",
+              "headline": "JPMorgan Downgrades Boston Scientific (BSX) Amid Pipeline Delays and Lower Guidance",
+              "source_url": "https://www.gurufocus.com/news/9148335/jpmorgan-downgrades-boston-scientific-bsx-amid-pipeline-delays-and-lower-guidance",
+              "published_at": "2026-10-28T20:26:56.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "Boston Scientific Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "The article title states that JPMorgan's October 28, 2026 downgrade of Boston Scientific came 'amid pipeline delays and lower guidance,' indicating the company's financial guidance was reduced. The provided description is truncated and does not specify which guidance was lowered, its magnitude, or when it was issued, and does not explicitly confirm the reduction was made by the company.",
+              "sentiment": -1.0,
+              "materiality": 5.0,
+              "novelty": 5.0,
+              "confidence": 0.6,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [
+        {
+          "source_uuid": "7f69e170-31eb-4150-ad9a-da91514e5046",
+          "ticker": "BSX",
+          "primary_company": "Boston Scientific Corporation",
+          "ticker_relationship": "direct",
+          "event_type": "guidance",
+          "summary": "The article title states that JPMorgan's October 28, 2026 downgrade of Boston Scientific came 'amid pipeline delays and lower guidance,' indicating the company's financial guidance was reduced. The provided description is truncated and does not specify which guidance was lowered, its magnitude, or when it was issued, and does not explicitly confirm the reduction was made by the company.",
+          "sentiment": -1.0,
+          "materiality": 5.0,
+          "novelty": 5.0,
+          "confidence": 0.6,
+          "investigate": false,
+          "headline": "JPMorgan Downgrades Boston Scientific (BSX) Amid Pipeline Delays and Lower Guidance",
+          "source_url": "https://www.gurufocus.com/news/9148335/jpmorgan-downgrades-boston-scientific-bsx-amid-pipeline-delays-and-lower-guidance",
+          "published_at": "2026-10-28T20:26:56.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "VRT",
+      "priority_score": 5.5,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Vertiv Holdings Co (NYSE: VRT) stock jumped 13.33% during intraday trading, on a day when the S&P 500 rose a modest 0.2%. The article frames the move as occurring amid a broader market rally and Federal Reserve policy watching and identifies no company-specific catalyst.",
+          "event_types": [
+            "market_move"
+          ],
+          "primary_companies": [
+            "Vertiv Holdings Co"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "05692f00-b4e8-4bd3-bb5d-0ff65442df2d",
+              "headline": "Vertiv Holdings (VRT) Surges 13.33% Amid Market Rally and Fed Watch",
+              "source_url": "https://www.gurufocus.com/news/9147976/vertiv-holdings-vrt-surges-1333-amid-market-rally-and-fed-watch",
+              "published_at": "2026-10-28T17:59:01.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Vertiv Holdings Co",
+              "ticker_relationship": "direct",
+              "event_type": "market_move",
+              "summary": "On October 28, 2026, Vertiv Holdings Co (NYSE: VRT) stock jumped 13.33% during intraday trading, on a day when the S&P 500 rose a modest 0.2%. The article frames the move as occurring amid a broader market rally and Federal Reserve policy watching and identifies no company-specific catalyst.",
+              "sentiment": 1.0,
+              "materiality": 4.0,
+              "novelty": 6.0,
+              "confidence": 1.0,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "SMCI",
+      "priority_score": 5.38,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Per a Reuters report cited in an article published 2026-10-28, Argentum AI — a Super Micro-backed company — is in talks for $5 billion of chip financing. The financing is at the talks stage only and is not a confirmed or completed transaction. On the report, Super Micro (SMCI) shares rose 7.3% to $35.09, and the article's headline also references a bull case of $45 for the stock. The two records describe the same underlying news development from different attributions — the financing talks (primary company: Argentum AI, indirect to SMCI) and the resulting market reaction (primary company: Super Micro, direct) — and both derive from the same source article.",
+          "event_types": [
+            "market_move",
+            "financing"
+          ],
+          "primary_companies": [
+            "Super Micro",
+            "Argentum AI"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "5d61fc77-a2e8-4ae4-9772-aa68e73ab82f",
+              "headline": "Super Micro SMCI Stock: $35.09 After 7% Jump, Bull $45",
+              "source_url": "https://financefeeds.com/super-micro-smci-stock-35-09-after-7-percent-jump-argentum-5-billion-financing-before-3-november-results-bull-45-bear-30/",
+              "published_at": "2026-10-28T13:15:35.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Super Micro",
+              "ticker_relationship": "direct",
+              "event_type": "market_move",
+              "summary": "Super Micro (SMCI) shares rose 7.3% to $35.09 after a Reuters report that Super Micro-backed Argentum AI is in talks for $5 billion of chip financing.",
+              "sentiment": 1.0,
+              "materiality": 4.0,
+              "novelty": 5.0,
+              "confidence": 0.95,
+              "investigate": true
+            },
+            {
+              "source_uuid": "5d61fc77-a2e8-4ae4-9772-aa68e73ab82f",
+              "headline": "Super Micro SMCI Stock: $35.09 After 7% Jump, Bull $45",
+              "source_url": "https://financefeeds.com/super-micro-smci-stock-35-09-after-7-percent-jump-argentum-5-billion-financing-before-3-november-results-bull-45-bear-30/",
+              "published_at": "2026-10-28T13:15:35.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "Argentum AI",
+              "ticker_relationship": "indirect",
+              "event_type": "financing",
+              "summary": "The article reports, citing Reuters, that Argentum AI, described as Super Micro-backed, is in talks for $5 billion of chip financing; the financing is presented as talks, not a confirmed transaction.",
+              "sentiment": 1.0,
+              "materiality": 4.0,
+              "novelty": 6.0,
+              "confidence": 0.75,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [
+        {
+          "source_uuid": "5d61fc77-a2e8-4ae4-9772-aa68e73ab82f",
+          "ticker": "SMCI",
+          "primary_company": "Argentum AI",
+          "ticker_relationship": "indirect",
+          "event_type": "financing",
+          "summary": "The article reports, citing Reuters, that Argentum AI, described as Super Micro-backed, is in talks for $5 billion of chip financing; the financing is presented as talks, not a confirmed transaction.",
+          "sentiment": 1.0,
+          "materiality": 4.0,
+          "novelty": 6.0,
+          "confidence": 0.75,
+          "investigate": false,
+          "headline": "Super Micro SMCI Stock: $35.09 After 7% Jump, Bull $45",
+          "source_url": "https://financefeeds.com/super-micro-smci-stock-35-09-after-7-percent-jump-argentum-5-billion-financing-before-3-november-results-bull-45-bear-30/",
+          "published_at": "2026-10-28T13:15:35.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "DDOG",
+      "priority_score": 5.25,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Both records come from the same article (identical source, headline, and publication time) and describe the same underlying occurrence: Upwind, an Israeli cybersecurity company, rejected a $4 billion acquisition offer from DataDog and instead raised $400 million at a $3.8 billion valuation, with Upwind expressing confidence that its value will rise further. The proposed acquisition by DataDog was rejected and therefore did not proceed; the article does not state when the offer was made or whether DataDog intends to pursue Upwind further. The two records differ only in attribution/framing — record 0 treats this as a rejected merger/acquisition involving DataDog (direct), while record 1 treats it as an Upwind financing round (indirect link to DDOG) with the rejected offer as context — but they report the same transaction and funding decision, not conflicting facts.",
+          "event_types": [
+            "merger_acquisition",
+            "financing"
+          ],
+          "primary_companies": [
+            "DataDog",
+            "Upwind"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "c1f29e03-2395-42ee-8ef3-8fb05861c56b",
+              "headline": "Upwind raises $400m at $3.8b valuation",
+              "source_url": "https://en.globes.co.il/en/article-upwind-raises-400m-at-38b-valuation-1001561122",
+              "published_at": "2026-10-28T12:27:27.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "DataDog",
+              "ticker_relationship": "direct",
+              "event_type": "merger_acquisition",
+              "summary": "Upwind rejected a $4 billion acquisition offer from DataDog, opting instead to raise $400 million at a $3.8 billion valuation. The proposed acquisition by DataDog was rejected and therefore did not proceed. The article does not state when the offer was made or whether DataDog intends to pursue the target further.",
+              "sentiment": 0.0,
+              "materiality": 4.0,
+              "novelty": 6.0,
+              "confidence": 0.9,
+              "investigate": true
+            },
+            {
+              "source_uuid": "c1f29e03-2395-42ee-8ef3-8fb05861c56b",
+              "headline": "Upwind raises $400m at $3.8b valuation",
+              "source_url": "https://en.globes.co.il/en/article-upwind-raises-400m-at-38b-valuation-1001561122",
+              "published_at": "2026-10-28T12:27:27.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "Upwind",
+              "ticker_relationship": "indirect",
+              "event_type": "financing",
+              "summary": "Upwind, an Israeli cybersecurity company, raised $400 million at a $3.8 billion valuation after rejecting a $4 billion acquisition offer from DataDog, expressing confidence that its value will rise further. The article links Upwind to DataDog only through the rejected acquisition offer.",
+              "sentiment": 0.0,
+              "materiality": 2.0,
+              "novelty": 6.0,
+              "confidence": 0.9,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [
+        {
+          "source_uuid": "c1f29e03-2395-42ee-8ef3-8fb05861c56b",
+          "ticker": "DDOG",
+          "primary_company": "Upwind",
+          "ticker_relationship": "indirect",
+          "event_type": "financing",
+          "summary": "Upwind, an Israeli cybersecurity company, raised $400 million at a $3.8 billion valuation after rejecting a $4 billion acquisition offer from DataDog, expressing confidence that its value will rise further. The article links Upwind to DataDog only through the rejected acquisition offer.",
+          "sentiment": 0.0,
+          "materiality": 2.0,
+          "novelty": 6.0,
+          "confidence": 0.9,
+          "investigate": false,
+          "headline": "Upwind raises $400m at $3.8b valuation",
+          "source_url": "https://en.globes.co.il/en/article-upwind-raises-400m-at-38b-valuation-1001561122",
+          "published_at": "2026-10-28T12:27:27.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "AON",
+      "priority_score": 4.88,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Aon plc's Q3 2026 earnings report: results confirmed mid-single-digit organic growth alongside margin compression. The article characterizes the quarter as strong while noting a softer insurance market.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Aon plc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "76d3dab3-8991-4236-a8aa-fc7bc4f6501d",
+              "headline": "Aon: Strong Q3 '26, But Softer Insurance Market Means Lower Price Target (NYSE:AON)",
+              "source_url": "https://seekingalpha.com/article/4958706-aon-strong-q3-26-but-softer-insurance-market-means-lower-price-target",
+              "published_at": "2026-10-28T17:14:59.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Aon plc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Aon plc's recently reported Q3 2026 results confirmed mid-single-digit organic growth and margin compression, per the article, which characterizes the quarter as strong while noting a softer insurance market.",
+              "sentiment": 0.0,
+              "materiality": 4.0,
+              "novelty": 3.0,
+              "confidence": 0.75,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [
+        {
+          "summary": "A Seeking Alpha analysis assigns Aon plc (NYSE: AON) a Hold rating with a $300 fair value that the shares currently trade above, having lowered its price target on a softer insurance market despite strong Q3 2026 results. Note: both records derive from the same source article, but the underlying real-world events differ — the company's actual earnings report (event 0) versus the analyst's rating/price-target action (event 1) — so they are not grouped.",
+          "event_types": [
+            "analyst_rating"
+          ],
+          "primary_companies": [
+            "Aon plc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "76d3dab3-8991-4236-a8aa-fc7bc4f6501d",
+              "headline": "Aon: Strong Q3 '26, But Softer Insurance Market Means Lower Price Target (NYSE:AON)",
+              "source_url": "https://seekingalpha.com/article/4958706-aon-strong-q3-26-but-softer-insurance-market-means-lower-price-target",
+              "published_at": "2026-10-28T17:14:59.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "Aon plc",
+              "ticker_relationship": "direct",
+              "event_type": "analyst_rating",
+              "summary": "A Seeking Alpha analysis rates Aon plc (AON) as Hold with a $300 fair value target that the shares currently trade above, having lowered its price target citing a softer insurance market despite strong Q3 2026 results showing mid-single-digit organic growth with margin compression.",
+              "sentiment": 0.0,
+              "materiality": 2.0,
+              "novelty": 2.0,
+              "confidence": 0.85,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_events": [
+        {
+          "source_uuid": "76d3dab3-8991-4236-a8aa-fc7bc4f6501d",
+          "ticker": "AON",
+          "primary_company": "Aon plc",
+          "ticker_relationship": "direct",
+          "event_type": "analyst_rating",
+          "summary": "A Seeking Alpha analysis rates Aon plc (AON) as Hold with a $300 fair value target that the shares currently trade above, having lowered its price target citing a softer insurance market despite strong Q3 2026 results showing mid-single-digit organic growth with margin compression.",
+          "sentiment": 0.0,
+          "materiality": 2.0,
+          "novelty": 2.0,
+          "confidence": 0.85,
+          "investigate": false,
+          "headline": "Aon: Strong Q3 '26, But Softer Insurance Market Means Lower Price Target (NYSE:AON)",
+          "source_url": "https://seekingalpha.com/article/4958706-aon-strong-q3-26-but-softer-insurance-market-means-lower-price-target",
+          "published_at": "2026-10-28T17:14:59.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 1
+    },
+    {
+      "ticker": "ALGN",
+      "priority_score": 4.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Align Technology held its Q3 2026 earnings call. Per the article, record doctor submitters and aligner growth offset softer consumer spending headwinds during the quarter. No specific financial figures are provided in the available description.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Align Technology, Inc."
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "096406f6-512f-4ecb-bab3-ca44666c34d2",
+              "headline": "Align (ALGN) Q3 2026 Earnings Call Transcript",
+              "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/29/align-algn-q3-2026-earnings-call-transcript/",
+              "published_at": "2026-10-29T05:09:21.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Align Technology, Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Align Technology held its Q3 2026 earnings call. Per the article, record doctor submitters and aligner growth offset softer consumer spending headwinds during the quarter. No specific financial figures are provided in the available description.",
+              "sentiment": 0.0,
+              "materiality": 4.0,
+              "novelty": 5.0,
+              "confidence": 0.7,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    }
+  ]
+}

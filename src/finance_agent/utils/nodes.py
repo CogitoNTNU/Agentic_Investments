@@ -62,7 +62,15 @@ def tool_node(state: dict):
 
     result = []
     for tool_call in state["messages"][-1].tool_calls:
-        tool = tools_by_name[tool_call["name"]]
-        observation = tool.invoke(tool_call["args"])
+        tool = tools_by_name.get(tool_call["name"])
+        if tool is None:
+            # The model can copy tool calls it sees in shared supervisor history.
+            observation = (
+                f"Error: unknown tool '{tool_call['name']}'. "
+                f"Available tools: {', '.join(tools_by_name)}. "
+                "If you are done, answer without calling a tool."
+            )
+        else:
+            observation = tool.invoke(tool_call["args"])
         result.append(ToolMessage(content=observation, tool_call_id=tool_call["id"]))
     return {"messages": result}

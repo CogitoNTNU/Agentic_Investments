@@ -170,6 +170,7 @@ cython_debug/
 /out-tsc
 
 # Runtime data
+portfolio.pending.json
 pids
 *.pid
 *.seed
@@ -254,8 +255,12 @@ lerna-debug.log
 .DS_Store
 Thumbs.db
 
-# News gathering agent history
+# Ignore generated economic analysis data
 /data/economic_analysis/
-/data/news_discovery/history/
-/data/news_discovery/latest_candidates.json
-/data/news_discovery/grouped_candidates.json
+
+# Ignore all Stockpicker generated data
+/data/news_discovery/*
+
+# EXCEPT these 
+!/data/news_discovery/latest_candidates.json
+!/data/news_discovery/grouped_candidates.json
