@@ -11,6 +11,7 @@ import sys
 from typing import List, Literal, Optional
 
 from langchain.agents import create_agent
+from langchain.agents.structured_output import ToolStrategy
 #from langchain_core.messages import HumanMessage
 from langchain_core.tools import tool
 # from langgraph.graph import StateGraph, START, END
@@ -82,7 +83,8 @@ agent = create_agent(
     model,
     tools=[get_news_from_tickerer],
     system_prompt=SYSTEM_PROMPT,
-    response_format=SingleStockReport,
+    # ToolStrategy: Flash can return empty json_schema content after reasoning.
+    response_format=ToolStrategy(SingleStockReport),
 )
 
 

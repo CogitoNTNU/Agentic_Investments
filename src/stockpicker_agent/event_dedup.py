@@ -21,7 +21,7 @@ class EventGrouping(BaseModel):
 
 
 llm = get_model()
-structured_llm = llm.with_structured_output(EventGrouping)
+structured_llm = llm.with_structured_output(EventGrouping, method="function_calling")
 
 
 SYSTEM_PROMPT = """

@@ -14,6 +14,8 @@ llm_with_tools = llm.bind_tools(
 
 feature_selector_llm = llm.with_structured_output(
     FeatureSelection,
+    # Flash can spend its whole answer on reasoning and return empty json_schema
+    # content; a forced tool call always produces the structured arguments.
     method="function_calling",
 )
 

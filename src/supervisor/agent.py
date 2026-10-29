@@ -3,9 +3,6 @@ from langchain.messages import ToolMessage
 from langgraph_supervisor import create_supervisor
 
 
-from langchain_openai import ChatOpenAI
-from dotenv import load_dotenv
-import os
 import sys
 from pathlib import Path
 
@@ -16,17 +13,9 @@ from langchain.agents import create_agent
 from src.debate_agent.tool import run_debate
 from src.supervisor.research import gather_research_data
 from src.supervisor.prompt import SUPERVISOR_PROMPT
+from src.model import get_model
 
-load_dotenv()
-
-BASE_URL = "https://llm.hpc.ntnu.no/v1"
-MODEL_NAME = "Inferact/GLM-5.3-NVFP4"
-
-model = ChatOpenAI(
-    api_key = os.getenv("IDUN_API_KEY"),
-    model=MODEL_NAME,
-    base_url= BASE_URL
-)
+model = get_model()
 
 # The supervisor only passes messages, so the debate agent with its own state
 # is wrapped as a named tool-calling agent.

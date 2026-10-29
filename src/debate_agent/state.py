@@ -2,6 +2,8 @@ from typing import TypedDict
 
 
 class DebateState(TypedDict, total=False):
+    ticker: str
+    in_portfolio: bool
     analysis_packet: dict
     bull_analysis: dict
     bear_analysis: dict
