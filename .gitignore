@@ -254,6 +254,12 @@ lerna-debug.log
 .DS_Store
 Thumbs.db
 
-# News gathering agent history
+# Ignore generated economic analysis data
 /data/economic_analysis/
-/data/news_discovery/history/
+
+# Ignore all Stockpicker generated data
+/data/news_discovery/*
+
+# EXCEPT these 
+!/data/news_discovery/latest_candidates.json
+!/data/news_discovery/grouped_candidates.json

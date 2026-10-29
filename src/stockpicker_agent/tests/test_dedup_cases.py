@@ -1,4 +1,4 @@
-from .event_dedup import group_candidate_events
+from ..event_dedup import group_candidate_events
 
 
 def make_event(

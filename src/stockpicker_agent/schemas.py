@@ -1,10 +1,22 @@
 from pydantic import BaseModel, Field
 from typing import Literal
 
+
 class NewsEvent(BaseModel):
-    source_uuid : str
+
+    source_uuid: str
 
     ticker: str
+
+    # NEW: Company attribution
+    primary_company: str = Field(min_length=1)
+
+    ticker_relationship: Literal[
+        "direct",
+        "indirect",
+        "unrelated",
+        "unclear",
+    ]
 
     event_type: Literal[
         "earnings",
@@ -25,7 +37,6 @@ class NewsEvent(BaseModel):
         "other",
     ]
 
-
     summary: str
 
     sentiment: float = Field(ge=-1, le=1)
@@ -34,7 +45,6 @@ class NewsEvent(BaseModel):
     confidence: float = Field(ge=0, le=1)
 
     investigate: bool
-
 
 
 class NewsAnalysis(BaseModel):
