@@ -1,4 +1,4 @@
-from langchain.messages import SystemMessage
+from langchain.messages import HumanMessage
 from langchain.messages import ToolMessage
 from langgraph_supervisor import create_supervisor
 
@@ -11,9 +11,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from src.news_agent.graph import graph as news_agent
-from src.finance_agent.agent import agent as finance_agent
-from src.economic_agent.graph import graph as economic_agent
+from langchain.agents import create_agent
+
+from src.debate_agent.tool import run_debate
+from src.supervisor.research import gather_research_data
+from src.supervisor.prompt import SUPERVISOR_PROMPT
 
 load_dotenv()
 
@@ -26,13 +28,23 @@ model = ChatOpenAI(
     base_url= BASE_URL
 )
 
-supervisor = create_supervisor(
-    [news_agent, finance_agent, economic_agent],
-    model=model,
-    prompt="""
+# The supervisor only passes messages, so the debate agent with its own state
+# is wrapped as a named tool-calling agent.
+debate_agent = create_agent(
+    model,
+    tools=[run_debate],
+    name="debate_agent",
+    system_prompt="Call run_debate with the analysis packet you receive and return the full debate report unchanged.",
+)
 
-"""
+supervisor = create_supervisor(
+    [debate_agent],
+    model=model,
+    # The data agents are independent, so one tool runs them in parallel.
+    tools=[gather_research_data],
+    prompt=SUPERVISOR_PROMPT,
 ).compile()
 
-result = supervisor.invoke({"messages": [SystemMessage(content="Find recent news about Apple and analyze its financial data. Do not use news agent")]})
-print(result)
+if __name__ == "__main__":
+    result = supervisor.invoke({"messages": [HumanMessage(content="Research APPLE")]})
+    print(result)

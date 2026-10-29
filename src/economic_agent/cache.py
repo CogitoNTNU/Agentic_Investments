@@ -11,7 +11,7 @@ from src.economic_agent.schemas import EconomicAnalysis
 
 CACHE_DIR = Path(__file__).resolve().parents[2] / "data" / "economic_analysis"
 # Increment when changing analysis prompts or logic to invalidate old results.
-ANALYSIS_VERSION = 1
+ANALYSIS_VERSION = 3
 
 
 def load_analysis(report: dict) -> dict | None:
