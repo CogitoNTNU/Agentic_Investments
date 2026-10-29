@@ -1,0 +1,588 @@
+{
+  "generated_at": "2026-10-29T15:13:40.815047+00:00",
+  "total_candidates": 9,
+  "candidates": [
+    {
+      "ticker": "EIX",
+      "priority_score": 7.62,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "A judge ruled that Southern California Edison cannot escape a jury trial over a central claim in lawsuits concerning its equipment's role in the 2025 Eaton Fire, described in the article as the most destructive blaze. The utility will now face a jury over the claim, leaving it exposed to potential liability from the litigation.",
+          "event_types": [
+            "lawsuit"
+          ],
+          "primary_companies": [
+            "Southern California Edison"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "e4749b22-228d-4329-9949-c8b4fc0329b0",
+              "headline": "Edison Must Face Jury Over Equipment’s Role in Massive California Fire",
+              "source_url": "https://www.insurancejournal.com/news/west/2026/10/28/890584.htm",
+              "published_at": "2026-10-28T13:19:34.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Southern California Edison",
+              "ticker_relationship": "direct",
+              "event_type": "lawsuit",
+              "summary": "A judge ruled that Southern California Edison cannot escape a jury trial over a central claim in lawsuits concerning its equipment's role in the 2025 Eaton Fire, described in the article as the most destructive blaze. The utility will now face a jury over the claim, leaving it exposed to potential liability from the litigation.",
+              "sentiment": -1.0,
+              "materiality": 7.0,
+              "novelty": 6.0,
+              "confidence": 0.95,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "CVNA",
+      "priority_score": 7.38,
+      "event_count": 3,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Carvana's Q3 2026 earnings announcement (published late October 2026): the company posted record third-quarter results, including record/rising sales and approximately $8 billion in revenue, with positive free cash flow. Alongside the results, Carvana said it expects full-year 2026 adjusted EBITDA at the higher end of its $2.7B–$3.0B range and cited targets of 3 million units and a 13.5% margin (described as long-term/target figures; no specific timeframe beyond 'targets' was stated for the unit and margin goals). No material contradictions exist across the records; they are complementary descriptions of the same quarterly release. Note: records 1 and 2 cite the same underlying article (one tagged as guidance, one as earnings), and record 0 is a separate article covering the same Q3 earnings event.",
+          "event_types": [
+            "earnings",
+            "guidance"
+          ],
+          "primary_companies": [
+            "Carvana"
+          ],
+          "source_count": 2,
+          "sources": [
+            {
+              "source_uuid": "ba981731-9f34-4d13-8367-479179d9c06f",
+              "headline": "Carvana Continuing To Improve (NYSE:CVNA)",
+              "source_url": "https://seekingalpha.com/article/4959007-carvana-q3-continuing-to-improve",
+              "published_at": "2026-10-29T02:36:03.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Carvana",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Carvana posted record third-quarter results, with rising sales, positive free cash flow, and long-term margin targets, according to the article.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 3.0,
+              "confidence": 0.75,
+              "investigate": true
+            },
+            {
+              "source_uuid": "a1abfa10-5b94-447d-aa65-23784b855fe2",
+              "headline": "Carvana expects full-year 2026 adjusted EBITDA in the higher end of $2.7B-$3.0B range as it targets 3M units and 13.5% margin (NYSE:CVNA)",
+              "source_url": "https://seekingalpha.com/news/4659817-carvana-expects-full-year-2026-adjusted-ebitda-in-the-higher-end-of-2_7b-3_0b-range-as-it",
+              "published_at": "2026-10-29T02:32:09.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Carvana",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "Carvana stated it expects full-year 2026 adjusted EBITDA at the higher end of its $2.7B–$3.0B range and said it targets 3 million units and a 13.5% margin; the article also characterizes the EBITDA outlook as rising. No timeframe for the unit and margin targets beyond 'targets' is specified in the provided text.",
+              "sentiment": 1.0,
+              "materiality": 7.0,
+              "novelty": 5.0,
+              "confidence": 0.85,
+              "investigate": true
+            },
+            {
+              "source_uuid": "a1abfa10-5b94-447d-aa65-23784b855fe2",
+              "headline": "Carvana expects full-year 2026 adjusted EBITDA in the higher end of $2.7B-$3.0B range as it targets 3M units and 13.5% margin (NYSE:CVNA)",
+              "source_url": "https://seekingalpha.com/news/4659817-carvana-expects-full-year-2026-adjusted-ebitda-in-the-higher-end-of-2_7b-3_0b-range-as-it",
+              "published_at": "2026-10-29T02:32:09.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Carvana",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Carvana reported Q3 2026 earnings with record sales and approximately $8 billion in revenue, per the article description.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 4.0,
+              "confidence": 0.8,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "AEP",
+      "priority_score": 6.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, American Electric Power (AEP) reported third quarter 2026 operating earnings of $2.23 per share, up from $1.80, which the article characterizes as strong results. The comparison period for the prior $1.80 figure is not specified in the available text.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "American Electric Power Co Inc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "d83a2274-772c-4c5e-b905-45fe1c561e3a",
+              "headline": "American Electric Power (AEP) Reports Strong Q3 Earnings and Confirms Robust Dividend Outlook",
+              "source_url": "https://www.gurufocus.com/news/9148281/american-electric-power-aep-reports-strong-q3-earnings-and-confirms-robust-dividend-outlook",
+              "published_at": "2026-10-28T19:59:38.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "American Electric Power Co Inc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, American Electric Power announced third quarter 2026 operating earnings of $2.23 per share, up from $1.80, which the article characterizes as strong results. The description is truncated before specifying the comparison period for the prior $1.80 figure.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [
+        {
+          "summary": "Alongside its Q3 2026 earnings announcement on October 28, 2026, American Electric Power (AEP) confirmed a robust dividend outlook, per the article's title. No further details on the dividend outlook are available; the record is truncated.",
+          "event_types": [
+            "dividend"
+          ],
+          "primary_companies": [
+            "American Electric Power Co Inc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "d83a2274-772c-4c5e-b905-45fe1c561e3a",
+              "headline": "American Electric Power (AEP) Reports Strong Q3 Earnings and Confirms Robust Dividend Outlook",
+              "source_url": "https://www.gurufocus.com/news/9148281/american-electric-power-aep-reports-strong-q3-earnings-and-confirms-robust-dividend-outlook",
+              "published_at": "2026-10-28T19:59:38.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "American Electric Power Co Inc",
+              "ticker_relationship": "direct",
+              "event_type": "dividend",
+              "summary": "Alongside its Q3 2026 earnings announcement, American Electric Power confirmed a robust dividend outlook, according to the article's title. The description is truncated and provides no further details on the dividend outlook.",
+              "sentiment": 1.0,
+              "materiality": 3.0,
+              "novelty": 2.0,
+              "confidence": 0.65,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_events": [
+        {
+          "source_uuid": "d83a2274-772c-4c5e-b905-45fe1c561e3a",
+          "ticker": "AEP",
+          "primary_company": "American Electric Power Co Inc",
+          "ticker_relationship": "direct",
+          "event_type": "dividend",
+          "summary": "Alongside its Q3 2026 earnings announcement, American Electric Power confirmed a robust dividend outlook, according to the article's title. The description is truncated and provides no further details on the dividend outlook.",
+          "sentiment": 1.0,
+          "materiality": 3.0,
+          "novelty": 2.0,
+          "confidence": 0.65,
+          "investigate": false,
+          "headline": "American Electric Power (AEP) Reports Strong Q3 Earnings and Confirms Robust Dividend Outlook",
+          "source_url": "https://www.gurufocus.com/news/9148281/american-electric-power-aep-reports-strong-q3-earnings-and-confirms-robust-dividend-outlook",
+          "published_at": "2026-10-28T19:59:38.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 1
+    },
+    {
+      "ticker": "KLAC",
+      "priority_score": 6.75,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "KLA Corporation (NASDAQ: KLAC) held its Q1 2027 earnings call on October 28, 2026, with the article published October 29, 2026. The company highlighted record revenue and margin expansion, though specific revenue, earnings, or margin figures for the quarter are not provided in the available article text. As part of the same call, KLA issued guidance forecasting December-quarter revenue of $4.7 billion and said it expects the wafer equipment market to exceed $200 billion in 2027, characterizing the 2027 wafer equipment market outlook as strong. Both records describe the same underlying event (the same earnings call and article), with one record focusing on the earnings report and the other on the guidance issued during that call.",
+          "event_types": [
+            "earnings",
+            "guidance"
+          ],
+          "primary_companies": [
+            "KLA Corporation"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "f4e9bffd-19b7-48d2-8e7c-423cf5d5617a",
+              "headline": "KLA forecasts $4.7B December-quarter revenue and expects wafer equipment market to exceed $200B in 2027 (NASDAQ:KLAC)",
+              "source_url": "https://seekingalpha.com/news/4659858-kla-forecasts-4_7b-december-quarter-revenue-and-expects-wafer-equipment-market-to-exceed-200b",
+              "published_at": "2026-10-29T05:11:21.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "KLA Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "KLA reported results on its Q1 2027 earnings call held October 28, 2026; the article highlights record revenue and margin expansion. Specific revenue, earnings, or margin figures are not provided in the available article text.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 0.8,
+              "investigate": true
+            },
+            {
+              "source_uuid": "f4e9bffd-19b7-48d2-8e7c-423cf5d5617a",
+              "headline": "KLA forecasts $4.7B December-quarter revenue and expects wafer equipment market to exceed $200B in 2027 (NASDAQ:KLAC)",
+              "source_url": "https://seekingalpha.com/news/4659858-kla-forecasts-4_7b-december-quarter-revenue-and-expects-wafer-equipment-market-to-exceed-200b",
+              "published_at": "2026-10-29T05:11:21.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "KLA Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "KLA forecast December-quarter revenue of $4.7 billion and said it expects the wafer equipment market to exceed $200 billion in 2027, per its Q1 2027 earnings call; the article characterizes the 2027 wafer equipment market outlook as strong.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 3.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "PPG",
+      "priority_score": 6.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "In its Q3 2026 earnings call held October 28, 2026, PPG reported record adjusted earnings, driven by 5% organic growth and outperformance in its aerospace segment, according to the earnings call transcript article. The article does not provide absolute dollar figures or comparison to prior periods.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "PPG"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "6de040d6-58a4-4d24-bcfc-98e160c16e03",
+              "headline": "PPG (PPG) Q3 2026 Earnings Call Transcript",
+              "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/28/ppg-ppg-q3-2026-earnings-call-transcript/",
+              "published_at": "2026-10-28T16:40:36.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "PPG",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "In its Q3 2026 earnings call held October 28, 2026, PPG reported record adjusted earnings, driven by 5% organic growth and outperformance in its aerospace segment, according to the earnings call transcript article. The article does not provide absolute dollar figures or comparison to prior periods.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 2.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "OKE",
+      "priority_score": 6.62,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, ONEOK (OKE) announced strong third-quarter 2026 results, highlighted by record Permian Basin volumes and system-wide growth, and raised its full-year 2026 guidance, with pipeline expansion cited as context. Both records reference the same underlying article (identical source UUID, headline, and publication timestamp), with one tagged as an earnings event and the other as a guidance event; together they describe a single announcement covering the Q3 2026 results and the accompanying guidance increase. The provided descriptions are truncated, so specific quarterly financial figures and the updated guidance figures are not available.",
+          "event_types": [
+            "earnings",
+            "guidance"
+          ],
+          "primary_companies": [
+            "ONEOK Inc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "433a8f5c-6a53-43ac-9317-32d91458820c",
+              "headline": "ONEOK (OKE) Raises 2026 Guidance Amid Strong Q3 Results and Pipeline Expansion",
+              "source_url": "https://www.gurufocus.com/news/9148269/oneok-oke-raises-2026-guidance-amid-strong-q3-results-and-pipeline-expansion",
+              "published_at": "2026-10-28T19:56:40.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "ONEOK Inc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, ONEOK announced robust third-quarter 2026 results highlighted by record Permian Basin volumes and system-wide growth. The provided description is truncated and does not include specific financial figures for the quarter.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 0.8,
+              "investigate": true
+            },
+            {
+              "source_uuid": "433a8f5c-6a53-43ac-9317-32d91458820c",
+              "headline": "ONEOK (OKE) Raises 2026 Guidance Amid Strong Q3 Results and Pipeline Expansion",
+              "source_url": "https://www.gurufocus.com/news/9148269/oneok-oke-raises-2026-guidance-amid-strong-q3-results-and-pipeline-expansion",
+              "published_at": "2026-10-28T19:56:40.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "ONEOK Inc",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "ONEOK raised its full-year 2026 guidance following strong third-quarter results; the article title also cites pipeline expansion as context. The provided description is truncated and the specific updated guidance figures are not shown.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 4.0,
+              "confidence": 0.85,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "ORCL",
+      "priority_score": 6.25,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Oracle reaffirmed its fiscal 2027 guidance during its financial analyst day, and Oracle shares jumped more than 9% following the confirmation. The specific guidance figures are not provided in the article.",
+          "event_types": [
+            "guidance"
+          ],
+          "primary_companies": [
+            "Oracle Corp"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "17c29311-ebc1-411b-b855-ec6b741eb4f0",
+              "headline": "Oracle (ORCL) Shares Surge Over 9% Following Fiscal 2027 Outlook Confirmation",
+              "source_url": "https://www.gurufocus.com/news/9148266/oracle-orcl-shares-surge-over-9-following-fiscal-2027-outlook-confirmation",
+              "published_at": "2026-10-28T19:55:54.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Oracle Corp",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "On October 28, 2026, Oracle reaffirmed its fiscal 2027 guidance during its financial analyst day, and Oracle shares jumped more than 9% following the confirmation. The specific guidance figures are not provided in the article.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 1.0,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "STX",
+      "priority_score": 5.75,
+      "event_count": 2,
+      "unique_event_count": 2,
+      "event_groups": [
+        {
+          "summary": "Seagate Technology Holdings plc reported higher first-quarter earnings, with net income rising. The specific net income figure is truncated in the available source text.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Seagate Technology Holdings plc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "d60392b5-c697-489a-ab10-44f5b7ffc359",
+              "headline": "Seagate Technology Stock Falls 4%",
+              "source_url": "https://www.rttnews.com/story.aspx?Id=3704507",
+              "published_at": "2026-10-28T14:30:50.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Seagate Technology Holdings plc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Seagate Technology Holdings plc reported higher first-quarter earnings, with net income rising; the specific net income figure is truncated in the available source text.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 0.8,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        },
+        {
+          "summary": "Seagate Technology (STX) shares fell 4.10% on Wednesday, losing $27.40 to $640.45, despite the company reporting higher first-quarter earnings.",
+          "event_types": [
+            "market_move"
+          ],
+          "primary_companies": [
+            "Seagate Technology Holdings plc"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "d60392b5-c697-489a-ab10-44f5b7ffc359",
+              "headline": "Seagate Technology Stock Falls 4%",
+              "source_url": "https://www.rttnews.com/story.aspx?Id=3704507",
+              "published_at": "2026-10-28T14:30:50.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Seagate Technology Holdings plc",
+              "ticker_relationship": "direct",
+              "event_type": "market_move",
+              "summary": "Seagate Technology (STX) shares fell 4.10% on Wednesday, losing $27.40 to $640.45, despite the company reporting higher first-quarter earnings.",
+              "sentiment": -1.0,
+              "materiality": 4.0,
+              "novelty": 4.0,
+              "confidence": 0.95,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "SMCI",
+      "priority_score": 5.38,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Per a Reuters report cited in an article published 2026-10-28, Argentum AI — a Super Micro-backed company — is in talks for $5 billion of chip financing. The financing is at the talks stage only and is not a confirmed or completed transaction. On the report, Super Micro (SMCI) shares rose 7.3% to $35.09, and the article's headline also references a bull case of $45 for the stock. The two records describe the same underlying news development from different attributions — the financing talks (primary company: Argentum AI, indirect to SMCI) and the resulting market reaction (primary company: Super Micro, direct) — and both derive from the same source article.",
+          "event_types": [
+            "market_move",
+            "financing"
+          ],
+          "primary_companies": [
+            "Super Micro",
+            "Argentum AI"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "5d61fc77-a2e8-4ae4-9772-aa68e73ab82f",
+              "headline": "Super Micro SMCI Stock: $35.09 After 7% Jump, Bull $45",
+              "source_url": "https://financefeeds.com/super-micro-smci-stock-35-09-after-7-percent-jump-argentum-5-billion-financing-before-3-november-results-bull-45-bear-30/",
+              "published_at": "2026-10-28T13:15:35.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Super Micro",
+              "ticker_relationship": "direct",
+              "event_type": "market_move",
+              "summary": "Super Micro (SMCI) shares rose 7.3% to $35.09 after a Reuters report that Super Micro-backed Argentum AI is in talks for $5 billion of chip financing.",
+              "sentiment": 1.0,
+              "materiality": 4.0,
+              "novelty": 5.0,
+              "confidence": 0.95,
+              "investigate": true
+            },
+            {
+              "source_uuid": "5d61fc77-a2e8-4ae4-9772-aa68e73ab82f",
+              "headline": "Super Micro SMCI Stock: $35.09 After 7% Jump, Bull $45",
+              "source_url": "https://financefeeds.com/super-micro-smci-stock-35-09-after-7-percent-jump-argentum-5-billion-financing-before-3-november-results-bull-45-bear-30/",
+              "published_at": "2026-10-28T13:15:35.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "Argentum AI",
+              "ticker_relationship": "indirect",
+              "event_type": "financing",
+              "summary": "The article reports, citing Reuters, that Argentum AI, described as Super Micro-backed, is in talks for $5 billion of chip financing; the financing is presented as talks, not a confirmed transaction.",
+              "sentiment": 1.0,
+              "materiality": 4.0,
+              "novelty": 6.0,
+              "confidence": 0.75,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [
+        {
+          "source_uuid": "5d61fc77-a2e8-4ae4-9772-aa68e73ab82f",
+          "ticker": "SMCI",
+          "primary_company": "Argentum AI",
+          "ticker_relationship": "indirect",
+          "event_type": "financing",
+          "summary": "The article reports, citing Reuters, that Argentum AI, described as Super Micro-backed, is in talks for $5 billion of chip financing; the financing is presented as talks, not a confirmed transaction.",
+          "sentiment": 1.0,
+          "materiality": 4.0,
+          "novelty": 6.0,
+          "confidence": 0.75,
+          "investigate": false,
+          "headline": "Super Micro SMCI Stock: $35.09 After 7% Jump, Bull $45",
+          "source_url": "https://financefeeds.com/super-micro-smci-stock-35-09-after-7-percent-jump-argentum-5-billion-financing-before-3-november-results-bull-45-bear-30/",
+          "published_at": "2026-10-28T13:15:35.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 0
+    }
+  ]
+}

@@ -246,6 +246,17 @@ uv sync --group dev
 uv run python -m src.main
 ```
 
+For the four separate queues, select `data/simen.json` (10 candidates),
+`data/nathania.json`, `data/sigurd.json`, or `data/brage.json` (9 each):
+
+```bash
+uv run python -m src.main --candidates data/simen.json
+```
+
+These queues contain different tickers with the full discovery data preserved.
+Use separate project copies when running in parallel; the portfolio and pending
+order files are not designed for multiple processes sharing one project folder.
+
 The queue reads `data/news_discovery/grouped_candidates.json`, falling back to
 `latest_candidates.json` when the grouped file is absent. It preserves file order
 and processes each ticker once per run: research, debate, decision, then an Alpaca

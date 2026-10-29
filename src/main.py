@@ -1,5 +1,6 @@
 """Process the saved discovery candidates sequentially through paper trading."""
 
+import argparse
 import json
 import sys
 from collections import deque
@@ -13,10 +14,12 @@ if __package__ in {None, ""}:
 
 
 def load_candidates(directory: Path = ROOT / "data" / "news_discovery") -> deque:
-    """Prefer grouped discovery data; fall back to the latest raw candidates."""
-    path = directory / "grouped_candidates.json"
-    if not path.exists():
-        path = directory / "latest_candidates.json"
+    """Read a selected JSON queue, or use the default discovery directory."""
+    path = directory
+    if directory.is_dir():
+        path = directory / "grouped_candidates.json"
+        if not path.exists():
+            path = directory / "latest_candidates.json"
     print(f"[Kø] Leser kandidater fra {path}", flush=True)
     candidates = json.loads(path.read_text(encoding="utf-8"))["candidates"]
     queue = deque()
@@ -68,13 +71,13 @@ def process_candidate(candidate: dict) -> dict:
     return graph.invoke({"ticker": ticker, "analysis_packet": packet})
 
 
-def main() -> None:
+def main(candidate_file: Path | None = None) -> None:
     from src.decision_agent.trading import sync_pending_order
 
     # Resolve any earlier order before starting another candidate.
     print("[Start] Sjekker om tidligere Alpaca-ordrer må avklares", flush=True)
     sync_pending_order()
-    queue = load_candidates()
+    queue = load_candidates(candidate_file) if candidate_file is not None else load_candidates()
     total = len(queue)
     print(f"[Kø] Starter paper trading: {total} kandidater", flush=True)
     while queue:
@@ -92,4 +95,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Run a candidate queue through paper trading.")
+    parser.add_argument("--candidates", type=Path, help="Candidate JSON file, e.g. data/simen.json")
+    main(parser.parse_args().candidates)

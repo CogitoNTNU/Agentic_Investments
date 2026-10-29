@@ -1,0 +1,598 @@
+{
+  "generated_at": "2026-10-29T15:13:40.815047+00:00",
+  "total_candidates": 10,
+  "candidates": [
+    {
+      "ticker": "EQT",
+      "priority_score": 8.25,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "EQT Corporation's acquisition of Range Resources Corporation creates a roughly $50 billion natural gas company, according to a Seeking Alpha analysis of the combination, which cites cost synergies, a low breakeven point, and a long inventory runway for the combined company. The available text does not specify the deal's announcement date or completion status.",
+          "event_types": [
+            "merger_acquisition"
+          ],
+          "primary_companies": [
+            "EQT Corporation"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "0c4d71cd-4a1a-4d15-971c-e3b74d3985a3",
+              "headline": "First Look At EQT's And Range Resources' Combination (NYSE:EQT)",
+              "source_url": "https://seekingalpha.com/article/4958856-first-look-at-eqt-and-range-resources-combination",
+              "published_at": "2026-10-28T21:08:05.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "EQT Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "merger_acquisition",
+              "summary": "EQT Corporation's acquisition of Range Resources Corporation creates a roughly $50 billion natural gas company, according to a Seeking Alpha analysis of the combination, which cites cost synergies, a low breakeven point, and a long inventory runway for the combined company. The available text does not specify the deal's announcement date or completion status.",
+              "sentiment": 1.0,
+              "materiality": 8.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "V",
+      "priority_score": 7.5,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Visa Inc. (V) announced its fiscal fourth-quarter 2026 earnings, reporting adjusted earnings per share of $3.48. One article states the result came in slightly above analyst expectations while the company signaled a growth slowdown for fiscal year 2027; the other characterizes the results as robust financial performance. Both records report the same adjusted EPS figure of $3.48 and describe the same quarterly earnings announcement, with no material contradictions between them. Additional financial details were truncated in both sources.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Visa Inc."
+          ],
+          "source_count": 2,
+          "sources": [
+            {
+              "source_uuid": "e7fae6d2-210f-4af0-9b6e-711814451f8f",
+              "headline": "Visa (V) Reports Strong Q4 Earnings but Signals Growth Slowdown for FY 2027",
+              "source_url": "https://www.gurufocus.com/news/9148119/visa-v-reports-strong-q4-earnings-but-signals-growth-slowdown-for-fy-2027",
+              "published_at": "2026-10-28T18:57:06.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Visa Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, Visa announced fiscal fourth-quarter results, reporting adjusted earnings per share of $3.48, slightly above analyst expectations, while signaling a growth slowdown for fiscal year 2027. The description is truncated; additional financial details are not available in the source.",
+              "sentiment": 0.0,
+              "materiality": 7.0,
+              "novelty": 4.0,
+              "confidence": 0.9,
+              "investigate": true
+            },
+            {
+              "source_uuid": "3b5f0260-b073-4f5e-ab91-d4c63623fd1c",
+              "headline": "Visa Reports Strong Q4 Earnings with EPS of $3.48 (V)",
+              "source_url": "https://www.gurufocus.com/news/9148073/visa-reports-strong-q4-earnings-with-eps-of-348-v",
+              "published_at": "2026-10-28T18:30:33.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Visa Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, Visa announced fourth-quarter earnings, reporting adjusted earnings per share of $3.48, which the article characterizes as robust financial performance. The description is truncated; additional financial details are not available in the source.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [
+        {
+          "summary": "A separate analyst rating event: BMO Capital maintained an Outperform rating on Visa Inc. (V) and raised its price target to $438. According to the article, published October 28, 2026, the underlying analyst action took place on October 26, 2023. The prior price target is not fully specified due to a truncated description. This is distinct from Visa's fiscal Q4 2026 earnings announcement despite sharing the same target ticker and publication date.",
+          "event_types": [
+            "analyst_rating"
+          ],
+          "primary_companies": [
+            "Visa Inc."
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "8fab8b20-cb68-4722-b7b1-9c80823420d0",
+              "headline": "V Maintained by BMO Capital -- Price Target Raised to $438",
+              "source_url": "https://www.gurufocus.com/news/9148260/v-maintained-by-bmo-capital-price-target-raised-to-438",
+              "published_at": "2026-10-28T19:37:55.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "Visa Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "analyst_rating",
+              "summary": "On October 26, 2023, BMO Capital maintained an Outperform rating on Visa and raised its price target to $438. The prior price target is not fully specified due to a truncated description. The article was published on October 28, 2026, re-reporting this earlier analyst action.",
+              "sentiment": 1.0,
+              "materiality": 2.0,
+              "novelty": 0.0,
+              "confidence": 0.9,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_events": [
+        {
+          "source_uuid": "8fab8b20-cb68-4722-b7b1-9c80823420d0",
+          "ticker": "V",
+          "primary_company": "Visa Inc.",
+          "ticker_relationship": "direct",
+          "event_type": "analyst_rating",
+          "summary": "On October 26, 2023, BMO Capital maintained an Outperform rating on Visa and raised its price target to $438. The prior price target is not fully specified due to a truncated description. The article was published on October 28, 2026, re-reporting this earlier analyst action.",
+          "sentiment": 1.0,
+          "materiality": 2.0,
+          "novelty": 0.0,
+          "confidence": 0.9,
+          "investigate": false,
+          "headline": "V Maintained by BMO Capital -- Price Target Raised to $438",
+          "source_url": "https://www.gurufocus.com/news/9148260/v-maintained-by-bmo-capital-price-target-raised-to-438",
+          "published_at": "2026-10-28T19:37:55.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 1
+    },
+    {
+      "ticker": "FTNT",
+      "priority_score": 7.0,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Fortinet's Q3 2026 earnings announcement (published 2026-10-29): Fortinet reported that billings rose 29%, which the article links to continued strong AI security demand, and alongside the results it raised its guidance again, now outlining full-year 2026 billings of $9.568 billion to $9.718 billion. No revenue or EPS figures were provided in the available text. Both records cite the same source article and timestamp; one record is tagged as the earnings results and the other as the guidance raise issued within the same announcement.",
+          "event_types": [
+            "earnings",
+            "guidance"
+          ],
+          "primary_companies": [
+            "Fortinet"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "30c74094-ff0e-491c-8d5d-80a4f09f07ba",
+              "headline": "Fortinet outlines 2026 billings $9.568B-$9.718B as it raises guidance again (NASDAQ:FTNT)",
+              "source_url": "https://seekingalpha.com/news/4659806-fortinet-outlines-2026-billings-9_568b-9_718b-as-it-raises-guidance-again",
+              "published_at": "2026-10-29T01:51:00.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Fortinet",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "In its Q3 2026 results, Fortinet reported that billings rose 29%, which the article links to continued strong AI security demand. No revenue or EPS figures are provided in the available text.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            },
+            {
+              "source_uuid": "30c74094-ff0e-491c-8d5d-80a4f09f07ba",
+              "headline": "Fortinet outlines 2026 billings $9.568B-$9.718B as it raises guidance again (NASDAQ:FTNT)",
+              "source_url": "https://seekingalpha.com/news/4659806-fortinet-outlines-2026-billings-9_568b-9_718b-as-it-raises-guidance-again",
+              "published_at": "2026-10-29T01:51:00.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Fortinet",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "Fortinet raised its guidance again, now outlining 2026 billings of $9.568 billion to $9.718 billion.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 3.0,
+              "confidence": 1.0,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "IEX",
+      "priority_score": 6.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "IDEX Corporation reported record sales and earnings in its Q3 2026 results, driven by growth in AI, data center, and semiconductor demand, as summarized in its earnings call coverage. No specific financial figures were provided in the available text.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "IDEX Corporation"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "aa2d3298-2aaf-4e96-8594-60f82a560dd3",
+              "headline": "IDEX (IEX) Q3 2026 Earnings Call Transcript",
+              "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/28/idex-iex-q3-2026-earnings-call-transcript/",
+              "published_at": "2026-10-28T17:56:59.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "IDEX Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "IDEX Corporation reported record sales and earnings in its Q3 2026 results, driven by growth in AI, data center, and semiconductor demand, as summarized in its earnings call coverage. No specific financial figures were provided in the available text.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 4.0,
+              "confidence": 0.9,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "NOW",
+      "priority_score": 6.75,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "ServiceNow's Q3 2026 earnings announcement and accompanying guidance, reported in a single article. Alongside its Q3 2026 results, ServiceNow announced it is targeting more than $1.7 billion in AI ACV by year-end and raised its 2026 free cash flow margin goal to 36%, with the article characterizing the company's guidance as rising overall. The article characterizes the quarter's earnings as showing accelerating AI growth and notes that concerns around Q4 cRPO were explained. No specific quarterly financial figures were provided in the available article text.",
+          "event_types": [
+            "guidance",
+            "earnings"
+          ],
+          "primary_companies": [
+            "ServiceNow"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "5c767166-802d-4605-9401-7d6a5f430217",
+              "headline": "Servicenow targets $1.7B+ AI ACV by year-end while raising 2026 free cash flow margin goal to 36% (NYSE:NOW)",
+              "source_url": "https://seekingalpha.com/news/4659779-servicenow-targets-1_7b-ai-acv-by-year-end-while-raising-2026-free-cash-flow-margin-goal-to",
+              "published_at": "2026-10-28T23:41:06.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "ServiceNow",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "Alongside its Q3 2026 earnings, ServiceNow announced it is targeting more than $1.7 billion in AI ACV by year-end and raised its 2026 free cash flow margin goal to 36%. The article characterizes the company's guidance as rising overall.",
+              "sentiment": 1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 0.9,
+              "investigate": true
+            },
+            {
+              "source_uuid": "5c767166-802d-4605-9401-7d6a5f430217",
+              "headline": "Servicenow targets $1.7B+ AI ACV by year-end while raising 2026 free cash flow margin goal to 36% (NYSE:NOW)",
+              "source_url": "https://seekingalpha.com/news/4659779-servicenow-targets-1_7b-ai-acv-by-year-end-while-raising-2026-free-cash-flow-margin-goal-to",
+              "published_at": "2026-10-28T23:41:06.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "ServiceNow",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "ServiceNow reported Q3 2026 earnings, which the article characterizes as showing accelerating AI growth, and notes that concerns around Q4 cRPO were explained. No specific financial figures are provided in the available article text.",
+              "sentiment": 0.0,
+              "materiality": 5.0,
+              "novelty": 4.0,
+              "confidence": 0.8,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "CHRW",
+      "priority_score": 6.62,
+      "event_count": 2,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, C.H. Robinson Worldwide (CHRW) announced its third-quarter 2026 results, and its shares fell more than 10% in morning trading on the same day. The sources conflict in their characterization of the report: one article describes the results as strong, highlighting significant revenue growth, dividend sustainability, and strategic growth, while another describes the quarter as a beat yet reports the stock declined over 10% amid concerns about the company's dividend and guidance. No specific financial figures were provided in any of the records, and the basis for the beat comparison is not stated, so the actual results remain uncertain. All three records refer to the same underlying event: C.H. Robinson's Q3 2026 earnings release and the immediate market reaction to it.",
+          "event_types": [
+            "earnings",
+            "market_move"
+          ],
+          "primary_companies": [
+            "C.H. Robinson Worldwide Inc"
+          ],
+          "source_count": 2,
+          "sources": [
+            {
+              "source_uuid": "96c376b2-7670-4339-aac5-92b6f06c85c3",
+              "headline": "C.H. Robinson (CHRW) Reports Strong Q3 2026 Results with Focus on Dividend Sustainability and Strategic Growth",
+              "source_url": "https://www.gurufocus.com/news/9148032/ch-robinson-chrw-reports-strong-q3-2026-results-with-focus-on-dividend-sustainability-and-strategic-growth",
+              "published_at": "2026-10-28T18:01:11.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "C.H. Robinson Worldwide Inc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, C.H. Robinson Worldwide announced third-quarter 2026 results that the article characterizes as robust and highlighted by significant revenue growth, with the company's discussion focusing on dividend sustainability and strategic growth. The article description is truncated and does not provide specific financial figures.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 2.0,
+              "confidence": 0.7,
+              "investigate": true
+            },
+            {
+              "source_uuid": "65815e2c-33a0-4968-a16b-5bc213ed3f9f",
+              "headline": "C.H. Robinson Worldwide (CHRW) Shares Fall Over 10% Despite Q3 Beat Amid Dividend and Guidance Concerns",
+              "source_url": "https://www.gurufocus.com/news/9147827/ch-robinson-worldwide-chrw-shares-fall-over-10-despite-q3-beat-amid-dividend-and-guidance-concerns",
+              "published_at": "2026-10-28T17:00:14.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "C.H. Robinson Worldwide Inc",
+              "ticker_relationship": "direct",
+              "event_type": "market_move",
+              "summary": "On October 28, 2026, shares of C.H. Robinson Worldwide declined more than 10% in morning trading despite the company reporting third-quarter results that the article characterizes as a beat, amid concerns about the company's dividend and guidance.",
+              "sentiment": -1.0,
+              "materiality": 6.0,
+              "novelty": 5.0,
+              "confidence": 0.85,
+              "investigate": true
+            },
+            {
+              "source_uuid": "65815e2c-33a0-4968-a16b-5bc213ed3f9f",
+              "headline": "C.H. Robinson Worldwide (CHRW) Shares Fall Over 10% Despite Q3 Beat Amid Dividend and Guidance Concerns",
+              "source_url": "https://www.gurufocus.com/news/9147827/ch-robinson-worldwide-chrw-shares-fall-over-10-despite-q3-beat-amid-dividend-and-guidance-concerns",
+              "published_at": "2026-10-28T17:00:14.000000Z",
+              "qualifies_for_investigation": false,
+              "primary_company": "C.H. Robinson Worldwide Inc",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, C.H. Robinson Worldwide reported third-quarter 2026 results that the article's title characterizes as a beat. The truncated description provides no specific financial figures and does not state the basis for the beat comparison; the report coincided with a more than 10% share decline amid dividend and guidance concerns.",
+              "sentiment": 0.0,
+              "materiality": 5.0,
+              "novelty": 2.0,
+              "confidence": 0.6,
+              "investigate": false
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [
+        {
+          "source_uuid": "65815e2c-33a0-4968-a16b-5bc213ed3f9f",
+          "ticker": "CHRW",
+          "primary_company": "C.H. Robinson Worldwide Inc",
+          "ticker_relationship": "direct",
+          "event_type": "earnings",
+          "summary": "On October 28, 2026, C.H. Robinson Worldwide reported third-quarter 2026 results that the article's title characterizes as a beat. The truncated description provides no specific financial figures and does not state the basis for the beat comparison; the report coincided with a more than 10% share decline amid dividend and guidance concerns.",
+          "sentiment": 0.0,
+          "materiality": 5.0,
+          "novelty": 2.0,
+          "confidence": 0.6,
+          "investigate": false,
+          "headline": "C.H. Robinson Worldwide (CHRW) Shares Fall Over 10% Despite Q3 Beat Amid Dividend and Guidance Concerns",
+          "source_url": "https://www.gurufocus.com/news/9147827/ch-robinson-worldwide-chrw-shares-fall-over-10-despite-q3-beat-amid-dividend-and-guidance-concerns",
+          "published_at": "2026-10-28T17:00:14.000000Z",
+          "qualifies_for_investigation": false
+        }
+      ],
+      "context_event_count": 1,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "MAS",
+      "priority_score": 6.25,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "While reporting third-quarter financial results, Masco Corporation raised its earnings and adjusted earnings guidance for full-year 2026, citing the strength of its operational performance year-to-date. Shares rose 4.9% following the news. The headline indicates this is a repeat boost of the FY26 outlook; specific guidance figures are not provided in the excerpt.",
+          "event_types": [
+            "guidance"
+          ],
+          "primary_companies": [
+            "Masco Corporation"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "1cb153b6-b3f0-4f18-b36b-ba9d8b995cb8",
+              "headline": "Masco Again Boosts FY26 Outlook; Shares Up 4.9% - Update",
+              "source_url": "https://www.rttnews.com/story.aspx?Id=3704332",
+              "published_at": "2026-10-28T11:38:41.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Masco Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "guidance",
+              "summary": "While reporting third-quarter financial results, Masco Corporation raised its earnings and adjusted earnings guidance for full-year 2026, citing the strength of its operational performance year-to-date. Shares rose 4.9% following the news. The headline indicates this is a repeat boost of the FY26 outlook; specific guidance figures are not provided in the excerpt.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 1.0,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "OTIS",
+      "priority_score": 5.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Otis Worldwide announced a strong third-quarter performance highlighted by organic sales growth and margin expansion; the article also frames the results as boosting the stock's dividend appeal. The provided description is truncated and does not include specific financial figures.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Otis Worldwide Corporation"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "c0a76369-6b54-4d96-abf2-64d0874da779",
+              "headline": "Otis Worldwide (OTIS) Reports Solid Q3 Growth, Boosting Dividend Appeal",
+              "source_url": "https://www.gurufocus.com/news/9148043/otis-worldwide-otis-reports-solid-q3-growth-boosting-dividend-appeal",
+              "published_at": "2026-10-28T18:02:51.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Otis Worldwide Corporation",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "On October 28, 2026, Otis Worldwide announced a strong third-quarter performance highlighted by organic sales growth and margin expansion; the article also frames the results as boosting the stock's dividend appeal. The provided description is truncated and does not include specific financial figures.",
+              "sentiment": 1.0,
+              "materiality": 5.0,
+              "novelty": 3.0,
+              "confidence": 0.8,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "VRT",
+      "priority_score": 5.5,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "On October 28, 2026, Vertiv Holdings Co (NYSE: VRT) stock jumped 13.33% during intraday trading, on a day when the S&P 500 rose a modest 0.2%. The article frames the move as occurring amid a broader market rally and Federal Reserve policy watching and identifies no company-specific catalyst.",
+          "event_types": [
+            "market_move"
+          ],
+          "primary_companies": [
+            "Vertiv Holdings Co"
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "05692f00-b4e8-4bd3-bb5d-0ff65442df2d",
+              "headline": "Vertiv Holdings (VRT) Surges 13.33% Amid Market Rally and Fed Watch",
+              "source_url": "https://www.gurufocus.com/news/9147976/vertiv-holdings-vrt-surges-1333-amid-market-rally-and-fed-watch",
+              "published_at": "2026-10-28T17:59:01.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Vertiv Holdings Co",
+              "ticker_relationship": "direct",
+              "event_type": "market_move",
+              "summary": "On October 28, 2026, Vertiv Holdings Co (NYSE: VRT) stock jumped 13.33% during intraday trading, on a day when the S&P 500 rose a modest 0.2%. The article frames the move as occurring amid a broader market rally and Federal Reserve policy watching and identifies no company-specific catalyst.",
+              "sentiment": 1.0,
+              "materiality": 4.0,
+              "novelty": 6.0,
+              "confidence": 1.0,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    },
+    {
+      "ticker": "ALGN",
+      "priority_score": 4.75,
+      "event_count": 1,
+      "unique_event_count": 1,
+      "event_groups": [
+        {
+          "summary": "Align Technology held its Q3 2026 earnings call. Per the article, record doctor submitters and aligner growth offset softer consumer spending headwinds during the quarter. No specific financial figures are provided in the available description.",
+          "event_types": [
+            "earnings"
+          ],
+          "primary_companies": [
+            "Align Technology, Inc."
+          ],
+          "source_count": 1,
+          "sources": [
+            {
+              "source_uuid": "096406f6-512f-4ecb-bab3-ca44666c34d2",
+              "headline": "Align (ALGN) Q3 2026 Earnings Call Transcript",
+              "source_url": "https://www.fool.com/earnings/call-transcripts/2026/10/29/align-algn-q3-2026-earnings-call-transcript/",
+              "published_at": "2026-10-29T05:09:21.000000Z",
+              "qualifies_for_investigation": true,
+              "primary_company": "Align Technology, Inc.",
+              "ticker_relationship": "direct",
+              "event_type": "earnings",
+              "summary": "Align Technology held its Q3 2026 earnings call. Per the article, record doctor submitters and aligner growth offset softer consumer spending headwinds during the quarter. No specific financial figures are provided in the available description.",
+              "sentiment": 0.0,
+              "materiality": 4.0,
+              "novelty": 5.0,
+              "confidence": 0.7,
+              "investigate": true
+            }
+          ],
+          "needs_verification": false,
+          "verification_reason": null,
+          "conflicting_source_uuids": [],
+          "qualifies_for_investigation": true
+        }
+      ],
+      "context_event_groups": [],
+      "context_events": [],
+      "context_event_count": 0,
+      "context_unique_event_count": 0
+    }
+  ]
+}
