@@ -25,6 +25,7 @@ def run_decision(data: Any, ticker: str) -> dict:
     ticker = Decision(ticker=ticker, action="hold", number_of_stocks=0).ticker
     sync_pending_order()
     current = get_number_of_stocks(ticker)
+    print(f"[{ticker}] Beslutningsagent vurderer kjøp/salg/hold. Beholdning: {current} aksjer", flush=True)
     research = (
         data
         if isinstance(data, str)
@@ -42,6 +43,7 @@ def run_decision(data: Any, ticker: str) -> dict:
                         {
                             "ticker": ticker,
                             "current_number_of_stocks": current,
+                            "in_portfolio": current > 0,
                             "research": research,
                         },
                         ensure_ascii=False,
@@ -53,22 +55,35 @@ def run_decision(data: Any, ticker: str) -> dict:
     decision = Decision.model_validate(response)
     if decision.ticker != ticker:
         raise ValueError("Decision ticker does not match the requested ticker")
+    print(
+        f"[{ticker}] Beslutning: {decision.action.upper()}, "
+        f"antall aksjer: {decision.number_of_stocks}",
+        flush=True,
+    )
     execute_decision(decision, expected_number_of_stocks=current)
     return decision.model_dump()
 
 
 def load_portfolio(state: dict) -> dict:
     """Load the current holding into the debate state before research starts."""
-    ticker = state["analysis_packet"]["ticker"]
+    ticker = Decision(
+        ticker=state["analysis_packet"]["ticker"], action="hold", number_of_stocks=0
+    ).ticker
+    if state.get("ticker", ticker) != ticker:
+        raise ValueError("State ticker does not match the analysis packet")
     sync_pending_order()
-    return {"number_of_stocks": get_number_of_stocks(ticker)}
+    current = get_number_of_stocks(ticker)
+    print(f"[{ticker}] Portefølje lastet: {current} aksjer, in_portfolio={current > 0}", flush=True)
+    return {"ticker": ticker, "in_portfolio": current > 0, "number_of_stocks": current}
 
 
 def make_decision(state: dict) -> dict:
     """LangGraph node receiving the full state after the debate."""
-    ticker = state["analysis_packet"]["ticker"]
+    ticker = state["ticker"]
     decision = run_decision(state, ticker)
+    current = get_number_of_stocks(ticker)
     return {
         "decision": decision,
-        "number_of_stocks": get_number_of_stocks(ticker),
+        "in_portfolio": current > 0,
+        "number_of_stocks": current,
     }

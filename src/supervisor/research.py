@@ -27,31 +27,42 @@ def _error(error: Exception) -> dict:
 
 
 def news_node(state: ResearchState) -> dict:
+    print(f"[{state['ticker']}] Nyhetsagent startet", flush=True)
     try:
         report = get_stock_news_report.invoke(
             {"ticker": state["ticker"], "days": state.get("days", 7)}
         )
-        return {"news_agent": json.loads(report)}
+        data = json.loads(report)
+        print(f"[{state['ticker']}] Nyhetsagent ferdig: {data.get('stock', {}).get('status', 'ukjent status')}", flush=True)
+        return {"news_agent": data}
     except Exception as error:
+        print(f"[{state['ticker']}] Nyhetsagent feilet: {error}", flush=True)
         return {"news_agent": _error(error)}
 
 
 def economic_node(state: ResearchState) -> dict:
+    print(f"[{state['ticker']}] Rapportanalyse startet", flush=True)
     try:
-        return {"economic_agent": economic_agent.invoke({"ticker": state["ticker"]})}
+        report = economic_agent.invoke({"ticker": state["ticker"]})
+        print(f"[{state['ticker']}] Rapportanalyse ferdig", flush=True)
+        return {"economic_agent": report}
     except Exception as error:
+        print(f"[{state['ticker']}] Rapportanalyse feilet: {error}", flush=True)
         return {"economic_agent": _error(error)}
 
 
 def finance_node(state: ResearchState) -> dict:
+    print(f"[{state['ticker']}] Finansagent startet", flush=True)
     task = (
         f"Give the financial key numbers for {state['ticker']}: income statement, "
         "balance sheet, cash flow statement and valuation metrics."
     )
     try:
         result = finance_agent.invoke({"messages": [HumanMessage(content=task)]})
+        print(f"[{state['ticker']}] Finansagent ferdig", flush=True)
         return {"finance_agent": result["messages"][-1].content}
     except Exception as error:
+        print(f"[{state['ticker']}] Finansagent feilet: {error}", flush=True)
         return {"finance_agent": _error(error)}
 
 

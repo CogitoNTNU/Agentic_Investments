@@ -150,6 +150,18 @@ def test_failed_replace_preserves_portfolio(monkeypatch, portfolio_path):
     assert list(portfolio_path.parent.glob("*.tmp")) == []
 
 
+def test_missing_portfolio_loads_explicit_empty_holding(portfolio_path):
+    assert agent.load_portfolio({"analysis_packet": {"ticker": " aapl "}}) == {
+        "ticker": "AAPL", "in_portfolio": False, "number_of_stocks": 0
+    }
+    assert not portfolio_path.exists()
+
+
+def test_conflicting_state_ticker_is_rejected(portfolio_path):
+    with pytest.raises(ValueError, match="State ticker"):
+        agent.load_portfolio({"ticker": "MSFT", "analysis_packet": {"ticker": "AAPL"}})
+
+
 def test_debate_loads_holding_then_decides_and_sells(monkeypatch, portfolio_path):
     from src.debate_agent import nodes
     from src.debate_agent.graph import graph
@@ -214,6 +226,8 @@ def test_debate_loads_holding_then_decides_and_sells(monkeypatch, portfolio_path
     )
     loaded = next(state for state in states if "number_of_stocks" in state)
     assert loaded["number_of_stocks"] == 5
+    assert loaded["ticker"] == "AAPL"
+    assert loaded["in_portfolio"] is True
     assert "bull_analysis" not in loaded
     final = states[-1]
     assert final["decision"] == {
@@ -222,6 +236,7 @@ def test_debate_loads_holding_then_decides_and_sells(monkeypatch, portfolio_path
         "number_of_stocks": 5,
     }
     assert final["number_of_stocks"] == 0
+    assert final["in_portfolio"] is False
     assert portfolio.read_portfolio() == []
     payload = json.loads(
         model.with_structured_output.return_value.invoke.call_args.args[0][1][1]

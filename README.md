@@ -239,6 +239,27 @@ The `.env` file is ignored by git. Never commit API keys.
 
 ## Usage
 
+Start the candidate queue (or choose **Start paper trading queue** in VS Code):
+
+```bash
+uv sync --group dev
+uv run python -m src.main
+```
+
+The queue reads `data/news_discovery/grouped_candidates.json`, falling back to
+`latest_candidates.json` when the grouped file is absent. It preserves file order
+and processes each ticker once per run: research, debate, decision, then an Alpaca
+paper order for `buy`/`sell`, or no order for `hold`. Discovery data is included in
+the evidence. State contains `ticker`, `in_portfolio`, and `number_of_stocks`,
+loaded before the debate and refreshed after execution. A missing `portfolio.json`
+means no holdings; confirmed fills create/update it automatically.
+
+Configure IDUN, SEC and Alpaca credentials as described above before starting.
+The queue stops on an error or an unresolved order so that the next ticker cannot
+trade against uncertain holdings. Pending orders are reconciled at startup without
+resubmission. The queue is in memory: a new run reads all candidates again, including
+previously completed tickers. Run only one instance at a time.
+
 Analyze the latest SEC filing for a company:
 
 ```bash

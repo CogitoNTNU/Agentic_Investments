@@ -39,8 +39,17 @@ def _reconcile(pending: dict, order) -> bool:
     ):
         raise RuntimeError("Unexpected Alpaca filled quantity; pending order retained")
     delta = int(filled) * (1 if decision.action == "buy" else -1)
-    portfolio.set_holding(decision.ticker, pending["previous_holding"] + delta)
+    updated = pending["previous_holding"] + delta
+    previous = portfolio.get_number_of_stocks(decision.ticker)
+    portfolio.set_holding(decision.ticker, updated)
     status = getattr(order.status, "value", order.status)
+    if updated != previous or status in TERMINAL_STATUSES:
+        action = "kjøpt" if decision.action == "buy" else "solgt"
+        print(
+            f"[{decision.ticker}] Alpaca: {status}. Bekreftet {action}: "
+            f"{filled}/{decision.number_of_stocks} aksjer. Beholdning: {updated}",
+            flush=True,
+        )
     if status in TERMINAL_STATUSES:
         _pending_path().unlink()
         if status != "filled":
@@ -58,6 +67,7 @@ def sync_pending_order() -> None:
         if not _pending_path().exists():
             return
         pending = json.loads(_pending_path().read_text(encoding="utf-8"))
+        print(f"[Alpaca] Avklarer tidligere ordre {pending['client_order_id']}", flush=True)
         client = get_client()
         order = client.get_order_by_client_id(pending["client_order_id"])
         if not _reconcile(pending, order):
@@ -81,6 +91,7 @@ def execute_decision(
         if current != expected_number_of_stocks:
             raise ValueError("Holding changed during decision; run the analysis again")
         if decision.action == "hold":
+            print(f"[{decision.ticker}] HOLD: ingen ordre sendt. Beholdning: {current} aksjer", flush=True)
             return
         if decision.action == "sell" and decision.number_of_stocks > current:
             raise ValueError("Cannot sell more stocks than the portfolio holds")
@@ -89,6 +100,7 @@ def execute_decision(
         from alpaca.trading.requests import MarketOrderRequest
 
         client = get_client()
+        print(f"[{decision.ticker}] Kontrollerer beholdning hos Alpaca", flush=True)
         broker_quantity = next(
             (
                 Decimal(str(p.qty))
@@ -121,6 +133,11 @@ def execute_decision(
         with path.open("x", encoding="utf-8") as saved:
             json.dump(pending, saved, indent=2)
         try:
+            print(
+                f"[{decision.ticker}] Sender paperordre: {decision.action.upper()} "
+                f"{decision.number_of_stocks} aksjer ({client_order_id})",
+                flush=True,
+            )
             order = client.submit_order(order_data=request)
         except Exception as error:
             # These HTTP responses definitively reject this submission. Network
@@ -134,6 +151,7 @@ def execute_decision(
                 f"Alpaca submission failed or is uncertain ({client_order_id}). "
                 "Pending record retained; check Alpaca before retrying."
             ) from error
+        print(f"[{decision.ticker}] Ordre {order.id} mottatt. Venter på bekreftet utførelse", flush=True)
         deadline = monotonic() + timeout
         while True:
             if _reconcile(pending, order):

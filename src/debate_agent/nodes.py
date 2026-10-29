@@ -165,6 +165,7 @@ def validate_input(state: DebateState) -> dict:
 
 def bull_opening(state: DebateState) -> dict:
     packet = state["analysis_packet"]
+    print(f"[{packet['ticker']}] Debatt: bull lager åpningsanalyse", flush=True)
 
     thesis = _invoke(
         Thesis,
@@ -180,6 +181,7 @@ def bull_opening(state: DebateState) -> dict:
 
 def bear_opening(state: DebateState) -> dict:
     packet = state["analysis_packet"]
+    print(f"[{packet['ticker']}] Debatt: bear lager åpningsanalyse", flush=True)
     thesis = _invoke(
         Thesis,
         BEAR_PROMPT,
@@ -192,6 +194,7 @@ def bear_opening(state: DebateState) -> dict:
     }
 
 def bull_rebuttal(state: DebateState) -> dict:
+    print(f"[{state['analysis_packet']['ticker']}] Debatt: bull svarer på bears argumenter", flush=True)
 
     result = _run_rebuttal(
         state=state,
@@ -205,6 +208,7 @@ def bull_rebuttal(state: DebateState) -> dict:
 
 
 def bear_rebuttal(state: DebateState) -> dict:
+    print(f"[{state['analysis_packet']['ticker']}] Debatt: bear svarer på bulls argumenter", flush=True)
 
     result = _run_rebuttal(
         state=state,
@@ -219,6 +223,7 @@ def bear_rebuttal(state: DebateState) -> dict:
 
 def assemble_debate(state:DebateState) -> dict:
     packet = state["analysis_packet"]
+    print(f"[{packet['ticker']}] Debatt ferdig. Samler rapport til beslutningsagenten", flush=True)
 
     unresolved = list(
         dict.fromkeys(
