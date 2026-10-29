@@ -1,0 +1,63 @@
+flowchart TD
+    caller(["Supervisor or CLI<br/>finance_agent(ticker, peers=None)<br/>main.py"])
+
+    subgraph pipeline["LangGraph pipeline (graph.py, nodes.py)"]
+        direction TB
+        fetch_data["fetch_data<br/>company info, key metrics,<br/>annual + quarterly statements"]
+        compute["compute_features<br/>10 features with<br/>annual + quarterly history"]
+        select{{"select_features<br/>LLM picks 1-6 features<br/>fallback: sector defaults"}}
+        peers["fetch_peers<br/>up to 3 peers, compared<br/>with the peer median"]
+        prepare["prepare_analysis<br/>builds the analyst message"]
+        analyst{{"analyst<br/>LLM with tools"}}
+        tools["tools<br/>compare_key_metrics"]
+        final{{"final_analysis<br/>LLM to FinanceAnalysis"}}
+
+        fetch_data --> compute --> select --> peers --> prepare --> analyst
+        analyst -- "tool calls" --> tools --> analyst
+        analyst -- "no tool calls" --> final
+    end
+
+    result(["Result dict<br/>features, peer comparison,<br/>analysis, score 0-10"])
+
+    caller --> fetch_data
+    final --> result
+
+    subgraph modules["Supporting modules"]
+        direction LR
+        data_fetcher["data_fetcher.py"]
+        features["features.py"]
+        peers_py["peers.py"]
+        llm["llm.py"]
+        prompts["prompts.py"]
+        schemas["schemas.py"]
+    end
+
+    subgraph external["External sources"]
+        direction LR
+        yfinance[("yfinance")]
+        sp500[("sp500.csv<br/>GICS sub-industries")]
+        idun[("IDUN LLM endpoint<br/>src/model.py")]
+    end
+
+    fetch_data -.-> data_fetcher
+    compute -.-> features
+    peers -.-> peers_py
+    select -.-> llm
+    analyst -.-> llm
+    final -.-> llm
+    llm -.-> prompts
+    llm -.-> schemas
+
+    data_fetcher -.-> yfinance
+    peers_py -.-> yfinance
+    peers_py -.-> sp500
+    peers_py -.-> data_fetcher
+    peers_py -.-> features
+    llm -.-> idun
+
+    classDef llmNode fill:#ede7f6,stroke:#5e35b1,color:#1a1a1a
+    classDef codeNode fill:#e3f2fd,stroke:#1e88e5,color:#1a1a1a
+    classDef io fill:#f5f5f5,stroke:#757575,color:#1a1a1a
+    class select,analyst,final llmNode
+    class fetch_data,compute,peers,prepare,tools codeNode
+    class caller,result io
