@@ -6,6 +6,8 @@ Pipeline:  main agent -> news agent (this file) -> main agent -> decision agent
 Run from the `src` folder so the package imports work:
     python -m news_agent.news_agent
 """
+from pathlib import Path
+import sys
 from typing import List, Literal, Optional
 
 from langchain.agents import create_agent
@@ -15,8 +17,11 @@ from langchain_core.tools import tool
 from pydantic import BaseModel, Field
 from typing_extensions import TypedDict
 
-from model import get_model
-from .news_tools import get_news_from_tickerer
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from src.model import get_model
+from src.news_agent.news_tools import get_news_from_tickerer
 
 
 # ---------- Output schema ----------

@@ -8,6 +8,9 @@ from src.economic_agent.report_fetcher import (
 )
 from src.economic_agent.state import AgentState
 
+# Each round is one LLM call that re-sends the report, so the tool loop is capped.
+MAX_TOOL_ROUNDS = 3
+
 
 def fetch_report_node(state: AgentState):
     if state.get("report_id"):
@@ -44,7 +47,7 @@ Company:
 Report URL:
 {state["report_url"]}
 
-QUARTERLY REPORT:
+REPORT SECTIONS (MD&A, financial statements, risk factors, market risk; long sections are truncated):
 
 {state["report_text"]}
 """
@@ -70,6 +73,18 @@ def route_after_agent(state: AgentState):
         return "tools"
 
     return "final_analysis"
+
+
+def route_after_tools(state: AgentState):
+
+    tool_rounds = sum(
+        1 for message in state["messages"] if getattr(message, "tool_calls", None)
+    )
+
+    if tool_rounds >= MAX_TOOL_ROUNDS:
+        return "final_analysis"
+
+    return "financial_agent"
 
 
 def final_analysis_node(state: AgentState):
