@@ -11,7 +11,7 @@ from ..model import get_model
 
 llm = get_model()
 
-structured_llm = llm.with_structured_output(NewsAnalysis)
+structured_llm = llm.with_structured_output(NewsAnalysis, method="function_calling")
 
 SYSTEM_PROMPT = """
 You are a financial news event extraction and screening system.

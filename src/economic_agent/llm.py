@@ -13,5 +13,8 @@ llm_with_tools = llm.bind_tools(
 
 
 structured_llm = llm.with_structured_output(
-    EconomicAnalysis
+    EconomicAnalysis,
+    # Flash can spend its whole answer on reasoning and return empty json_schema
+    # content; a forced tool call always produces the structured arguments.
+    method="function_calling",
 )

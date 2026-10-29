@@ -33,7 +33,7 @@ def run_decision(data: Any, ticker: str) -> dict:
     )
     response = (
         get_model()
-        .with_structured_output(Decision)
+        .with_structured_output(Decision, method="function_calling")
         .invoke(
             [
                 ("system", SYSTEM_PROMPT),

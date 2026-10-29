@@ -11,7 +11,7 @@ from .state import DebateState
 
 
 def _invoke(schema, system_prompt: str, payload: dict):
-    structured_model = get_model().with_structured_output(schema)
+    structured_model = get_model().with_structured_output(schema, method="function_calling")
     response = structured_model.invoke(
         [
             ("system", system_prompt),
