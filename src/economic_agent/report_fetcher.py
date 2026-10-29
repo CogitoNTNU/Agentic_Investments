@@ -2,6 +2,7 @@
 
 import os
 import re
+from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
@@ -105,7 +106,7 @@ def condense_report_text(text: str) -> str:
 
 def sec_session() -> requests.Session:
     """Create an identified SEC client."""
-    load_dotenv()
+    load_dotenv(dotenv_path=Path(__file__).resolve().parents[2] / ".env")
     user_agent = os.getenv("SEC_USER_AGENT", "").strip()
     if not user_agent:
         raise ValueError(
