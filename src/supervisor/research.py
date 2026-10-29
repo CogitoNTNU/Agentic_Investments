@@ -3,13 +3,12 @@
 import json
 from typing import Any
 
-from langchain.messages import HumanMessage
 from langchain_core.tools import tool
 from langgraph.graph import END, START, StateGraph
 from typing_extensions import TypedDict
 
 from src.economic_agent.main import economic_agent
-from src.finance_agent.agent import agent as finance_agent
+from src.finance.main import finance_agent
 from src.news_agent.news_agent import get_stock_news_report
 
 
@@ -44,13 +43,8 @@ def economic_node(state: ResearchState) -> dict:
 
 
 def finance_node(state: ResearchState) -> dict:
-    task = (
-        f"Give the financial key numbers for {state['ticker']}: income statement, "
-        "balance sheet, cash flow statement and valuation metrics."
-    )
     try:
-        result = finance_agent.invoke({"messages": [HumanMessage(content=task)]})
-        return {"finance_agent": result["messages"][-1].content}
+        return {"finance_agent": finance_agent.invoke({"ticker": state["ticker"]})}
     except Exception as error:
         return {"finance_agent": _error(error)}
 

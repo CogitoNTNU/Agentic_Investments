@@ -71,7 +71,15 @@ The agent is also exposed as a LangChain tool (`economic_agent`) so it can be us
 
 ### Finance agent
 
-`src/finance_agent/` is a ReAct style agent that pulls income statements, balance sheets, cash flow statements, and key valuation metrics (market cap, P/E, forward P/E, PEG, dividend yield, beta) from yfinance, and can compare two tickers.
+`src/finance/` analyzes a company's financial numbers and valuation from yfinance.
+
+1. Fetches company info, key valuation metrics (market cap, P/E, forward P/E, PEG, dividend yield, beta) and annual and quarterly statements.
+2. Computes ten financial features, such as growth, margins, return on equity, leverage, liquidity and free cash flow, with their annual and quarterly history.
+3. An LLM selects the features that matter most for the company's sector, with sector defaults as a fallback.
+4. Compares the company with up to three peers from the same S&P 500 sub-industry.
+5. An analyst LLM interprets the data, and a final step returns a structured `FinanceAnalysis` with a financial score from 0 to 10.
+
+The agent is exposed as a LangChain tool (`finance_agent`) for the supervisor. See [src/finance/README.md](src/finance/README.md) for details.
 
 ### Stockpicker agent
 
@@ -174,7 +182,7 @@ Agentic_Investments/
 ├── src/
 │   ├── alpaca_tools/        # Alpaca paper trading tools
 │   ├── economic_agent/      # SEC filing analysis agent
-│   ├── finance_agent/       # yfinance fundamentals agent
+│   ├── finance/             # yfinance financial analysis agent
 │   ├── news_agent/          # Yahoo Finance news tool
 │   ├── stockpicker_agent/   # Marketaux news discovery pipeline
 │   ├── supervisor/          # Multi-agent supervisor

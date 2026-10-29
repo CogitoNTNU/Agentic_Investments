@@ -19,7 +19,7 @@ python -m src.finance.main AAPL
 python -m src.finance.main JPM --peers BAC WFC C
 ```
 
-From another agent, such as the supervisor, use the LangChain tool:
+The supervisor runs it through `gather_research_data` in `src/supervisor/research.py`, in parallel with the news and economic agents. From other code, use the LangChain tool:
 
 ```python
 from src.finance.main import finance_agent
@@ -93,7 +93,7 @@ Hexagons are LLM steps; rectangles are plain code. The `.mmd` file also shows wh
 | `features.py` | Feature calculation, units, sector defaults and the fallback for selection. |
 | `peers.py` | Peer search via `sp500.csv`, fetching peer data, and comparison with the median. |
 | `tools.py` | Tools the analyst LLM may call (`compare_key_metrics`). |
-| `llm.py` | The model (DeepSeek on IDUN via `src/model.py`), the model with tools, and the two structured-output models. |
+| `llm.py` | The model (`FLASH_MODEL_NAME` from `src/model.py`, DeepSeek on IDUN, temperature 0), the model with tools, and the two structured-output models. |
 | `prompts.py` | `ANALYST_PROMPT`, `FEATURE_SELECTION_PROMPT`, `FINAL_ANALYSIS_PROMPT`. |
 | `schemas.py` | `FinancialFeature`, `FeatureSelection`, `FinanceAnalysis`. |
 | `architecture.mmd` | The architecture diagram. |
@@ -158,6 +158,5 @@ The reasoning is passed on to the analyst and returned in the result.
 - **No cache.** Every call downloads everything again. The economic agent's `cache.py` could be copied, keyed on ticker + date.
 - **`dividend_yield` from yfinance is already in percent** (0.31 = 0.31%), while `info` margins are fractions. The features don't use `info` margins.
 - **Peer ranking uses market cap only.**
-- **The supervisor still imports the old `src/finance_agent`.** Switch it to `from src.finance.main import finance_agent`, then delete the old folder.
 - **Regression (`finance_agent/utils/tools/regression`) isn't included.** One ticker has too few periods. It needs a separate dataset of many tickers × many quarters, which `features.py` can be reused to build.
 - **Structured output uses `method="function_calling"`.** With the default `json_schema` method, DeepSeek on IDUN sometimes returned empty content.

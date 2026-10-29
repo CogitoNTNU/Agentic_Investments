@@ -27,9 +27,16 @@ AVAILABLE AGENTS:
    behind the score.
 
 3. finance_agent
-   Pulls financial key numbers from yfinance: income statement,
-   balance sheet, cash flow statement and valuation metrics such as
-   market cap, P/E, forward P/E, PEG, dividend yield and beta.
+   Analyzes financial data and valuation from yfinance. Computes
+   financial features (growth, margins, return on equity, leverage,
+   liquidity, free cash flow) with annual and quarterly history,
+   selects the features most relevant for the company's sector and
+   compares them and the valuation metrics (market cap, P/E, forward
+   P/E, PEG, dividend yield, beta) with up to 3 peers from the same
+   S&P 500 sub-industry. Returns the selected features and why they
+   were selected, the peer comparison, a summary, a valuation
+   assessment, key trends, positive factors, risk factors, a financial
+   score from 0 to 10 and the reasoning behind the score.
 
 4. debate_agent
    Runs a structured bull vs. bear debate on an analysis packet.
@@ -115,16 +122,21 @@ Include evidence IDs so every item can be traced.
 - Outlook score (0-10) and the full outlook reasoning.
 
 ### Financial key numbers (finance_agent)
-- All income statement, balance sheet and cash flow figures returned.
+- Fiscal year of the features, sector and industry.
 - All valuation metrics returned (market cap, P/E, forward P/E,
   PEG, dividend yield, beta and any others).
-- Any comparison data returned.
+- Every selected feature with its latest value, unit and annual and
+  quarterly history, and why the features were selected.
+- The peers and every comparison with the peer median.
+- Summary, valuation assessment and key trends.
+- Financial score (0-10) and the full score reasoning.
 
 ## 2. All pros
 List every positive point from every source. Include:
 - Positive factors from economic_agent.
 - Positive news events from news_agent.
-- Favorable financial key numbers from finance_agent.
+- Positive factors and favorable financial key numbers from
+  finance_agent.
 - Every bull argument from the debate, with claim, rationale,
   evidence IDs and confidence.
 - Every point the bear analyst conceded.
@@ -134,7 +146,8 @@ List every positive point from every source. Include:
 List every negative point from every source. Include:
 - Risk factors from economic_agent.
 - Risks and negative events from news_agent.
-- Unfavorable financial key numbers from finance_agent.
+- Risk factors and unfavorable financial key numbers from
+  finance_agent.
 - Every bear argument from the debate, with claim, rationale,
   evidence IDs and confidence.
 - Every point the bull analyst conceded.
