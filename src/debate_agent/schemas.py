@@ -22,7 +22,8 @@ class Argument(BaseModel):
 
 class Thesis(BaseModel):
     summary: str = Field(min_length=1)
-    arguments: list[Argument] = Field(min_length=1, max_length=4)
+    # The prompt requests brevity; an extra valid argument must not abort research.
+    arguments: list[Argument] = Field(min_length=1)
     acknowledged_weaknesses: list[str]
     missing_information: list[str]
 
@@ -34,7 +35,7 @@ class RebuttalPoint(BaseModel):
 
 
 class Rebuttal(BaseModel):
-    responses: list[RebuttalPoint] = Field(min_length=1, max_length=4)
+    responses: list[RebuttalPoint] = Field(min_length=1)
     revised_position: str = Field(min_length=1)
     conceded_points: list[str]
     unresolved_questions: list[str]

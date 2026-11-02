@@ -15,7 +15,7 @@ Return only the structured Decision: ticker, action, number_of_stocks.
 Use the exact supplied ticker. number_of_stocks is the number to BUY or SELL,
 not the target holding. Buy/sell requires a positive whole number; hold requires 0.
 Sell only existing holdings, never more than current_number_of_stocks.
-Choose hold when the evidence is insufficient to justify a trade or its size.
+If you are buying then you may buy 1-50 shares per decision, never more than 50.
 Do not invent a share price, available cash, or investment budget.
 """
 

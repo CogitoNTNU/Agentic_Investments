@@ -6,6 +6,7 @@ import sys
 from collections import deque
 from datetime import datetime, timezone
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 
 # Support both `python src/main.py` and `python -m src.main`.
 ROOT = Path(__file__).resolve().parents[1]
@@ -71,6 +72,34 @@ def process_candidate(candidate: dict) -> dict:
     return graph.invoke({"ticker": ticker, "analysis_packet": packet})
 
 
+def complete_candidate(ticker: str, source: Path) -> None:
+    """Persist progress only after decision and order handling have succeeded."""
+    paths = [source]
+    if source.is_dir():
+        # Keep the preferred file and fallback in sync so completion cannot reappear.
+        paths = [source / name for name in ("grouped_candidates.json", "latest_candidates.json")]
+    for path in paths:
+        if not path.exists():
+            continue
+        data = json.loads(path.read_text(encoding="utf-8"))
+        data["candidates"] = [
+            item for item in data["candidates"]
+            if item["ticker"].strip().upper() != ticker.strip().upper()
+        ]
+        data["total_candidates"] = len(data["candidates"])
+        temporary = None
+        try:
+            with NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent,
+                                    suffix=".tmp", delete=False) as file:
+                temporary = Path(file.name)
+                json.dump(data, file, ensure_ascii=False, indent=2)
+                file.write("\n")
+            temporary.replace(path)
+        finally:
+            if temporary is not None:
+                temporary.unlink(missing_ok=True)
+
+
 def main(candidate_file: Path | None = None) -> None:
     from src.decision_agent.trading import sync_pending_order
 
@@ -90,7 +119,10 @@ def main(candidate_file: Path | None = None) -> None:
             print(f"[{ticker}] Køen stoppet: {type(error).__name__}: {error}", flush=True)
             raise
         print(f"[{ticker}] Ferdig: {json.dumps(result['decision'], ensure_ascii=False)}", flush=True)
+        complete_candidate(ticker, candidate_file if candidate_file is not None else ROOT / "data" / "news_discovery")
         queue.popleft()
+        # Release the completed research/debate before starting the next ticker.
+        del result, candidate
     print("[Kø] Ferdig. Alle kandidater er behandlet", flush=True)
 
 

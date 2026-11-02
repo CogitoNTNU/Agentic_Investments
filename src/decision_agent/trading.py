@@ -1,4 +1,4 @@
-"""Submit paper orders and reconcile confirmed fills with the local portfolio."""
+"""Submit paper orders, booking received orders immediately when the market is closed."""
 
 import json
 from decimal import Decimal
@@ -22,7 +22,7 @@ def _pending_path():
     return portfolio.PORTFOLIO_PATH.with_suffix(".pending.json")
 
 
-def _reconcile(pending: dict, order) -> bool:
+def _validate_order(pending: dict, order) -> Decision:
     decision = Decision.model_validate(pending["decision"])
     if (
         order.symbol != decision.ticker
@@ -38,6 +38,36 @@ def _reconcile(pending: dict, order) -> bool:
         or filled != int(filled)
     ):
         raise RuntimeError("Unexpected Alpaca filled quantity; pending order retained")
+    return decision
+
+
+def _book_received_order(pending: dict, order) -> None:
+    """Record the entire received order as a normal portfolio holding."""
+    decision = _validate_order(pending, order)
+    delta = decision.number_of_stocks * (1 if decision.action == "buy" else -1)
+    updated = pending["previous_holding"] + delta
+    # Absolute quantity also makes recovery safe if the write succeeded before a crash.
+    portfolio.set_holding(decision.ticker, updated)
+    _pending_path().unlink()
+    print(
+        f"[{decision.ticker}] Ordre mottatt utenfor åpningstid. "
+        f"Registrert {decision.action.upper()} {decision.number_of_stocks} aksjer. "
+        f"Beholdning: {updated}. Fortsetter køen.",
+        flush=True,
+    )
+
+
+def _finish_received_order(pending: dict, order) -> bool:
+    status = getattr(order.status, "value", order.status)
+    if pending.get("book_on_acceptance") and status not in TERMINAL_STATUSES:
+        _book_received_order(pending, order)
+        return True
+    return _reconcile(pending, order)
+
+
+def _reconcile(pending: dict, order) -> bool:
+    decision = _validate_order(pending, order)
+    filled = Decimal(str(order.filled_qty or 0))
     delta = int(filled) * (1 if decision.action == "buy" else -1)
     updated = pending["previous_holding"] + delta
     previous = portfolio.get_number_of_stocks(decision.ticker)
@@ -70,7 +100,10 @@ def sync_pending_order() -> None:
         print(f"[Alpaca] Avklarer tidligere ordre {pending['client_order_id']}", flush=True)
         client = get_client()
         order = client.get_order_by_client_id(pending["client_order_id"])
-        if not _reconcile(pending, order):
+        # Also recover orders saved by the old version during a closed session.
+        if "book_on_acceptance" not in pending:
+            pending["book_on_acceptance"] = not client.get_clock().is_open
+        if not _finish_received_order(pending, order):
             raise RuntimeError(
                 f"Alpaca order {order.id} is still pending; confirmed fills were synced. "
                 "Call sync_pending_order() again later; no new order was submitted."
@@ -83,7 +116,7 @@ def execute_decision(
     timeout: float = 30,
     poll_interval: float = 1,
 ) -> None:
-    """Validate locally, submit once, then persist only confirmed fills."""
+    """Book received orders immediately outside hours; await fills during trading."""
     decision = Decision.model_validate(decision)
     with portfolio._lock:
         sync_pending_order()
@@ -93,6 +126,8 @@ def execute_decision(
         if decision.action == "hold":
             print(f"[{decision.ticker}] HOLD: ingen ordre sendt. Beholdning: {current} aksjer", flush=True)
             return
+        if decision.action == "buy" and decision.number_of_stocks > 50:
+            raise ValueError("Cannot buy more than 50 stocks per decision")
         if decision.action == "sell" and decision.number_of_stocks > current:
             raise ValueError("Cannot sell more stocks than the portfolio holds")
 
@@ -100,19 +135,21 @@ def execute_decision(
         from alpaca.trading.requests import MarketOrderRequest
 
         client = get_client()
-        print(f"[{decision.ticker}] Kontrollerer beholdning hos Alpaca", flush=True)
-        broker_quantity = next(
-            (
-                Decimal(str(p.qty))
-                for p in client.get_all_positions()
-                if p.symbol == decision.ticker
-            ),
-            Decimal(0),
-        )
-        if broker_quantity != current:
-            raise ValueError(
-                "Alpaca holding differs from portfolio.json; reconcile it before trading"
+        book_on_acceptance = not client.get_clock().is_open
+        if not book_on_acceptance:
+            print(f"[{decision.ticker}] Kontrollerer beholdning hos Alpaca", flush=True)
+            broker_quantity = next(
+                (
+                    Decimal(str(p.qty))
+                    for p in client.get_all_positions()
+                    if p.symbol == decision.ticker
+                ),
+                Decimal(0),
             )
+            if broker_quantity != current:
+                raise ValueError(
+                    "Alpaca holding differs from portfolio.json; reconcile it before trading"
+                )
         client_order_id = f"decision-{uuid4().hex}"
         request = MarketOrderRequest(
             symbol=decision.ticker,
@@ -125,6 +162,7 @@ def execute_decision(
             "client_order_id": client_order_id,
             "decision": decision.model_dump(),
             "previous_holding": current,
+            "book_on_acceptance": book_on_acceptance,
         }
         # Save before submission: even an ambiguous network failure can be recovered
         # by client_order_id instead of risking a second trade.
@@ -151,7 +189,10 @@ def execute_decision(
                 f"Alpaca submission failed or is uncertain ({client_order_id}). "
                 "Pending record retained; check Alpaca before retrying."
             ) from error
-        print(f"[{decision.ticker}] Ordre {order.id} mottatt. Venter på bekreftet utførelse", flush=True)
+        print(f"[{decision.ticker}] Ordre {order.id} mottatt", flush=True)
+        if _finish_received_order(pending, order):
+            return
+        print(f"[{decision.ticker}] Venter på bekreftet utførelse", flush=True)
         deadline = monotonic() + timeout
         while True:
             if _reconcile(pending, order):

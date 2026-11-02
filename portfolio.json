@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "ticker": "EQT",
+    "number_of_stocks": 20
+  },
+  {
+    "ticker": "EIX",
+    "number_of_stocks": 15
+  },
+  {
+    "ticker": "MSFT",
+    "number_of_stocks": 25
+  },
+  {
+    "ticker": "FDX",
+    "number_of_stocks": 15
+  },
+  {
+    "ticker": "V",
+    "number_of_stocks": 20
+  },
+  {
+    "ticker": "CVNA",
+    "number_of_stocks": 15
+  },
+  {
+    "ticker": "TER",
+    "number_of_stocks": 15
+  },
+  {
+    "ticker": "FTNT",
+    "number_of_stocks": 20
+  },
+  {
+    "ticker": "AEP",
+    "number_of_stocks": 20
+  },
+  {
+    "ticker": "BKR",
+    "number_of_stocks": 10
+  },
+  {
+    "ticker": "IEX",
+    "number_of_stocks": 10
+  },
+  {
+    "ticker": "KLAC",
+    "number_of_stocks": 15
+  },
+  {
+    "ticker": "NVDA",
+    "number_of_stocks": 10
+  },
+  {
+    "ticker": "PPG",
+    "number_of_stocks": 15
+  },
+  {
+    "ticker": "RJF",
+    "number_of_stocks": 15
+  },
+  {
+    "ticker": "OKE",
+    "number_of_stocks": 20
+  },
+  {
+    "ticker": "EBAY",
+    "number_of_stocks": 10
+  },
+  {
+    "ticker": "MAS",
+    "number_of_stocks": 10
+  },
+  {
+    "ticker": "ORCL",
+    "number_of_stocks": 15
+  },
+  {
+    "ticker": "AAPL",
+    "number_of_stocks": 10
+  },
+  {
+    "ticker": "ORLY",
+    "number_of_stocks": 10
+  },
+  {
+    "ticker": "OTIS",
+    "number_of_stocks": 10
+  },
+  {
+    "ticker": "STX",
+    "number_of_stocks": 10
+  },
+  {
+    "ticker": "VRT",
+    "number_of_stocks": 10
+  }
+]

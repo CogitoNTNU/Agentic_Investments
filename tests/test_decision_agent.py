@@ -13,6 +13,7 @@ def portfolio_path(monkeypatch, tmp_path):
     path = tmp_path / "portfolio.json"
     monkeypatch.setattr(portfolio, "PORTFOLIO_PATH", path)
     client = MagicMock()
+    client.get_clock.return_value = SimpleNamespace(is_open=True)
     client.get_all_positions.side_effect = lambda: [
         SimpleNamespace(symbol=p["ticker"], qty=str(p["number_of_stocks"]))
         for p in portfolio.read_portfolio()
@@ -60,7 +61,7 @@ def test_arbitrary_research_and_fixed_output(monkeypatch, portfolio_path, data):
     response = {"ticker": "AAPL", "action": "buy", "number_of_stocks": 3}
     model = fake_model(monkeypatch, response)
     assert agent.run_decision(data, " aapl ") == response
-    model.with_structured_output.assert_called_once_with(Decision)
+    model.with_structured_output.assert_called_once_with(Decision, method="function_calling")
     payload = json.loads(
         model.with_structured_output.return_value.invoke.call_args.args[0][1][1]
     )
@@ -242,4 +243,7 @@ def test_debate_loads_holding_then_decides_and_sells(monkeypatch, portfolio_path
         model.with_structured_output.return_value.invoke.call_args.args[0][1][1]
     )
     assert payload["current_number_of_stocks"] == 5
-    assert "debate_report" in json.loads(payload["research"])
+    research = json.loads(payload["research"])
+    assert "debate_report" not in research
+    for key in ("analysis_packet", "bull_analysis", "bear_analysis", "bull_rebuttal", "bear_rebuttal"):
+        assert research[key] == final[key]

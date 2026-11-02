@@ -15,5 +15,4 @@ def run_debate(analysis_packet: AnalysisPacket) -> dict:
     # Registering the tool should not initialize the LLM.
     from src.debate_agent.graph import graph
 
-    result = graph.invoke({"analysis_packet": analysis_packet.model_dump()})
-    return result["debate_report"]
+    return graph.invoke({"analysis_packet": analysis_packet.model_dump()})

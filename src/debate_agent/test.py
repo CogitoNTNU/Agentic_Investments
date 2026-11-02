@@ -100,15 +100,13 @@ def main():
         "analysis_packet": analysis_packet
     })
 
-    report = result["debate_report"]
-
     # -----------------------------------
     # Bull opening
     # -----------------------------------
 
     print("\n=== BULL ANALYSIS ===")
 
-    bull = report["bull"]["opening"]
+    bull = result["bull_analysis"]
 
     print("Summary:", bull["summary"])
 
@@ -129,7 +127,7 @@ def main():
 
     print("\n=== BEAR ANALYSIS ===")
 
-    bear = report["bear"]["opening"]
+    bear = result["bear_analysis"]
 
     print("Summary:", bear["summary"])
 
@@ -150,7 +148,7 @@ def main():
 
     print("\n=== BULL REBUTTAL ===")
 
-    bull_reply = report["bull"]["rebuttal"]
+    bull_reply = result["bull_rebuttal"]
 
     for response in bull_reply["responses"]:
         print(
@@ -170,7 +168,7 @@ def main():
 
     print("\n=== BEAR REBUTTAL ===")
 
-    bear_reply = report["bear"]["rebuttal"]
+    bear_reply = result["bear_rebuttal"]
 
     for response in bear_reply["responses"]:
         print(
@@ -190,7 +188,10 @@ def main():
 
     print("\n=== UNRESOLVED QUESTIONS ===")
 
-    for question in report["unresolved_questions"]:
+    for question in dict.fromkeys(
+        result["bull_rebuttal"]["unresolved_questions"]
+        + result["bear_rebuttal"]["unresolved_questions"]
+    ):
         print("-", question)
 
     # -----------------------------------
@@ -204,7 +205,7 @@ def main():
 
     output_path.write_text(
         json.dumps(
-            report,
+            result,
             indent=2,
             ensure_ascii=False
         ),
@@ -212,7 +213,6 @@ def main():
     )
 
     print("\n=== DEBATE COMPLETE ===")
-    print("Status:", report["status"])
     print("Saved to:", output_path)
 
 

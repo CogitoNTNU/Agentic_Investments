@@ -40,13 +40,6 @@ output_dir.mkdir(parents=True, exist_ok=True)
 
 latest_path = output_dir / "latest_candidates.json"
 
-history_dir = output_dir / "history"
-history_dir.mkdir(parents=True, exist_ok=True)
-
-history_path = history_dir / (
-    now.strftime("%Y%m%d_%H%M%S") + ".json"
-)
-
 json_data = json.dumps(
     output,
     indent=2,
@@ -54,7 +47,6 @@ json_data = json.dumps(
 )
 
 latest_path.write_text(json_data, encoding="utf-8")
-history_path.write_text(json_data, encoding="utf-8")
 
 print(f"Saved {len(result['candidates'])} candidates")
 print(f"File: {latest_path}")
@@ -81,21 +73,4 @@ grouped_path.write_text(
     encoding="utf-8"
 )
 
-grouped_history_dir = history_dir / "grouped"
-
-grouped_history_dir.mkdir(
-    parents=True,
-    exist_ok=True
-)
-
-grouped_history_path = (
-    grouped_history_dir / history_path.name
-)
-
-grouped_history_path.write_text(
-    grouped_json_data,
-    encoding="utf-8"
-)
-
 print(f"Grouped file: {grouped_path}")
-print(f"Grouped history: {grouped_history_path}")

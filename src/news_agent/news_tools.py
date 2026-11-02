@@ -25,8 +25,6 @@ MAX_LIMIT = 20
 MAX_DAYS = 30
 TITLE_CHARS = 300
 SUMMARY_CHARS = 1000
-CACHE_TTL = 600  # seconds; avoids refetching when the agent asks twice
-_cache: dict = {}
 
 # Retries on timeouts, connection errors and 429/5xx, with a short backoff
 _session = requests.Session()
@@ -45,10 +43,6 @@ def _clean(text: str, max_len: int) -> str:
 
 
 def _fetch_feed(ticker: str):
-    cached = _cache.get(ticker)
-    if cached and time.time() - cached[0] < CACHE_TTL:
-        return cached[1]
-
     response = _session.get(
         YAHOO_URL,
         params={"s": ticker, "region": "US", "lang": "en-US"},  # safely URL-encoded
@@ -57,7 +51,6 @@ def _fetch_feed(ticker: str):
     )
     response.raise_for_status()
     feed = feedparser.parse(response.content)
-    _cache[ticker] = (time.time(), feed)  # only successful fetches are cached
     return feed
 
 

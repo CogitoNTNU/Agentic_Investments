@@ -1,4 +1,6 @@
 import json
+from langchain_core.exceptions import OutputParserException
+from pydantic import ValidationError
 from ..model import get_model
 from .prompts import (
     BEAR_PROMPT,
@@ -12,13 +14,24 @@ from .state import DebateState
 
 def _invoke(schema, system_prompt: str, payload: dict):
     structured_model = get_model().with_structured_output(schema, method="function_calling")
-    response = structured_model.invoke(
-        [
-            ("system", system_prompt),
-            ("human", json.dumps(payload, ensure_ascii=False))
-        ]
-    )
-    return schema.model_validate(response)
+    messages = [
+        ("system", system_prompt),
+        ("human", json.dumps(payload, ensure_ascii=False)),
+    ]
+    for attempt in range(3):
+        try:
+            response = structured_model.invoke(messages)
+            return schema.model_validate(response)
+        except (ValidationError, OutputParserException) as error:
+            if attempt == 2:
+                raise
+            print(f"Debatt: ugyldig {schema.__name__}-svar, ber om korrigering ({attempt + 1}/2)", flush=True)
+            messages.append(("human", (
+                f"Your response failed validation: {error}. "
+                "Return a complete corrected structured response using the original "
+                "evidence. Do not invent missing facts. Required schema: "
+                + json.dumps(schema.model_json_schema(), ensure_ascii=False)
+            )))
 
 
 def _valid_ids(packet: dict) -> set[str]:
@@ -219,41 +232,3 @@ def bear_rebuttal(state: DebateState) -> dict:
     return {
         "bear_rebuttal": result
     }
-
-
-def assemble_debate(state:DebateState) -> dict:
-    packet = state["analysis_packet"]
-    print(f"[{packet['ticker']}] Debatt ferdig. Samler rapport til beslutningsagenten", flush=True)
-
-    unresolved = list(
-        dict.fromkeys(
-            state["bull_rebuttal"]["unresolved_questions"]
-            + state["bear_rebuttal"]["unresolved_questions"]
-        )
-    )
-
-    report = {
-        "ticker": packet["ticker"],
-        "company_name": packet["company_name"],
-        "as_of": packet["as_of"],
-        "time_horizon": packet["time_horizon"],
-        "status": "ready_for_decision_review",
-        "evidence": packet["evidence"],
-
-        "bull": {
-            "opening": state["bull_analysis"],
-            "rebuttal": state["bull_rebuttal"],
-        },
-
-        "bear": {
-            "opening": state["bear_analysis"],
-            "rebuttal": state["bear_rebuttal"],
-        },
-
-        "unresolved_questions": unresolved,
-    }
-
-    return {
-        "debate_report": report
-    }
-

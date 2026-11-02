@@ -3,24 +3,13 @@ from langchain.messages import ToolMessage
 
 
 from .tools import get_tools
-from langchain_openai import ChatOpenAI
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
+from src.model import get_model
 
 tools, tools_by_name = get_tools()
 
-BASE_URL = "https://llm.hpc.ntnu.no/v1"
-MODEL_NAME = "deepseek-ai/DeepSeek-V4.1-Flash-1017"
-
 def get_finance_agent():
 
-    model_with_tools = ChatOpenAI(
-        api_key = os.getenv("IDUN_API_KEY"),
-        model=MODEL_NAME,
-        base_url= BASE_URL
-    ).bind_tools(tools)
+    model_with_tools = get_model().bind_tools(tools)
 
     return model_with_tools
 

@@ -100,19 +100,29 @@ def run_news_agent(ticker: str, days: int = 7) -> SingleStockReport:
     days = max(1, min(days, 30))
     if not ticker:
         return _error_report(ticker, days, "No ticker given")
-    try:
-        result = agent.invoke({
-            "messages": [{"role": "user", "content": f"Ticker: {ticker}\nPeriod: last {days} days"}]
-        })
-        report = result["structured_response"]  # a SingleStockReport, not the raw message list
-    except Exception as e:
-        return _error_report(ticker, days, f"News agent failed: {e}")
-
-    # Don't trust the model for things the code already knows
-    report.stock.ticker = ticker
-    report.stock.period_days = days
-    report.stock.key_events = report.stock.key_events[:5]
-    return report
+    messages = [{"role": "user", "content": f"Ticker: {ticker}\nPeriod: last {days} days"}]
+    for attempt in range(2):
+        try:
+            result = agent.invoke({"messages": messages})
+            # Retain tool results for a correction instead of fetching news again.
+            if result.get("messages"):
+                messages = list(result["messages"])
+            report = SingleStockReport.model_validate(result.get("structured_response"))
+            # Don't trust the model for things the code already knows.
+            report.stock.ticker = ticker
+            report.stock.period_days = days
+            report.stock.key_events = report.stock.key_events[:5]
+            return report
+        except Exception as error:
+            if attempt == 1:
+                return _error_report(ticker, days, f"News agent failed: {error}")
+            print(f"[{ticker}] Nyhetsagent: ugyldig eller manglende svar, prøver igjen", flush=True)
+            messages.append({"role": "user", "content": (
+                "Return the required SingleStockReport structured response. "
+                "Use the fetched articles already in this conversation if present. "
+                "Use status error with a note if news could not be fetched; "
+                "never invent news."
+            )})
 
 
 def report_to_llm_payload(report: SingleStockReport) -> str:

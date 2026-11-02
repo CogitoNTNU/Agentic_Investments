@@ -115,12 +115,10 @@ def main():
         "analysis_packet": packet
     })
 
-    report = result["debate_report"]
-
     for side in ("bull", "bear"):
 
-        opening = report[side]["opening"]
-        rebuttal = report[side]["rebuttal"]
+        opening = result[f"{side}_analysis"]
+        rebuttal = result[f"{side}_rebuttal"]
 
         print(f"\n=== {side.upper()} ANALYSIS ===")
         print("Summary:", opening["summary"])
@@ -147,7 +145,10 @@ def main():
 
     print("\n=== UNRESOLVED QUESTIONS ===")
 
-    for question in report["unresolved_questions"]:
+    for question in dict.fromkeys(
+        result["bull_rebuttal"]["unresolved_questions"]
+        + result["bear_rebuttal"]["unresolved_questions"]
+    ):
         print("-", question)
 
     # Save report
@@ -160,7 +161,7 @@ def main():
 
     output_path.write_text(
         json.dumps(
-            report,
+            result,
             indent=2,
             ensure_ascii=False
         ),
@@ -168,7 +169,6 @@ def main():
     )
 
     print("\n=== DEBATE COMPLETE ===")
-    print("Status:", report["status"])
     print("Saved to:", output_path)
 
 

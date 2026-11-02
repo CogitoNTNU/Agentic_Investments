@@ -30,7 +30,7 @@ def test_latest_fallback_and_empty_queue(tmp_path):
 def test_queue_finishes_each_candidate_before_starting_next(monkeypatch, tmp_path):
     save_candidates(tmp_path, "grouped_candidates.json", ["AAPL", "MSFT"])
     queue = main.load_candidates(tmp_path)
-    monkeypatch.setattr(main, "load_candidates", lambda: queue)
+    monkeypatch.setattr(main, "load_candidates", lambda *args: queue)
     events = []
     monkeypatch.setattr(trading, "sync_pending_order", lambda: events.append("sync"))
 
@@ -40,15 +40,16 @@ def test_queue_finishes_each_candidate_before_starting_next(monkeypatch, tmp_pat
         return {"decision": {"ticker": ticker, "action": "hold", "number_of_stocks": 0}}
 
     monkeypatch.setattr(main, "process_candidate", process)
-    main.main()
+    main.main(tmp_path)
     assert events == ["sync", "research:AAPL", "decision:AAPL", "research:MSFT", "decision:MSFT"]
     assert not queue
+    assert json.loads((tmp_path / "grouped_candidates.json").read_text())["candidates"] == []
 
 
 def test_failure_retains_current_candidate_and_stops_queue(monkeypatch, tmp_path):
     save_candidates(tmp_path, "latest_candidates.json", ["AAPL", "MSFT"])
     queue = main.load_candidates(tmp_path)
-    monkeypatch.setattr(main, "load_candidates", lambda: queue)
+    monkeypatch.setattr(main, "load_candidates", lambda *args: queue)
     monkeypatch.setattr(trading, "sync_pending_order", lambda: None)
 
     def fail(candidate):
@@ -56,8 +57,56 @@ def test_failure_retains_current_candidate_and_stops_queue(monkeypatch, tmp_path
 
     monkeypatch.setattr(main, "process_candidate", fail)
     with pytest.raises(TimeoutError, match="pending"):
-        main.main()
+        main.main(tmp_path)
     assert [c["ticker"] for c in queue] == ["AAPL", "MSFT"]
+    assert len(json.loads((tmp_path / "latest_candidates.json").read_text())["candidates"]) == 2
+
+
+def test_restart_skips_completed_decisions_but_keeps_failed_ticker(monkeypatch, tmp_path):
+    for name in ("grouped_candidates.json", "latest_candidates.json"):
+        save_candidates(tmp_path, name, ["EIX", "MSFT", "FDX"])
+    monkeypatch.setattr(trading, "sync_pending_order", lambda: None)
+    processed = []
+
+    def process(candidate):
+        processed.append(candidate["ticker"])
+        if candidate["ticker"] == "FDX":
+            raise ValueError("Invalid research")
+        return {"decision": {"ticker": candidate["ticker"], "action": "hold", "number_of_stocks": 0}}
+
+    monkeypatch.setattr(main, "process_candidate", process)
+    with pytest.raises(ValueError):
+        main.main(tmp_path)
+    assert processed == ["EIX", "MSFT", "FDX"]
+    assert [c["ticker"] for c in main.load_candidates(tmp_path)] == ["FDX"]
+    for name in ("grouped_candidates.json", "latest_candidates.json"):
+        data = json.loads((tmp_path / name).read_text())
+        assert data["total_candidates"] == 1
+        assert data["candidates"] == [{"ticker": "FDX"}]
+
+
+def test_completion_only_changes_selected_custom_queue(tmp_path):
+    save_candidates(tmp_path, "custom.json", ["EIX", "FDX"])
+    save_candidates(tmp_path, "other.json", ["EIX", "MSFT"])
+    main.complete_candidate("EIX", tmp_path / "custom.json")
+    assert [c["ticker"] for c in main.load_candidates(tmp_path / "custom.json")] == ["FDX"]
+    assert len(main.load_candidates(tmp_path / "other.json")) == 2
+
+
+def test_failed_progress_write_preserves_original_queue(monkeypatch, tmp_path):
+    from pathlib import Path
+
+    save_candidates(tmp_path, "custom.json", ["EIX", "FDX"])
+    before = (tmp_path / "custom.json").read_bytes()
+
+    def fail_replace(*args):
+        raise OSError("disk failure")
+
+    monkeypatch.setattr(Path, "replace", fail_replace)
+    with pytest.raises(OSError):
+        main.complete_candidate("EIX", tmp_path / "custom.json")
+    assert (tmp_path / "custom.json").read_bytes() == before
+    assert list(tmp_path.glob("*.tmp")) == []
 
 
 def test_candidate_passes_complete_research_and_discovery_to_debate(monkeypatch):
