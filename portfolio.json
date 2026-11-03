@@ -17,7 +17,7 @@
   },
   {
     "ticker": "V",
-    "number_of_stocks": 20
+    "number_of_stocks": 25
   },
   {
     "ticker": "CVNA",
@@ -29,7 +29,7 @@
   },
   {
     "ticker": "FTNT",
-    "number_of_stocks": 20
+    "number_of_stocks": 25
   },
   {
     "ticker": "AEP",
@@ -41,11 +41,11 @@
   },
   {
     "ticker": "IEX",
-    "number_of_stocks": 10
+    "number_of_stocks": 15
   },
   {
     "ticker": "KLAC",
-    "number_of_stocks": 15
+    "number_of_stocks": 20
   },
   {
     "ticker": "NVDA",
@@ -93,6 +93,10 @@
   },
   {
     "ticker": "VRT",
+    "number_of_stocks": 15
+  },
+  {
+    "ticker": "NOW",
     "number_of_stocks": 10
   },
   {
