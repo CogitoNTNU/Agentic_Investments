@@ -116,6 +116,9 @@ Buy/sell decisions submit market DAY orders through the existing Alpaca paper
 trading client. Set `ALPACA_API_KEY` and `ALPACA_SECRET_KEY` in `.env`.
 `hold` does not submit an order. The agent checks that the ticker's Alpaca holding
 matches the local holding before submitting a trade; resolve any mismatch first.
+Buys are only sent when Alpaca cash covers them, so the agent never trades on
+margin: the cost is estimated from the latest trade price plus a 2% buffer, and
+cash already reserved by open buy orders is subtracted first.
 Confirmed fills update `portfolio.json` in the project root, independent of
 the working directory. The file contains only positions:
 

@@ -9,6 +9,8 @@ from . import portfolio
 from .schemas import Decision
 
 TERMINAL_STATUSES = {"filled", "canceled", "expired", "rejected"}
+# Market orders can fill above the last trade price; keep headroom so buys stay off margin.
+PRICE_BUFFER = Decimal("1.02")
 
 
 def get_client():
@@ -16,6 +18,45 @@ def get_client():
     from ..alpaca_tools.client import get_trading_client
 
     return get_trading_client()
+
+
+def get_latest_prices(symbols: list[str]) -> dict[str, Decimal]:
+    from alpaca.data.requests import StockLatestTradeRequest
+
+    from ..alpaca_tools.client import get_data_client
+
+    trades = get_data_client().get_stock_latest_trade(
+        StockLatestTradeRequest(symbol_or_symbols=symbols)
+    )
+    return {symbol: Decimal(str(trade.price)) for symbol, trade in trades.items()}
+
+
+def _check_cash(client, decision: Decision) -> None:
+    """Reject buys that would need margin, counting cash reserved by open buy orders."""
+    from alpaca.trading.enums import OrderSide, QueryOrderStatus
+    from alpaca.trading.requests import GetOrdersRequest
+
+    open_buys = client.get_orders(
+        filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, side=OrderSide.BUY)
+    )
+    prices = get_latest_prices(
+        sorted({decision.ticker, *(order.symbol for order in open_buys)})
+    )
+    reserved = Decimal(0)
+    for order in open_buys:
+        if order.qty is None:
+            reserved += Decimal(str(order.notional))
+        else:
+            remaining = Decimal(str(order.qty)) - Decimal(str(order.filled_qty or 0))
+            reserved += remaining * prices[order.symbol]
+    available = Decimal(str(client.get_account().cash)) - reserved * PRICE_BUFFER
+    cost = decision.number_of_stocks * prices[decision.ticker] * PRICE_BUFFER
+    if cost > available:
+        raise ValueError(
+            f"Not enough cash to buy {decision.number_of_stocks} {decision.ticker}: "
+            f"needs ~${cost:.2f}, ${max(available, Decimal(0)):.2f} available "
+            "after open buy orders"
+        )
 
 
 def _pending_path():
@@ -150,6 +191,8 @@ def execute_decision(
                 raise ValueError(
                     "Alpaca holding differs from portfolio.json; reconcile it before trading"
                 )
+        if decision.action == "buy":
+            _check_cash(client, decision)
         client_order_id = f"decision-{uuid4().hex}"
         request = MarketOrderRequest(
             symbol=decision.ticker,
