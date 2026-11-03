@@ -1,4 +1,5 @@
 import json
+from decimal import Decimal
 from types import SimpleNamespace
 from unittest.mock import MagicMock
 
@@ -26,7 +27,14 @@ def portfolio_path(monkeypatch, tmp_path):
         status="filled",
         filled_qty=str(int(order_data.qty)),
     )
+    client.get_account.return_value = SimpleNamespace(cash="100000")
+    client.get_orders.return_value = []
     monkeypatch.setattr(trading, "get_client", lambda: client)
+    monkeypatch.setattr(
+        trading,
+        "get_latest_prices",
+        lambda symbols: {symbol: Decimal("100") for symbol in symbols},
+    )
     return path
 
 
