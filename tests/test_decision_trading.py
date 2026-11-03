@@ -1,4 +1,5 @@
 import json
+from decimal import Decimal
 from types import SimpleNamespace
 from unittest.mock import MagicMock
 
@@ -16,7 +17,14 @@ def setup_trading(monkeypatch, tmp_path):
     client = MagicMock()
     client.get_clock.return_value = SimpleNamespace(is_open=True)
     client.get_all_positions.return_value = [SimpleNamespace(symbol="AAPL", qty="5")]
+    client.get_account.return_value = SimpleNamespace(cash="100000")
+    client.get_orders.return_value = []
     monkeypatch.setattr(trading, "get_client", lambda: client)
+    monkeypatch.setattr(
+        trading,
+        "get_latest_prices",
+        lambda symbols: {symbol: Decimal("100") for symbol in symbols},
+    )
     monkeypatch.setattr(trading, "sleep", lambda _: None)
 
     def order(status="filled", filled="2", **kwargs):
@@ -66,6 +74,48 @@ def test_buy_limit_is_enforced_before_submission(setup_trading, quantity):
         trading.execute_decision(decision, 5)
         assert client.submit_order.call_args.kwargs["order_data"].qty == 50
         assert portfolio.get_number_of_stocks("AAPL") == 55
+
+
+@pytest.mark.parametrize("is_open", [True, False])
+def test_buy_without_enough_cash_is_rejected_before_submission(setup_trading, is_open):
+    client, _path, _ = setup_trading
+    client.get_clock.return_value = SimpleNamespace(is_open=is_open)
+    # 10 shares at $100 plus the 2% buffer costs $1020.
+    client.get_account.return_value = SimpleNamespace(cash="1000")
+    decision = Decision(ticker="AAPL", action="buy", number_of_stocks=10)
+    with pytest.raises(ValueError, match="Not enough cash"):
+        trading.execute_decision(decision, 5)
+    client.submit_order.assert_not_called()
+    assert portfolio.get_number_of_stocks("AAPL") == 5
+    assert not trading._pending_path().exists()
+
+
+@pytest.mark.parametrize("quantity,allowed", [(9, True), (10, False)])
+def test_open_buy_orders_reserve_cash(setup_trading, quantity, allowed):
+    client, _path, order = setup_trading
+    client.submit_order.side_effect = lambda order_data: order(filled=str(quantity))
+    client.get_account.return_value = SimpleNamespace(cash="3000")
+    # Only the 20 unfilled MSFT shares still need cash: 20 * $100 * 1.02 = $2040,
+    # leaving $960, so 9 shares ($918) fit and 10 shares ($1020) do not.
+    client.get_orders.return_value = [
+        SimpleNamespace(symbol="MSFT", qty="25", filled_qty="5", notional=None)
+    ]
+    decision = Decision(ticker="AAPL", action="buy", number_of_stocks=quantity)
+    if allowed:
+        trading.execute_decision(decision, 5)
+        assert portfolio.get_number_of_stocks("AAPL") == 5 + quantity
+    else:
+        with pytest.raises(ValueError, match="Not enough cash"):
+            trading.execute_decision(decision, 5)
+        client.submit_order.assert_not_called()
+
+
+def test_sell_does_not_require_cash(setup_trading):
+    client, _path, _ = setup_trading
+    client.get_account.return_value = SimpleNamespace(cash="0")
+    trading.execute_decision(Decision(ticker="AAPL", action="sell", number_of_stocks=2), 5)
+    client.get_orders.assert_not_called()
+    assert portfolio.get_number_of_stocks("AAPL") == 3
 
 
 def test_pending_partial_fill_then_recovery_does_not_resubmit(setup_trading):

@@ -98,5 +98,13 @@
   {
     "ticker": "NOW",
     "number_of_stocks": 10
+  },
+  {
+    "ticker": "VZ",
+    "number_of_stocks": 15
+  },
+  {
+    "ticker": "BSX",
+    "number_of_stocks": 10
   }
 ]
