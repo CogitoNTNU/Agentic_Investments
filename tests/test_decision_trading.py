@@ -44,7 +44,7 @@ def setup_trading(monkeypatch, tmp_path):
 
 
 @pytest.mark.parametrize("action,expected", [("buy", 7), ("sell", 3)])
-def test_sends_market_order_and_records_fill(setup_trading, action, expected):
+def test_sends_cash_backed_limit_buy_or_market_sell_and_records_fill(setup_trading, action, expected):
     client, _path, _ = setup_trading
     trading.execute_decision(
         Decision(ticker="AAPL", action=action, number_of_stocks=2), 5
@@ -55,6 +55,9 @@ def test_sends_market_order_and_records_fill(setup_trading, action, expected):
     assert request.side == action
     assert request.time_in_force == "day"
     assert request.client_order_id.startswith("decision-")
+    assert request.type == ("limit" if action == "buy" else "market")
+    if action == "buy":
+        assert request.limit_price == 102
     assert portfolio.get_number_of_stocks("AAPL") == expected
     assert not trading._pending_path().exists()
 
@@ -98,7 +101,7 @@ def test_open_buy_orders_reserve_cash(setup_trading, quantity, allowed):
     # Only the 20 unfilled MSFT shares still need cash: 20 * $100 * 1.02 = $2040,
     # leaving $960, so 9 shares ($918) fit and 10 shares ($1020) do not.
     client.get_orders.return_value = [
-        SimpleNamespace(symbol="MSFT", qty="25", filled_qty="5", notional=None)
+        SimpleNamespace(symbol="MSFT", qty="25", filled_qty="5", notional=None, limit_price="102")
     ]
     decision = Decision(ticker="AAPL", action="buy", number_of_stocks=quantity)
     if allowed:
@@ -116,6 +119,94 @@ def test_sell_does_not_require_cash(setup_trading):
     trading.execute_decision(Decision(ticker="AAPL", action="sell", number_of_stocks=2), 5)
     client.get_orders.assert_not_called()
     assert portfolio.get_number_of_stocks("AAPL") == 3
+
+
+def test_margin_buying_power_does_not_override_cash(setup_trading):
+    client, _, _ = setup_trading
+    client.get_account.return_value = SimpleNamespace(cash="200", buying_power="100000")
+    with pytest.raises(ValueError, match="Not enough cash"):
+        trading.execute_decision(Decision(ticker="AAPL", action="buy", number_of_stocks=2), 5)
+    client.submit_order.assert_not_called()
+    assert not trading._pending_path().exists()
+
+
+def test_limit_price_caps_spend_at_checked_cash(setup_trading, monkeypatch):
+    client, _, _ = setup_trading
+    client.get_account.return_value = SimpleNamespace(cash="204.02")
+    prices = MagicMock(return_value={"AAPL": Decimal("100.019")})
+    monkeypatch.setattr(trading, "get_latest_prices", prices)
+    trading.execute_decision(Decision(ticker="AAPL", action="buy", number_of_stocks=2), 5)
+    request = client.submit_order.call_args.kwargs["order_data"]
+    assert request.type == "limit"
+    assert Decimal(str(request.limit_price)) * 2 == Decimal("204.02")
+    prices.assert_called_once_with(["AAPL"])
+
+
+def test_open_buy_uses_limit_not_current_quote(setup_trading):
+    client, _, _ = setup_trading
+    client.get_account.return_value = SimpleNamespace(cash="500")
+    client.get_orders.return_value = [SimpleNamespace(
+        symbol="MSFT", qty="3", filled_qty="1", notional=None, limit_price="200")]
+    with pytest.raises(ValueError, match="Not enough cash"):
+        trading.execute_decision(Decision(ticker="AAPL", action="buy", number_of_stocks=2), 5)
+    client.submit_order.assert_not_called()
+
+
+def test_notional_buy_reserves_cash(setup_trading):
+    client, _, _ = setup_trading
+    client.get_account.return_value = SimpleNamespace(cash="300")
+    client.get_orders.return_value = [SimpleNamespace(
+        symbol="MSFT", qty=None, filled_qty="0.5", notional="100", limit_price=None)]
+    with pytest.raises(ValueError, match="Not enough cash"):
+        trading.execute_decision(Decision(ticker="AAPL", action="buy", number_of_stocks=2), 5)
+    client.submit_order.assert_not_called()
+
+
+def test_unpriced_open_buy_blocks_new_purchase(setup_trading):
+    client, _, _ = setup_trading
+    client.get_orders.return_value = [SimpleNamespace(
+        symbol="MSFT", qty="3", filled_qty="1", notional=None, limit_price=None)]
+    with pytest.raises(ValueError, match="unpriced buy"):
+        trading.execute_decision(Decision(ticker="AAPL", action="buy", number_of_stocks=2), 5)
+    client.submit_order.assert_not_called()
+
+
+@pytest.mark.parametrize("value", ["NaN", "Infinity"])
+def test_invalid_cash_cannot_submit(setup_trading, value):
+    client, _, _ = setup_trading
+    client.get_account.return_value = SimpleNamespace(cash=value)
+    with pytest.raises(ValueError, match="cash balance"):
+        trading.execute_decision(Decision(ticker="AAPL", action="buy", number_of_stocks=2), 5)
+    client.submit_order.assert_not_called()
+
+
+@pytest.mark.parametrize("price", ["NaN", "Infinity", "0", "-1"])
+def test_invalid_price_cannot_submit(setup_trading, monkeypatch, price):
+    client, _, _ = setup_trading
+    monkeypatch.setattr(trading, "get_latest_prices", lambda _: {"AAPL": Decimal(price)})
+    with pytest.raises(ValueError, match="price"):
+        trading.execute_decision(Decision(ticker="AAPL", action="buy", number_of_stocks=2), 5)
+    client.submit_order.assert_not_called()
+
+
+def test_incomplete_open_order_list_blocks_submission(setup_trading):
+    client, _, _ = setup_trading
+    client.get_orders.return_value = [SimpleNamespace()] * 500
+    with pytest.raises(ValueError, match="complete list"):
+        trading.execute_decision(Decision(ticker="AAPL", action="buy", number_of_stocks=2), 5)
+    assert client.get_orders.call_args.kwargs["filter"].limit == 500
+    client.submit_order.assert_not_called()
+
+
+def test_broker_data_failure_keeps_portfolio_and_sends_no_order(setup_trading):
+    client, path, _ = setup_trading
+    before = path.read_bytes()
+    client.get_account.side_effect = ConnectionError("offline")
+    with pytest.raises(ConnectionError):
+        trading.execute_decision(Decision(ticker="AAPL", action="buy", number_of_stocks=2), 5)
+    assert path.read_bytes() == before
+    assert not trading._pending_path().exists()
+    client.submit_order.assert_not_called()
 
 
 def test_pending_partial_fill_then_recovery_does_not_resubmit(setup_trading):

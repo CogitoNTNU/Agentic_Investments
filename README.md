@@ -112,13 +112,18 @@ from src.decision_agent import run_decision
 decision = run_decision("Any research text or debate output", ticker="AAPL")
 ```
 
-Buy/sell decisions submit market DAY orders through the existing Alpaca paper
-trading client. Set `ALPACA_API_KEY` and `ALPACA_SECRET_KEY` in `.env`.
+Buys submit limit DAY orders; sells submit market DAY orders through the existing
+Alpaca paper trading client. Set `ALPACA_API_KEY` and `ALPACA_SECRET_KEY` in `.env`.
 `hold` does not submit an order. The agent checks that the ticker's Alpaca holding
 matches the local holding before submitting a trade; resolve any mismatch first.
-Buys are only sent when Alpaca cash covers them, so the agent never trades on
-margin: the cost is estimated from the latest trade price plus a 2% buffer, and
-cash already reserved by open buy orders is subtracted first.
+Buys require cash covering the entire order at its limit price (latest trade plus
+a 2% buffer, rounded down to the price tick). Buying power cannot fund a purchase;
+cash from completed sales and profits can be reinvested. Existing limit buys reserve
+their unfilled quantity at their limit price; notional buys reserve their full
+notional conservatively. An open share-based buy without a limit blocks new buys
+because its maximum cost is unknown. Invalid/missing broker data or a potentially
+truncated open-order list also blocks submission. The limit caps execution price
+rather than relying on an estimate for a market order.
 Confirmed fills update `portfolio.json` in the project root, independent of
 the working directory. The file contains only positions:
 

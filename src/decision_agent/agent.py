@@ -16,6 +16,10 @@ Use the exact supplied ticker. number_of_stocks is the number to BUY or SELL,
 not the target holding. Buy/sell requires a positive whole number; hold requires 0.
 Sell only existing holdings, never more than current_number_of_stocks.
 If you are buying then you may buy 1-50 shares per decision, never more than 50.
+Purchases must use available cash only, never margin or loans. Existing open buy
+orders reserve cash. Cash from completed sales and profits may be reinvested;
+buying power is not additional cash. Execution checks the cash budget and submits
+buys at a capped limit price.
 Do not invent a share price, available cash, or investment budget.
 """
 
