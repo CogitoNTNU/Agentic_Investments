@@ -1,0 +1,101 @@
+{
+  "candidates": [
+    {
+      "ticker": "AAPL"
+    },
+    {
+      "ticker": "AEP"
+    },
+    {
+      "ticker": "BKR"
+    },
+    {
+      "ticker": "BSX"
+    },
+    {
+      "ticker": "BX"
+    },
+    {
+      "ticker": "COF"
+    },
+    {
+      "ticker": "CVNA"
+    },
+    {
+      "ticker": "EBAY"
+    },
+    {
+      "ticker": "EQT"
+    },
+    {
+      "ticker": "EXPD"
+    },
+    {
+      "ticker": "FDX"
+    },
+    {
+      "ticker": "FTNT"
+    },
+    {
+      "ticker": "GS"
+    },
+    {
+      "ticker": "IEX"
+    },
+    {
+      "ticker": "KIM"
+    },
+    {
+      "ticker": "KLAC"
+    },
+    {
+      "ticker": "MAS"
+    },
+    {
+      "ticker": "MSFT"
+    },
+    {
+      "ticker": "NOW"
+    },
+    {
+      "ticker": "NVDA"
+    },
+    {
+      "ticker": "OKE"
+    },
+    {
+      "ticker": "ORLY"
+    },
+    {
+      "ticker": "OTIS"
+    },
+    {
+      "ticker": "PPG"
+    },
+    {
+      "ticker": "REGN"
+    },
+    {
+      "ticker": "RJF"
+    },
+    {
+      "ticker": "STX"
+    },
+    {
+      "ticker": "TER"
+    },
+    {
+      "ticker": "V"
+    },
+    {
+      "ticker": "VRT"
+    },
+    {
+      "ticker": "VZ"
+    },
+    {
+      "ticker": "XYZ"
+    }
+  ],
+  "total_candidates": 32
+}

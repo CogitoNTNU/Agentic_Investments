@@ -1,0 +1,14 @@
+{
+  "candidates": [
+    {
+      "ticker": "PPG"
+    },
+    {
+      "ticker": "REGN"
+    },
+    {
+      "ticker": "RJF"
+    }
+  ],
+  "total_candidates": 3
+}

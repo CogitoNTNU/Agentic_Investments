@@ -1,0 +1,3014 @@
+{
+  "source": "data\\holdings_review_run_2\\holdings_review.json",
+  "purpose": "Offline arithmetic audit of historical snapshots; not fresh recommendations or current broker state. No orders or model calls.",
+  "candidates": {
+    "AAPL": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.91064285134327779413778519"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.95577688019909927050524954"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.773043070446191935607010809"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.659754664520880014897705519"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.264387414670442798748883581"
+          }
+        ],
+        "top_five_weight_pct": "44.56360488117989181389663464",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "AAPL",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "12",
+        "projected_shares_after_full_fill": "12",
+        "weight_before_pct": "4.264387414670442798748883581",
+        "weight_after_pct": "4.264387414670442798748883581",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.8528774829340885597497767162",
+            "after": "0.8528774829340885597497767162"
+          },
+          "40": {
+            "before": "1.705754965868177119499553432",
+            "after": "1.705754965868177119499553432"
+          },
+          "60": {
+            "before": "2.558632448802265679249330149",
+            "after": "2.558632448802265679249330149"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "AAPL",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "12",
+          "projected_shares_after_full_fill": "12",
+          "weight_before_pct": "4.264387414670442798748883581",
+          "weight_after_pct": "4.264387414670442798748883581",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.8528774829340885597497767162",
+              "after": "0.8528774829340885597497767162"
+            },
+            "40": {
+              "before": "1.705754965868177119499553432",
+              "after": "1.705754965868177119499553432"
+            },
+            "60": {
+              "before": "2.558632448802265679249330149",
+              "after": "2.558632448802265679249330149"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "AEP": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.90397450453101896561211287"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.96609573118495068658151013"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.768465460919046433920725973"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.655911123271682936199234591"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.263393274070738517472604638"
+          }
+        ],
+        "top_five_weight_pct": "44.55784009397743753978618820",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "AEP",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "5",
+        "projected_shares_after_full_fill": "5",
+        "weight_before_pct": "0.6545001491745422916137656551",
+        "weight_after_pct": "0.6545001491745422916137656551",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.130900029834908458322753131",
+            "after": "0.130900029834908458322753131"
+          },
+          "40": {
+            "before": "0.261800059669816916645506262",
+            "after": "0.261800059669816916645506262"
+          },
+          "60": {
+            "before": "0.3927000895047253749682593931",
+            "after": "0.3927000895047253749682593931"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "AEP",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "5",
+          "projected_shares_after_full_fill": "5",
+          "weight_before_pct": "0.6545001491745422916137656551",
+          "weight_after_pct": "0.6545001491745422916137656551",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.130900029834908458322753131",
+              "after": "0.130900029834908458322753131"
+            },
+            "40": {
+              "before": "0.261800059669816916645506262",
+              "after": "0.261800059669816916645506262"
+            },
+            "60": {
+              "before": "0.3927000895047253749682593931",
+              "after": "0.3927000895047253749682593931"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "BKR": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.89176885163764093711624282"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.97042606906216091530874516"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.758980628292535872227420297"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.643925064685760030340163524"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.269767818241487880326077958"
+          }
+        ],
+        "top_five_weight_pct": "44.53486843191958563531864976",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "BKR",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "20",
+        "projected_shares_after_full_fill": "20",
+        "weight_before_pct": "1.005108840234823086346870850",
+        "weight_after_pct": "1.005108840234823086346870850",
+        "trade_notional_at_last_price": "0.000",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.20102176804696461726937417",
+            "after": "0.20102176804696461726937417"
+          },
+          "40": {
+            "before": "0.40204353609392923453874834",
+            "after": "0.40204353609392923453874834"
+          },
+          "60": {
+            "before": "0.60306530414089385180812251",
+            "after": "0.60306530414089385180812251"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "BKR",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "20",
+          "projected_shares_after_full_fill": "20",
+          "weight_before_pct": "1.005108840234823086346870850",
+          "weight_after_pct": "1.005108840234823086346870850",
+          "trade_notional_at_last_price": "0.000",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.20102176804696461726937417",
+              "after": "0.20102176804696461726937417"
+            },
+            "40": {
+              "before": "0.40204353609392923453874834",
+              "after": "0.40204353609392923453874834"
+            },
+            "60": {
+              "before": "0.60306530414089385180812251",
+              "after": "0.60306530414089385180812251"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "BSX": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.91185987316105095129211787"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.94898613864283787830737088"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.786088133314865315927983815"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.660497793803576487993644176"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.268473504828553976943739910"
+          }
+        ],
+        "top_five_weight_pct": "44.57590544375088461046485665",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "BSX",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "10",
+        "projected_shares_after_full_fill": "10",
+        "weight_before_pct": "0.4643243064590881693930960395",
+        "weight_after_pct": "0.4643243064590881693930960395",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.0928648612918176338786192079",
+            "after": "0.0928648612918176338786192079"
+          },
+          "40": {
+            "before": "0.1857297225836352677572384158",
+            "after": "0.1857297225836352677572384158"
+          },
+          "60": {
+            "before": "0.2785945838754529016358576237",
+            "after": "0.2785945838754529016358576237"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "BSX",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "10",
+          "projected_shares_after_full_fill": "10",
+          "weight_before_pct": "0.4643243064590881693930960395",
+          "weight_after_pct": "0.4643243064590881693930960395",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.0928648612918176338786192079",
+              "after": "0.0928648612918176338786192079"
+            },
+            "40": {
+              "before": "0.1857297225836352677572384158",
+              "after": "0.1857297225836352677572384158"
+            },
+            "60": {
+              "before": "0.2785945838754529016358576237",
+              "after": "0.2785945838754529016358576237"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "BX": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.88870266670149927128913486"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.94453213675939570003599930"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.801415723471348787376502698"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.669813335232315484952062637"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.264479125300847289658559445"
+          }
+        ],
+        "top_five_weight_pct": "44.56894298746540653331225894",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "BX",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "5",
+        "projected_shares_after_full_fill": "5",
+        "weight_before_pct": "0.6309206812168104705195629288",
+        "weight_after_pct": "0.6309206812168104705195629288",
+        "trade_notional_at_last_price": "0.0",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.1261841362433620941039125858",
+            "after": "0.1261841362433620941039125858"
+          },
+          "40": {
+            "before": "0.2523682724867241882078251715",
+            "after": "0.2523682724867241882078251715"
+          },
+          "60": {
+            "before": "0.3785524087300862823117377573",
+            "after": "0.3785524087300862823117377573"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "BX",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "5",
+          "projected_shares_after_full_fill": "5",
+          "weight_before_pct": "0.6309206812168104705195629288",
+          "weight_after_pct": "0.6309206812168104705195629288",
+          "trade_notional_at_last_price": "0.0",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.1261841362433620941039125858",
+              "after": "0.1261841362433620941039125858"
+            },
+            "40": {
+              "before": "0.2523682724867241882078251715",
+              "after": "0.2523682724867241882078251715"
+            },
+            "60": {
+              "before": "0.3785524087300862823117377573",
+              "after": "0.3785524087300862823117377573"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "COF": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.88221215798777691601257881"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.94125026669683517066782501"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.793267503076340431401540772"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.656796161340191424804398794"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.264890758153058372425342027"
+          }
+        ],
+        "top_five_weight_pct": "44.53841684725420231531168541",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "COF",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "2",
+        "projected_shares_after_full_fill": "2",
+        "weight_before_pct": "0.4171763651550552208653117459",
+        "weight_after_pct": "0.4171763651550552208653117459",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.08343527303101104417306234918",
+            "after": "0.08343527303101104417306234918"
+          },
+          "40": {
+            "before": "0.1668705460620220883461246984",
+            "after": "0.1668705460620220883461246984"
+          },
+          "60": {
+            "before": "0.2503058190930331325191870475",
+            "after": "0.2503058190930331325191870475"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "COF",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "2",
+          "projected_shares_after_full_fill": "2",
+          "weight_before_pct": "0.4171763651550552208653117459",
+          "weight_after_pct": "0.4171763651550552208653117459",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.08343527303101104417306234918",
+              "after": "0.08343527303101104417306234918"
+            },
+            "40": {
+              "before": "0.1668705460620220883461246984",
+              "after": "0.1668705460620220883461246984"
+            },
+            "60": {
+              "before": "0.2503058190930331325191870475",
+              "after": "0.2503058190930331325191870475"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "CVNA": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.90665137552227571276623317"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.94080070157470079353738042"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.778740656873113587675004152"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.653198741142957241034899328"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.267415249669245971577793781"
+          }
+        ],
+        "top_five_weight_pct": "44.54680672478229330659131085",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "CVNA",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "15",
+        "projected_shares_after_full_fill": "15",
+        "weight_before_pct": "1.167736438328479719450797546",
+        "weight_after_pct": "1.167736438328479719450797546",
+        "trade_notional_at_last_price": "0.000",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.2335472876656959438901595092",
+            "after": "0.2335472876656959438901595092"
+          },
+          "40": {
+            "before": "0.4670945753313918877803190184",
+            "after": "0.4670945753313918877803190184"
+          },
+          "60": {
+            "before": "0.7006418629970878316704785276",
+            "after": "0.7006418629970878316704785276"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "CVNA",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "15",
+          "projected_shares_after_full_fill": "15",
+          "weight_before_pct": "1.167736438328479719450797546",
+          "weight_after_pct": "1.167736438328479719450797546",
+          "trade_notional_at_last_price": "0.000",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.2335472876656959438901595092",
+              "after": "0.2335472876656959438901595092"
+            },
+            "40": {
+              "before": "0.4670945753313918877803190184",
+              "after": "0.4670945753313918877803190184"
+            },
+            "60": {
+              "before": "0.7006418629970878316704785276",
+              "after": "0.7006418629970878316704785276"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "EBAY": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.88798032880954154758701589"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.94286082104497201012835248"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.784377126182307320312423604"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.668391320070072214463639781"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.262400421957560077991983653"
+          }
+        ],
+        "top_five_weight_pct": "44.54601001806445317048341540",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "EBAY",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "10",
+        "projected_shares_after_full_fill": "10",
+        "weight_before_pct": "1.266195277756971357674862223",
+        "weight_after_pct": "1.266195277756971357674862223",
+        "trade_notional_at_last_price": "0.0",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.2532390555513942715349724446",
+            "after": "0.2532390555513942715349724446"
+          },
+          "40": {
+            "before": "0.5064781111027885430699448892",
+            "after": "0.5064781111027885430699448892"
+          },
+          "60": {
+            "before": "0.7597171666541828146049173338",
+            "after": "0.7597171666541828146049173338"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "EBAY",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "10",
+          "projected_shares_after_full_fill": "10",
+          "weight_before_pct": "1.266195277756971357674862223",
+          "weight_after_pct": "1.266195277756971357674862223",
+          "trade_notional_at_last_price": "0.0",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.2532390555513942715349724446",
+              "after": "0.2532390555513942715349724446"
+            },
+            "40": {
+              "before": "0.5064781111027885430699448892",
+              "after": "0.5064781111027885430699448892"
+            },
+            "60": {
+              "before": "0.7597171666541828146049173338",
+              "after": "0.7597171666541828146049173338"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "EQT": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.89549234764835123622123531"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.95337251008848997230258725"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.779822153030499012146111439"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.650784350039323611699069370"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.260560338026794497053476382"
+          }
+        ],
+        "top_five_weight_pct": "44.54003169883345832942247975",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "EQT",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "20",
+        "projected_shares_after_full_fill": "20",
+        "weight_before_pct": "1.057165471802182825910373620",
+        "weight_after_pct": "1.057165471802182825910373620",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.211433094360436565182074724",
+            "after": "0.211433094360436565182074724"
+          },
+          "40": {
+            "before": "0.422866188720873130364149448",
+            "after": "0.422866188720873130364149448"
+          },
+          "60": {
+            "before": "0.634299283081309695546224172",
+            "after": "0.634299283081309695546224172"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "EQT",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "20",
+          "projected_shares_after_full_fill": "20",
+          "weight_before_pct": "1.057165471802182825910373620",
+          "weight_after_pct": "1.057165471802182825910373620",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.211433094360436565182074724",
+              "after": "0.211433094360436565182074724"
+            },
+            "40": {
+              "before": "0.422866188720873130364149448",
+              "after": "0.422866188720873130364149448"
+            },
+            "60": {
+              "before": "0.634299283081309695546224172",
+              "after": "0.634299283081309695546224172"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "EXPD": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.88565416067839930337889456"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.96709594060982566331189315"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.781443190911674652142976644"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.652185306051694284925288596"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.258338389345889713752421343"
+          }
+        ],
+        "top_five_weight_pct": "44.54471698759748361751147429",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "EXPD",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "1",
+        "projected_shares_after_full_fill": "1",
+        "weight_before_pct": "0.1996335482726578231799866562",
+        "weight_after_pct": "0.1996335482726578231799866562",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.03992670965453156463599733124",
+            "after": "0.03992670965453156463599733124"
+          },
+          "40": {
+            "before": "0.07985341930906312927199466248",
+            "after": "0.07985341930906312927199466248"
+          },
+          "60": {
+            "before": "0.1197801289635946939079919937",
+            "after": "0.1197801289635946939079919937"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "EXPD",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "1",
+          "projected_shares_after_full_fill": "1",
+          "weight_before_pct": "0.1996335482726578231799866562",
+          "weight_after_pct": "0.1996335482726578231799866562",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.03992670965453156463599733124",
+              "after": "0.03992670965453156463599733124"
+            },
+            "40": {
+              "before": "0.07985341930906312927199466248",
+              "after": "0.07985341930906312927199466248"
+            },
+            "60": {
+              "before": "0.1197801289635946939079919937",
+              "after": "0.1197801289635946939079919937"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "FDX": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.87700643707255645228448744"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.96775438396566249785700442"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.788103166666087308473627439"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.675090585172430348676400791"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.258796584366064501912411016"
+          }
+        ],
+        "top_five_weight_pct": "44.56675115724280110920393111",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "FDX",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "5",
+        "projected_shares_after_full_fill": "5",
+        "weight_before_pct": "1.654747757266650515167824199",
+        "weight_after_pct": "1.654747757266650515167824199",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.3309495514533301030335648398",
+            "after": "0.3309495514533301030335648398"
+          },
+          "40": {
+            "before": "0.6618991029066602060671296796",
+            "after": "0.6618991029066602060671296796"
+          },
+          "60": {
+            "before": "0.9928486543599903091006945194",
+            "after": "0.9928486543599903091006945194"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "FDX",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "5",
+          "projected_shares_after_full_fill": "5",
+          "weight_before_pct": "1.654747757266650515167824199",
+          "weight_after_pct": "1.654747757266650515167824199",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.3309495514533301030335648398",
+              "after": "0.3309495514533301030335648398"
+            },
+            "40": {
+              "before": "0.6618991029066602060671296796",
+              "after": "0.6618991029066602060671296796"
+            },
+            "60": {
+              "before": "0.9928486543599903091006945194",
+              "after": "0.9928486543599903091006945194"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "FTNT": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.88100778222868710499580259"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.98083307913571127855941796"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.761145830444723991801811568"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.664010406556533971306340487"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.257249674164866275244344838"
+          }
+        ],
+        "top_five_weight_pct": "44.54424677253052262190771745",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "FTNT",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "25",
+        "projected_shares_after_full_fill": "25",
+        "weight_before_pct": "3.269191500303776662389424034",
+        "weight_after_pct": "3.269191500303776662389424034",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.6538383000607553324778848068",
+            "after": "0.6538383000607553324778848068"
+          },
+          "40": {
+            "before": "1.307676600121510664955769614",
+            "after": "1.307676600121510664955769614"
+          },
+          "60": {
+            "before": "1.96151490018226599743365442",
+            "after": "1.96151490018226599743365442"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "FTNT",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "25",
+          "projected_shares_after_full_fill": "25",
+          "weight_before_pct": "3.269191500303776662389424034",
+          "weight_after_pct": "3.269191500303776662389424034",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.6538383000607553324778848068",
+              "after": "0.6538383000607553324778848068"
+            },
+            "40": {
+              "before": "1.307676600121510664955769614",
+              "after": "1.307676600121510664955769614"
+            },
+            "60": {
+              "before": "1.96151490018226599743365442",
+              "after": "1.96151490018226599743365442"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "GS": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.87056562500047342418802197"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.98684981626344139642309468"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.714912336737459447746518540"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.648872162188107513698876058"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.262362948747425645511986671"
+          }
+        ],
+        "top_five_weight_pct": "44.48356288893690742756849792",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "GS",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "3",
+        "projected_shares_after_full_fill": "3",
+        "weight_before_pct": "2.813215296605682393119629066",
+        "weight_after_pct": "2.813215296605682393119629066",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.5626430593211364786239258132",
+            "after": "0.5626430593211364786239258132"
+          },
+          "40": {
+            "before": "1.125286118642272957247851626",
+            "after": "1.125286118642272957247851626"
+          },
+          "60": {
+            "before": "1.68792917796340943587177744",
+            "after": "1.68792917796340943587177744"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "GS",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "3",
+          "projected_shares_after_full_fill": "3",
+          "weight_before_pct": "2.813215296605682393119629066",
+          "weight_after_pct": "2.813215296605682393119629066",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.5626430593211364786239258132",
+              "after": "0.5626430593211364786239258132"
+            },
+            "40": {
+              "before": "1.125286118642272957247851626",
+              "after": "1.125286118642272957247851626"
+            },
+            "60": {
+              "before": "1.68792917796340943587177744",
+              "after": "1.68792917796340943587177744"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "IEX": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.86675633592041247856723073"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.98776539776594305194556026"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.723512732428158569169529418"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.641387611505938568482872971"
+          },
+          {
+            "ticker": "AAPL",
+            "weight_pct": "4.263227729610847556209898759"
+          }
+        ],
+        "top_five_weight_pct": "44.48264980723130022437509214",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "IEX",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "15",
+        "projected_shares_after_full_fill": "15",
+        "weight_before_pct": "3.540648042120314327086779238",
+        "weight_after_pct": "3.540648042120314327086779238",
+        "trade_notional_at_last_price": "0.000",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.7081296084240628654173558476",
+            "after": "0.7081296084240628654173558476"
+          },
+          "40": {
+            "before": "1.416259216848125730834711695",
+            "after": "1.416259216848125730834711695"
+          },
+          "60": {
+            "before": "2.124388825272188596252067543",
+            "after": "2.124388825272188596252067543"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "IEX",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "15",
+          "projected_shares_after_full_fill": "15",
+          "weight_before_pct": "3.540648042120314327086779238",
+          "weight_after_pct": "3.540648042120314327086779238",
+          "trade_notional_at_last_price": "0.000",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.7081296084240628654173558476",
+              "after": "0.7081296084240628654173558476"
+            },
+            "40": {
+              "before": "1.416259216848125730834711695",
+              "after": "1.416259216848125730834711695"
+            },
+            "60": {
+              "before": "2.124388825272188596252067543",
+              "after": "2.124388825272188596252067543"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "KIM": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.84610356279087852415435823"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.00039362414726340323044485"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.745925081129749274799899309"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.637788524101336377966036220"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.261442179289108225431755698"
+          }
+        ],
+        "top_five_weight_pct": "44.49165297145833580558249431",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "KIM",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "6",
+        "projected_shares_after_full_fill": "6",
+        "weight_before_pct": "0.1573385654962555209005837706",
+        "weight_after_pct": "0.1573385654962555209005837706",
+        "trade_notional_at_last_price": "0.000",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.03146771309925110418011675412",
+            "after": "0.03146771309925110418011675412"
+          },
+          "40": {
+            "before": "0.06293542619850220836023350824",
+            "after": "0.06293542619850220836023350824"
+          },
+          "60": {
+            "before": "0.09440313929775331254035026236",
+            "after": "0.09440313929775331254035026236"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "KIM",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "6",
+          "projected_shares_after_full_fill": "6",
+          "weight_before_pct": "0.1573385654962555209005837706",
+          "weight_after_pct": "0.1573385654962555209005837706",
+          "trade_notional_at_last_price": "0.000",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.03146771309925110418011675412",
+              "after": "0.03146771309925110418011675412"
+            },
+            "40": {
+              "before": "0.06293542619850220836023350824",
+              "after": "0.06293542619850220836023350824"
+            },
+            "60": {
+              "before": "0.09440313929775331254035026236",
+              "after": "0.09440313929775331254035026236"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "KLAC": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.83216041938932661199284986"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.00688747359850644964940960"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.736442574979382460922201030"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.631442554509680122235964721"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.265279457683287610083405698"
+          }
+        ],
+        "top_five_weight_pct": "44.47221248016018325488383091",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "KLAC",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "20",
+        "projected_shares_after_full_fill": "20",
+        "weight_before_pct": "2.986352672552135700075697465",
+        "weight_after_pct": "2.986352672552135700075697465",
+        "trade_notional_at_last_price": "0.000",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.597270534510427140015139493",
+            "after": "0.597270534510427140015139493"
+          },
+          "40": {
+            "before": "1.194541069020854280030278986",
+            "after": "1.194541069020854280030278986"
+          },
+          "60": {
+            "before": "1.791811603531281420045418479",
+            "after": "1.791811603531281420045418479"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "KLAC",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "20",
+          "projected_shares_after_full_fill": "20",
+          "weight_before_pct": "2.986352672552135700075697465",
+          "weight_after_pct": "2.986352672552135700075697465",
+          "trade_notional_at_last_price": "0.000",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.597270534510427140015139493",
+              "after": "0.597270534510427140015139493"
+            },
+            "40": {
+              "before": "1.194541069020854280030278986",
+              "after": "1.194541069020854280030278986"
+            },
+            "60": {
+              "before": "1.791811603531281420045418479",
+              "after": "1.791811603531281420045418479"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "MAS": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.83053492669448918977119050"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01123517107231521761498305"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.733488114888976786862117018"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.632324148759168086975106306"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.269141526630043784550101449"
+          }
+        ],
+        "top_five_weight_pct": "44.47672388804499306577349833",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "MAS",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "10",
+        "projected_shares_after_full_fill": "10",
+        "weight_before_pct": "0.8802718538358389564637563359",
+        "weight_after_pct": "0.8802718538358389564637563359",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.1760543707671677912927512672",
+            "after": "0.1760543707671677912927512672"
+          },
+          "40": {
+            "before": "0.3521087415343355825855025344",
+            "after": "0.3521087415343355825855025344"
+          },
+          "60": {
+            "before": "0.5281631123015033738782538015",
+            "after": "0.5281631123015033738782538015"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "MAS",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "10",
+          "projected_shares_after_full_fill": "10",
+          "weight_before_pct": "0.8802718538358389564637563359",
+          "weight_after_pct": "0.8802718538358389564637563359",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.1760543707671677912927512672",
+              "after": "0.1760543707671677912927512672"
+            },
+            "40": {
+              "before": "0.3521087415343355825855025344",
+              "after": "0.3521087415343355825855025344"
+            },
+            "60": {
+              "before": "0.5281631123015033738782538015",
+              "after": "0.5281631123015033738782538015"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "MSFT": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.83658847618272605093155835"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.99820617965800655965071806"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.741474046214756029819167342"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.640450471806592908925582992"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.268220872911695415472344891"
+          }
+        ],
+        "top_five_weight_pct": "44.48494004677377696479937163",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "MSFT",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "30",
+        "projected_shares_after_full_fill": "30",
+        "weight_before_pct": "16.83658847618272605093155835",
+        "weight_after_pct": "16.83658847618272605093155835",
+        "trade_notional_at_last_price": "0.000",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "3.36731769523654521018631167",
+            "after": "3.36731769523654521018631167"
+          },
+          "40": {
+            "before": "6.73463539047309042037262334",
+            "after": "6.73463539047309042037262334"
+          },
+          "60": {
+            "before": "10.10195308570963563055893501",
+            "after": "10.10195308570963563055893501"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "MSFT",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "30",
+          "projected_shares_after_full_fill": "30",
+          "weight_before_pct": "16.83658847618272605093155835",
+          "weight_after_pct": "16.83658847618272605093155835",
+          "trade_notional_at_last_price": "0.000",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "3.36731769523654521018631167",
+              "after": "3.36731769523654521018631167"
+            },
+            "40": {
+              "before": "6.73463539047309042037262334",
+              "after": "6.73463539047309042037262334"
+            },
+            "60": {
+              "before": "10.10195308570963563055893501",
+              "after": "10.10195308570963563055893501"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "NOW": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.85419216948361854995348832"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.98393838248415570296978404"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.796851577354856957570769544"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.630082710050841429470374802"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.264349577991239613522520407"
+          }
+        ],
+        "top_five_weight_pct": "44.52941441736471225348693711",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "NOW",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "10",
+        "projected_shares_after_full_fill": "10",
+        "weight_before_pct": "1.095363925587162987233311506",
+        "weight_after_pct": "1.095363925587162987233311506",
+        "trade_notional_at_last_price": "0.000",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.2190727851174325974466623012",
+            "after": "0.2190727851174325974466623012"
+          },
+          "40": {
+            "before": "0.4381455702348651948933246024",
+            "after": "0.4381455702348651948933246024"
+          },
+          "60": {
+            "before": "0.6572183553522977923399869036",
+            "after": "0.6572183553522977923399869036"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "NOW",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "10",
+          "projected_shares_after_full_fill": "10",
+          "weight_before_pct": "1.095363925587162987233311506",
+          "weight_after_pct": "1.095363925587162987233311506",
+          "trade_notional_at_last_price": "0.000",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.2190727851174325974466623012",
+              "after": "0.2190727851174325974466623012"
+            },
+            "40": {
+              "before": "0.4381455702348651948933246024",
+              "after": "0.4381455702348651948933246024"
+            },
+            "60": {
+              "before": "0.6572183553522977923399869036",
+              "after": "0.6572183553522977923399869036"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "NVDA": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.84921404011297840457612928"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.98258100650669454252263807"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.800334183096569816613819643"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.627562966183475850565606456"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.256053079916705665970695917"
+          }
+        ],
+        "top_five_weight_pct": "44.51574527581642428024888937",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "NVDA",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "10",
+        "projected_shares_after_full_fill": "10",
+        "weight_before_pct": "2.020912041956771587711525889",
+        "weight_after_pct": "2.020912041956771587711525889",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.4041824083913543175423051778",
+            "after": "0.4041824083913543175423051778"
+          },
+          "40": {
+            "before": "0.8083648167827086350846103556",
+            "after": "0.8083648167827086350846103556"
+          },
+          "60": {
+            "before": "1.212547225174062952626915533",
+            "after": "1.212547225174062952626915533"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "NVDA",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "10",
+          "projected_shares_after_full_fill": "10",
+          "weight_before_pct": "2.020912041956771587711525889",
+          "weight_after_pct": "2.020912041956771587711525889",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.4041824083913543175423051778",
+              "after": "0.4041824083913543175423051778"
+            },
+            "40": {
+              "before": "0.8083648167827086350846103556",
+              "after": "0.8083648167827086350846103556"
+            },
+            "60": {
+              "before": "1.212547225174062952626915533",
+              "after": "1.212547225174062952626915533"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "OKE": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82726662742504729584063058"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "10.98119389800893190933086579"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.823136568102377024758555036"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.620998626543322021088736929"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.258240538207691518884827462"
+          }
+        ],
+        "top_five_weight_pct": "44.51083625828736976990361580",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "OKE",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "20",
+        "projected_shares_after_full_fill": "20",
+        "weight_before_pct": "1.783636567698656660861167834",
+        "weight_after_pct": "1.783636567698656660861167834",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.3567273135397313321722335668",
+            "after": "0.3567273135397313321722335668"
+          },
+          "40": {
+            "before": "0.7134546270794626643444671336",
+            "after": "0.7134546270794626643444671336"
+          },
+          "60": {
+            "before": "1.0701819406191939965167007",
+            "after": "1.0701819406191939965167007"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "OKE",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "20",
+          "projected_shares_after_full_fill": "20",
+          "weight_before_pct": "1.783636567698656660861167834",
+          "weight_after_pct": "1.783636567698656660861167834",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.3567273135397313321722335668",
+              "after": "0.3567273135397313321722335668"
+            },
+            "40": {
+              "before": "0.7134546270794626643444671336",
+              "after": "0.7134546270794626643444671336"
+            },
+            "60": {
+              "before": "1.0701819406191939965167007",
+              "after": "1.0701819406191939965167007"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "ORLY": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "125.31",
+        "cash_unavailable_for_new_buys": "12572.90",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82758371639931610737209078"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01157613202825689641076408"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.841004244243822176820813181"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.616558235049028125107018988"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.253524054892778259077769813"
+          }
+        ],
+        "top_five_weight_pct": "44.55024638261320156478845684",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "ORLY",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "10",
+        "projected_shares_after_full_fill": "10",
+        "weight_before_pct": "0.9313520507221206300128072255",
+        "weight_after_pct": "0.9313520507221206300128072255",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "125.31",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.1862704101444241260025614451",
+            "after": "0.1862704101444241260025614451"
+          },
+          "40": {
+            "before": "0.3725408202888482520051228902",
+            "after": "0.3725408202888482520051228902"
+          },
+          "60": {
+            "before": "0.5588112304332723780076843353",
+            "after": "0.5588112304332723780076843353"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "ORLY",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "10",
+          "projected_shares_after_full_fill": "10",
+          "weight_before_pct": "0.9313520507221206300128072255",
+          "weight_after_pct": "0.9313520507221206300128072255",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "125.31",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.1862704101444241260025614451",
+              "after": "0.1862704101444241260025614451"
+            },
+            "40": {
+              "before": "0.3725408202888482520051228902",
+              "after": "0.3725408202888482520051228902"
+            },
+            "60": {
+              "before": "0.5588112304332723780076843353",
+              "after": "0.5588112304332723780076843353"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "OTIS": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "12698.21",
+        "cash_unavailable_for_new_buys": "0",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82587287726803605104718544"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01045659902451472217228160"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.840308728003608836606594196"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.615987206684315807496102320"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.253091604487444087869825693"
+          }
+        ],
+        "top_five_weight_pct": "44.54571701546791950519198925",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "OTIS",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "10",
+        "projected_shares_after_full_fill": "10",
+        "weight_before_pct": "0.8046757531416571751473402355",
+        "weight_after_pct": "0.8046757531416571751473402355",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "12698.21",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.1609351506283314350294680471",
+            "after": "0.1609351506283314350294680471"
+          },
+          "40": {
+            "before": "0.3218703012566628700589360942",
+            "after": "0.3218703012566628700589360942"
+          },
+          "60": {
+            "before": "0.4828054518849943050884041413",
+            "after": "0.4828054518849943050884041413"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "OTIS",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "10",
+          "projected_shares_after_full_fill": "10",
+          "weight_before_pct": "0.8046757531416571751473402355",
+          "weight_after_pct": "0.8046757531416571751473402355",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "12698.21",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.1609351506283314350294680471",
+              "after": "0.1609351506283314350294680471"
+            },
+            "40": {
+              "before": "0.3218703012566628700589360942",
+              "after": "0.3218703012566628700589360942"
+            },
+            "60": {
+              "before": "0.4828054518849943050884041413",
+              "after": "0.4828054518849943050884041413"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "PPG": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "12698.21",
+        "cash_unavailable_for_new_buys": "0",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82587287726803605104718544"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01045659902451472217228160"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.840308728003608836606594196"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.615987206684315807496102320"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.253091604487444087869825693"
+          }
+        ],
+        "top_five_weight_pct": "44.54571701546791950519198925",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "PPG",
+        "action": "buy",
+        "shares_to_trade": 8,
+        "current_shares": "15",
+        "projected_shares_after_full_fill": "23",
+        "weight_before_pct": "1.925956819533710674284088969",
+        "weight_after_pct": "2.953133789951689700568936419",
+        "trade_notional_at_last_price": "1018.4",
+        "buffered_buy_cost": "1038.72",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "11659.49",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.3851913639067421348568177938",
+            "after": "0.5906267579903379401137872838"
+          },
+          "40": {
+            "before": "0.7703827278134842697136355876",
+            "after": "1.181253515980675880227574568"
+          },
+          "60": {
+            "before": "1.155574091720226404570453381",
+            "after": "1.771880273971013820341361851"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "buy": {
+          "ticker": "PPG",
+          "action": "buy",
+          "shares_to_trade": 8,
+          "current_shares": "15",
+          "projected_shares_after_full_fill": "23",
+          "weight_before_pct": "1.925956819533710674284088969",
+          "weight_after_pct": "2.953133789951689700568936419",
+          "trade_notional_at_last_price": "1018.4",
+          "buffered_buy_cost": "1038.72",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "11659.49",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.3851913639067421348568177938",
+              "after": "0.5906267579903379401137872838"
+            },
+            "40": {
+              "before": "0.7703827278134842697136355876",
+              "after": "1.181253515980675880227574568"
+            },
+            "60": {
+              "before": "1.155574091720226404570453381",
+              "after": "1.771880273971013820341361851"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "REGN": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "11659.49",
+        "cash_unavailable_for_new_buys": "1038.72",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82587287726803605104718544"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01045659902451472217228160"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.840308728003608836606594196"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.615987206684315807496102320"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.253091604487444087869825693"
+          }
+        ],
+        "top_five_weight_pct": "44.54571701546791950519198925",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "REGN",
+        "action": "buy",
+        "shares_to_trade": 2,
+        "current_shares": "4",
+        "projected_shares_after_full_fill": "6",
+        "weight_before_pct": "3.756821097069181891971422815",
+        "weight_after_pct": "5.635231645603772837957134223",
+        "trade_notional_at_last_price": "1862.36",
+        "buffered_buy_cost": "1899.60",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "9759.89",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.751364219413836378394284563",
+            "after": "1.127046329120754567591426845"
+          },
+          "40": {
+            "before": "1.502728438827672756788569126",
+            "after": "2.254092658241509135182853689"
+          },
+          "60": {
+            "before": "2.254092658241509135182853689",
+            "after": "3.381138987362263702774280534"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "buy": {
+          "ticker": "REGN",
+          "action": "buy",
+          "shares_to_trade": 2,
+          "current_shares": "4",
+          "projected_shares_after_full_fill": "6",
+          "weight_before_pct": "3.756821097069181891971422815",
+          "weight_after_pct": "5.635231645603772837957134223",
+          "trade_notional_at_last_price": "1862.36",
+          "buffered_buy_cost": "1899.60",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "9759.89",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.751364219413836378394284563",
+              "after": "1.127046329120754567591426845"
+            },
+            "40": {
+              "before": "1.502728438827672756788569126",
+              "after": "2.254092658241509135182853689"
+            },
+            "60": {
+              "before": "2.254092658241509135182853689",
+              "after": "3.381138987362263702774280534"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "RJF": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "9759.89",
+        "cash_unavailable_for_new_buys": "2938.32",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82587287726803605104718544"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01045659902451472217228160"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.840308728003608836606594196"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.615987206684315807496102320"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.253091604487444087869825693"
+          }
+        ],
+        "top_five_weight_pct": "44.54571701546791950519198925",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "RJF",
+        "action": "buy",
+        "shares_to_trade": 10,
+        "current_shares": "25",
+        "projected_shares_after_full_fill": "35",
+        "weight_before_pct": "4.253091604487444087869825693",
+        "weight_after_pct": "5.954328246282421723017755970",
+        "trade_notional_at_last_price": "1686.70",
+        "buffered_buy_cost": "1720.40",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "8039.49",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.8506183208974888175739651386",
+            "after": "1.190865649256484344603551194"
+          },
+          "40": {
+            "before": "1.701236641794977635147930277",
+            "after": "2.381731298512968689207102388"
+          },
+          "60": {
+            "before": "2.551854962692466452721895416",
+            "after": "3.572596947769453033810653582"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "buy": {
+          "ticker": "RJF",
+          "action": "buy",
+          "shares_to_trade": 10,
+          "current_shares": "25",
+          "projected_shares_after_full_fill": "35",
+          "weight_before_pct": "4.253091604487444087869825693",
+          "weight_after_pct": "5.954328246282421723017755970",
+          "trade_notional_at_last_price": "1686.70",
+          "buffered_buy_cost": "1720.40",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "8039.49",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.8506183208974888175739651386",
+              "after": "1.190865649256484344603551194"
+            },
+            "40": {
+              "before": "1.701236641794977635147930277",
+              "after": "2.381731298512968689207102388"
+            },
+            "60": {
+              "before": "2.551854962692466452721895416",
+              "after": "3.572596947769453033810653582"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "STX": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "8039.49",
+        "cash_unavailable_for_new_buys": "4658.72",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82587287726803605104718544"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01045659902451472217228160"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.840308728003608836606594196"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.615987206684315807496102320"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.253091604487444087869825693"
+          }
+        ],
+        "top_five_weight_pct": "44.54571701546791950519198925",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "STX",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "10",
+        "projected_shares_after_full_fill": "10",
+        "weight_before_pct": "5.615987206684315807496102320",
+        "weight_after_pct": "5.615987206684315807496102320",
+        "trade_notional_at_last_price": "0.0",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "8039.49",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "1.123197441336863161499220464",
+            "after": "1.123197441336863161499220464"
+          },
+          "40": {
+            "before": "2.246394882673726322998440928",
+            "after": "2.246394882673726322998440928"
+          },
+          "60": {
+            "before": "3.369592324010589484497661392",
+            "after": "3.369592324010589484497661392"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "STX",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "10",
+          "projected_shares_after_full_fill": "10",
+          "weight_before_pct": "5.615987206684315807496102320",
+          "weight_after_pct": "5.615987206684315807496102320",
+          "trade_notional_at_last_price": "0.0",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "8039.49",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "1.123197441336863161499220464",
+              "after": "1.123197441336863161499220464"
+            },
+            "40": {
+              "before": "2.246394882673726322998440928",
+              "after": "2.246394882673726322998440928"
+            },
+            "60": {
+              "before": "3.369592324010589484497661392",
+              "after": "3.369592324010589484497661392"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "TER": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "8039.49",
+        "cash_unavailable_for_new_buys": "4658.72",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82587287726803605104718544"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01045659902451472217228160"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.840308728003608836606594196"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.615987206684315807496102320"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.253091604487444087869825693"
+          }
+        ],
+        "top_five_weight_pct": "44.54571701546791950519198925",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "TER",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "27",
+        "projected_shares_after_full_fill": "27",
+        "weight_before_pct": "6.840308728003608836606594196",
+        "weight_after_pct": "6.840308728003608836606594196",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "8039.49",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "1.368061745600721767321318839",
+            "after": "1.368061745600721767321318839"
+          },
+          "40": {
+            "before": "2.736123491201443534642637678",
+            "after": "2.736123491201443534642637678"
+          },
+          "60": {
+            "before": "4.104185236802165301963956518",
+            "after": "4.104185236802165301963956518"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "TER",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "27",
+          "projected_shares_after_full_fill": "27",
+          "weight_before_pct": "6.840308728003608836606594196",
+          "weight_after_pct": "6.840308728003608836606594196",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "8039.49",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "1.368061745600721767321318839",
+              "after": "1.368061745600721767321318839"
+            },
+            "40": {
+              "before": "2.736123491201443534642637678",
+              "after": "2.736123491201443534642637678"
+            },
+            "60": {
+              "before": "4.104185236802165301963956518",
+              "after": "4.104185236802165301963956518"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "V": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "8039.49",
+        "cash_unavailable_for_new_buys": "4658.72",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82587287726803605104718544"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01045659902451472217228160"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.840308728003608836606594196"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.615987206684315807496102320"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.253091604487444087869825693"
+          }
+        ],
+        "top_five_weight_pct": "44.54571701546791950519198925",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "V",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "25",
+        "projected_shares_after_full_fill": "25",
+        "weight_before_pct": "11.01045659902451472217228160",
+        "weight_after_pct": "11.01045659902451472217228160",
+        "trade_notional_at_last_price": "0.000",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "8039.49",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "2.20209131980490294443445632",
+            "after": "2.20209131980490294443445632"
+          },
+          "40": {
+            "before": "4.40418263960980588886891264",
+            "after": "4.40418263960980588886891264"
+          },
+          "60": {
+            "before": "6.60627395941470883330336896",
+            "after": "6.60627395941470883330336896"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "V",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "25",
+          "projected_shares_after_full_fill": "25",
+          "weight_before_pct": "11.01045659902451472217228160",
+          "weight_after_pct": "11.01045659902451472217228160",
+          "trade_notional_at_last_price": "0.000",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "8039.49",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "2.20209131980490294443445632",
+              "after": "2.20209131980490294443445632"
+            },
+            "40": {
+              "before": "4.40418263960980588886891264",
+              "after": "4.40418263960980588886891264"
+            },
+            "60": {
+              "before": "6.60627395941470883330336896",
+              "after": "6.60627395941470883330336896"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "VRT": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "8039.49",
+        "cash_unavailable_for_new_buys": "4658.72",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82587287726803605104718544"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01045659902451472217228160"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.840308728003608836606594196"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.615987206684315807496102320"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.253091604487444087869825693"
+          }
+        ],
+        "top_five_weight_pct": "44.54571701546791950519198925",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "VRT",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "15",
+        "projected_shares_after_full_fill": "15",
+        "weight_before_pct": "3.109520071632078200201168938",
+        "weight_after_pct": "3.109520071632078200201168938",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "8039.49",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.6219040143264156400402337876",
+            "after": "0.6219040143264156400402337876"
+          },
+          "40": {
+            "before": "1.243808028652831280080467575",
+            "after": "1.243808028652831280080467575"
+          },
+          "60": {
+            "before": "1.865712042979246920120701363",
+            "after": "1.865712042979246920120701363"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "VRT",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "15",
+          "projected_shares_after_full_fill": "15",
+          "weight_before_pct": "3.109520071632078200201168938",
+          "weight_after_pct": "3.109520071632078200201168938",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "8039.49",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.6219040143264156400402337876",
+              "after": "0.6219040143264156400402337876"
+            },
+            "40": {
+              "before": "1.243808028652831280080467575",
+              "after": "1.243808028652831280080467575"
+            },
+            "60": {
+              "before": "1.865712042979246920120701363",
+              "after": "1.865712042979246920120701363"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "VZ": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "8039.49",
+        "cash_unavailable_for_new_buys": "4658.72",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82587287726803605104718544"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01045659902451472217228160"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.840308728003608836606594196"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.615987206684315807496102320"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.253091604487444087869825693"
+          }
+        ],
+        "top_five_weight_pct": "44.54571701546791950519198925",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "VZ",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "15",
+        "projected_shares_after_full_fill": "15",
+        "weight_before_pct": "0.6986699601419226939390355742",
+        "weight_after_pct": "0.6986699601419226939390355742",
+        "trade_notional_at_last_price": "0.00",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "8039.49",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.1397339920283845387878071148",
+            "after": "0.1397339920283845387878071148"
+          },
+          "40": {
+            "before": "0.2794679840567690775756142297",
+            "after": "0.2794679840567690775756142297"
+          },
+          "60": {
+            "before": "0.4192019760851536163634213445",
+            "after": "0.4192019760851536163634213445"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "VZ",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "15",
+          "projected_shares_after_full_fill": "15",
+          "weight_before_pct": "0.6986699601419226939390355742",
+          "weight_after_pct": "0.6986699601419226939390355742",
+          "trade_notional_at_last_price": "0.00",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "8039.49",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.1397339920283845387878071148",
+              "after": "0.1397339920283845387878071148"
+            },
+            "40": {
+              "before": "0.2794679840567690775756142297",
+              "after": "0.2794679840567690775756142297"
+            },
+            "60": {
+              "before": "0.4192019760851536163634213445",
+              "after": "0.4192019760851536163634213445"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    },
+    "XYZ": {
+      "portfolio_facts": {
+        "position_count": 32,
+        "cash_balance": "12698.21",
+        "available_cash_after_all_reservations": "8039.49",
+        "cash_unavailable_for_new_buys": "4658.72",
+        "cash_rule": "available_cash already excludes open buy orders and local replacement reserves. Do not subtract them again. Do not include prospective sale proceeds.",
+        "largest_positions": [
+          {
+            "ticker": "MSFT",
+            "weight_pct": "16.82587287726803605104718544"
+          },
+          {
+            "ticker": "V",
+            "weight_pct": "11.01045659902451472217228160"
+          },
+          {
+            "ticker": "TER",
+            "weight_pct": "6.840308728003608836606594196"
+          },
+          {
+            "ticker": "STX",
+            "weight_pct": "5.615987206684315807496102320"
+          },
+          {
+            "ticker": "RJF",
+            "weight_pct": "4.253091604487444087869825693"
+          }
+        ],
+        "top_five_weight_pct": "44.54571701546791950519198925",
+        "risk_limits": "No user-approved maximum weights or loss budget supplied; do not invent one.",
+        "correlations": "Not measured. Shared business drivers are qualitative exposures, not correlations."
+      },
+      "risk_decision_math": {
+        "ticker": "XYZ",
+        "action": "hold",
+        "shares_to_trade": 0,
+        "current_shares": "1",
+        "projected_shares_after_full_fill": "1",
+        "weight_before_pct": "0.08835497113964548576448609254",
+        "weight_after_pct": "0.08835497113964548576448609254",
+        "trade_notional_at_last_price": "0.0",
+        "buffered_buy_cost": "0",
+        "cash_fundable_now": true,
+        "cash_shortfall": "0",
+        "available_cash_after_buy_reservation": "8039.49",
+        "stress_loss_pct_of_current_equity": {
+          "20": {
+            "before": "0.01767099422792909715289721851",
+            "after": "0.01767099422792909715289721851"
+          },
+          "40": {
+            "before": "0.03534198845585819430579443702",
+            "after": "0.03534198845585819430579443702"
+          },
+          "60": {
+            "before": "0.05301298268378729145869165552",
+            "after": "0.05301298268378729145869165552"
+          }
+        },
+        "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+      },
+      "planned_trade_math": {
+        "hold": {
+          "ticker": "XYZ",
+          "action": "hold",
+          "shares_to_trade": 0,
+          "current_shares": "1",
+          "projected_shares_after_full_fill": "1",
+          "weight_before_pct": "0.08835497113964548576448609254",
+          "weight_after_pct": "0.08835497113964548576448609254",
+          "trade_notional_at_last_price": "0.0",
+          "buffered_buy_cost": "0",
+          "cash_fundable_now": true,
+          "cash_shortfall": "0",
+          "available_cash_after_buy_reservation": "8039.49",
+          "stress_loss_pct_of_current_equity": {
+            "20": {
+              "before": "0.01767099422792909715289721851",
+              "after": "0.01767099422792909715289721851"
+            },
+            "40": {
+              "before": "0.03534198845585819430579443702",
+              "after": "0.03534198845585819430579443702"
+            },
+            "60": {
+              "before": "0.05301298268378729145869165552",
+              "after": "0.05301298268378729145869165552"
+            }
+          },
+          "assumptions": "Illustrative single-stock declines, not forecasts or calibrated probabilities. Other prices unchanged; trade at last price; fees/slippage excluded, not assumed zero for a real trade. Pending shares are not owned. Sale proceeds are not available yet."
+        }
+      }
+    }
+  }
+}
