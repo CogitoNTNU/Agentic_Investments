@@ -1,83 +1,87 @@
 [
   {
-    "ticker": "EQT",
+    "ticker": "AAPL",
+    "number_of_stocks": 12
+  },
+  {
+    "ticker": "AEP",
+    "number_of_stocks": 5
+  },
+  {
+    "ticker": "BKR",
     "number_of_stocks": 20
   },
   {
-    "ticker": "EIX",
-    "number_of_stocks": 15
+    "ticker": "BSX",
+    "number_of_stocks": 10
   },
   {
-    "ticker": "MSFT",
-    "number_of_stocks": 25
+    "ticker": "BX",
+    "number_of_stocks": 5
   },
   {
-    "ticker": "FDX",
-    "number_of_stocks": 15
-  },
-  {
-    "ticker": "V",
-    "number_of_stocks": 25
+    "ticker": "COF",
+    "number_of_stocks": 2
   },
   {
     "ticker": "CVNA",
     "number_of_stocks": 15
   },
   {
-    "ticker": "TER",
-    "number_of_stocks": 15
+    "ticker": "EBAY",
+    "number_of_stocks": 10
+  },
+  {
+    "ticker": "EQT",
+    "number_of_stocks": 20
+  },
+  {
+    "ticker": "EXPD",
+    "number_of_stocks": 1
+  },
+  {
+    "ticker": "FDX",
+    "number_of_stocks": 5
   },
   {
     "ticker": "FTNT",
     "number_of_stocks": 25
   },
   {
-    "ticker": "AEP",
-    "number_of_stocks": 20
-  },
-  {
-    "ticker": "BKR",
-    "number_of_stocks": 10
+    "ticker": "GS",
+    "number_of_stocks": 3
   },
   {
     "ticker": "IEX",
     "number_of_stocks": 15
   },
   {
+    "ticker": "KIM",
+    "number_of_stocks": 6
+  },
+  {
     "ticker": "KLAC",
     "number_of_stocks": 20
-  },
-  {
-    "ticker": "NVDA",
-    "number_of_stocks": 10
-  },
-  {
-    "ticker": "PPG",
-    "number_of_stocks": 15
-  },
-  {
-    "ticker": "RJF",
-    "number_of_stocks": 15
-  },
-  {
-    "ticker": "OKE",
-    "number_of_stocks": 20
-  },
-  {
-    "ticker": "EBAY",
-    "number_of_stocks": 10
   },
   {
     "ticker": "MAS",
     "number_of_stocks": 10
   },
   {
-    "ticker": "ORCL",
-    "number_of_stocks": 15
+    "ticker": "MSFT",
+    "number_of_stocks": 30
   },
   {
-    "ticker": "AAPL",
+    "ticker": "NOW",
     "number_of_stocks": 10
+  },
+  {
+    "ticker": "NVDA",
+    "number_of_stocks": 10
+  },
+  {
+    "ticker": "OKE",
+    "number_of_stocks": 20
   },
   {
     "ticker": "ORLY",
@@ -88,23 +92,39 @@
     "number_of_stocks": 10
   },
   {
+    "ticker": "PPG",
+    "number_of_stocks": 15
+  },
+  {
+    "ticker": "REGN",
+    "number_of_stocks": 4
+  },
+  {
+    "ticker": "RJF",
+    "number_of_stocks": 25
+  },
+  {
     "ticker": "STX",
     "number_of_stocks": 10
+  },
+  {
+    "ticker": "TER",
+    "number_of_stocks": 27
+  },
+  {
+    "ticker": "V",
+    "number_of_stocks": 25
   },
   {
     "ticker": "VRT",
     "number_of_stocks": 15
   },
   {
-    "ticker": "NOW",
-    "number_of_stocks": 10
-  },
-  {
     "ticker": "VZ",
     "number_of_stocks": 15
   },
   {
-    "ticker": "BSX",
-    "number_of_stocks": 10
+    "ticker": "XYZ",
+    "number_of_stocks": 1
   }
 ]

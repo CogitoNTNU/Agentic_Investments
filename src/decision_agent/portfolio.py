@@ -1,4 +1,5 @@
 import json
+from decimal import Decimal
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 from threading import RLock
@@ -68,6 +69,15 @@ def apply_decision(decision: Decision, expected_number_of_stocks: int) -> int:
         else:
             positions.pop(decision.ticker, None)
 
+        _write_portfolio([
+            {"ticker": ticker, "number_of_stocks": count}
+            for ticker, count in positions.items()
+        ])
+        return updated
+
+
+def _write_portfolio(positions: list[dict]) -> None:
+    with _lock:
         # Replace atomically so a failed write cannot truncate the portfolio.
         PORTFOLIO_PATH.parent.mkdir(parents=True, exist_ok=True)
         temporary_path = None
@@ -81,10 +91,7 @@ def apply_decision(decision: Decision, expected_number_of_stocks: int) -> int:
             ) as temporary:
                 temporary_path = Path(temporary.name)
                 json.dump(
-                    [
-                        {"ticker": ticker, "number_of_stocks": count}
-                        for ticker, count in positions.items()
-                    ],
+                    positions,
                     temporary,
                     indent=2,
                     ensure_ascii=False,
@@ -94,7 +101,24 @@ def apply_decision(decision: Decision, expected_number_of_stocks: int) -> int:
         finally:
             if temporary_path is not None:
                 temporary_path.unlink(missing_ok=True)
-        return updated
+
+
+def sync_from_alpaca() -> None:
+    """Replace the local record with one validated broker positions snapshot."""
+    from .trading import get_client
+
+    with _lock:
+        positions = []
+        for holding in get_client().get_all_positions():
+            quantity = Decimal(str(holding.qty))
+            if not quantity.is_finite() or quantity < 0 or quantity != quantity.to_integral_value():
+                raise ValueError(f"Cannot store Alpaca holding {holding.symbol}: {quantity}; expected whole long shares")
+            if quantity:
+                positions.append(Position(ticker=holding.symbol, number_of_stocks=int(quantity)).model_dump())
+        if len({p["ticker"] for p in positions}) != len(positions):
+            raise ValueError("Alpaca positions contain duplicate tickers")
+        _write_portfolio(sorted(positions, key=lambda p: p["ticker"]))
+    print(f"[Portefølje] Synkronisert {len(positions)} beholdninger fra Alpaca til {PORTFOLIO_PATH}", flush=True)
 
 
 def set_holding(ticker: str, quantity: int) -> None:

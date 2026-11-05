@@ -112,13 +112,17 @@ from src.decision_agent import run_decision
 decision = run_decision("Any research text or debate output", ticker="AAPL")
 ```
 
-Buy/sell decisions submit market DAY orders through the existing Alpaca paper
+Buy decisions submit DAY limit orders and sells submit DAY market orders through the existing Alpaca paper
 trading client. Set `ALPACA_API_KEY` and `ALPACA_SECRET_KEY` in `.env`.
 `hold` does not submit an order. The agent checks that the ticker's Alpaca holding
 matches the local holding before submitting a trade; resolve any mismatch first.
-Buys are only sent when Alpaca cash covers them, so the agent never trades on
-margin: the cost is estimated from the latest trade price plus a 2% buffer, and
-cash already reserved by open buy orders is subtracted first.
+Buys use cash from the paper account, including proceeds from completed sales.
+The pipeline sets the buy limit up to 2% above the latest trade and checks that
+cash covers the entire order at that price. It first reserves cash for open buys.
+An outstanding share-based market buy blocks further buys until its cost is known.
+The initial $100,000 can grow through realized profits. Margin buying power adds
+nothing to the cash budget. Run one trading pipeline per paper account so that
+two writers cannot commit the same cash concurrently.
 Confirmed fills update `portfolio.json` in the project root, independent of
 the working directory. The file contains only positions:
 
@@ -256,23 +260,119 @@ For the four separate queues, select `data/simen.json` (10 candidates),
 uv run python -m src.main --candidates data/simen.json
 ```
 
+For a proposal-only holdings review, run
+`python -m src.main --candidates data/sigurd.json --review-portfolio`.
+The review researches Alpaca holdings first, saves their dated assessments to
+`holdings_review.json` beside the queue, then researches the remaining candidates.
+Each candidate runs through the original bull and bear openings and both rebuttals
+before the decision agent evaluates the research and live account. HOLD passes
+and SELL uses uncommitted shares. Only BUY proceeds to the portfolio comparison,
+which can veto the buy, reduce its size, or propose a replacement. The report
+records the debate and decision. Cash buys are capped at affordable whole shares
+using the buffered limit price. If funds become insufficient before submission,
+the buy is skipped and processing continues. Each
+comparison uses a fresh account snapshot. Quantities are illustrative. The review leaves the queue intact
+and submits no orders. Each run replaces the report for that directory.
+
+To review and paper-trade the entire queue with one command, run
+`python -m src.main --candidates data/sigurd.json --execute-review-all`.
+Each candidate is compared against current Alpaca holdings before its action is
+executed. A pass advances the queue. A pending replacement sale defers only its linked buy. Other candidates continue
+using current cash and holdings. Leave the command running. After processing the other candidates, it checks pending
+orders every 30 seconds and resumes eligible purchases automatically. After an
+interruption, restart the same command to recover from the saved report.
+
+To execute one saved recommendation on Alpaca paper, use the same queue and name
+the candidate explicitly, for example
+`python -m src.main --candidates data/sigurd.json --execute-review NVDA`.
+Generate a review with this version first. A cash buy uses the checked DAY limit.
+A replacement sells first. Rerun the same command after a pending or partial sale
+to resume by broker order ID. The buy requires a full sale and a fresh cash check.
+A pass or fully filled trade removes the candidate from the queue.
+Before a replacement sale, the pipeline checks buffered buy cost against free cash
+plus sale proceeds estimated with a 2% haircut. It reserves the planned buy budget
+in the report and uses a fixed limit for that buy. Other candidates receive the
+cash remaining after those reservations. The buy still requires actual cash after
+the sale. Open broker buys are counted once when reserving funds.
+
+If that pre-sale funding check fails, the portfolio comparison can reassess up to
+twice using the saved bull/bear debate, original decision size, current cash,
+and conservative sale proceeds. It may propose a smaller buy, a different
+justified trim, a cash buy, or pass. Every revised order is checked again before
+submission; no reassessment can rewrite an existing order intent or completed sale.
+Old funding failures with no recorded orders are reopened for a full review on
+the next batch run. Partially completed replacements are not automatically retried.
+
+Review-mode decisions require a rationale, decisive evidence, rejected alternatives,
+quantity justification, uncertainties and conditions that would change the decision.
+These are saved as `decision_reasoning` in each candidate's review entry; the main
+rationale is also logged. Existing order journals retain their original format.
+Review prompts explicitly evaluate adding, keeping, trimming and exiting, including
+evidence-backed profit-taking, thesis deterioration and excessive concentration.
+A gain alone never requires selling, and missing research is not business deterioration.
+
+Review sizing receives Alpaca latest-trade prices, cost basis when supplied by the
+broker, and position weights against estimated equity (cash plus marked long holdings).
+Buying power is never the portfolio-size denominator. Missing/invalid prices stop
+the review before a new decision. Latest trades are not executable quotes; spread,
+depth, fees, sector weights and correlations remain unknown unless separately supplied.
+The prompts consider those uncertainties, switching costs and unnecessary turnover.
+These are decision guidelines, not new mechanical stop-losses, profit targets,
+exposure caps or liquidity checks. Existing cash guards and order recovery still apply.
+
+Holdings assessment, final review decisions and replacement comparisons share an
+evidence policy: a trim may be supported by concentration, valuation or credible
+forward risk without waiting for business failure. Holding the full position must
+be justified against trimming, using the same evidence standard as new purchases.
+Unknown costs are not a demonstrated reason to reject a trade, and historical
+cost basis is not a reason to avoid realizing a loss. Data gaps, sector-specific
+valuation metrics and provisional monitoring thresholds must be identified.
+
+The review provides code-calculated `portfolio_facts` (including the actual holding
+count and available cash already net of reservations) and `sizing_examples`.
+Reports save `risk_decision_math` and `planned_trade_math`, distinguishing the
+requested size from the final capped size. Exposure scenarios show before/after
+weights and portfolio loss for illustrative 20%, 40% and 60% single-stock declines.
+They are not forecasts, loss limits, or automatic triggers. Proposed shares are
+conditional on fills; fees/slippage and changes in other prices are not modeled.
+The calculations do not guarantee that model prose will interpret them correctly.
+
+Submitted and partially filled orders remain active until Alpaca reports a final
+status. Rejected or expired orders become failed or incomplete outcomes, and
+a sale followed by a failed buy is marked incomplete_replacement. These candidates
+stay in the queue for a fresh review, while the batch proceeds with unrelated
+candidates. Reruns reconcile saved order IDs and skip previously failed attempts
+until a new review is generated. Older reports that marked submitted buys complete
+are reconciled on restart. Reports with unresolved failures show needs_attention. See the report's
+`execution.orders` for the last observed order statuses. Run one pipeline at a time.
+
 These queues contain different tickers with the full discovery data preserved.
-Use separate project copies when running in parallel; the portfolio and pending
-order files are not designed for multiple processes sharing one project folder.
+Process queues that share an Alpaca paper account sequentially.
 
 The queue reads `data/news_discovery/grouped_candidates.json`, falling back to
 `latest_candidates.json` when the grouped file is absent. It preserves file order
 and processes each ticker once per run: research, debate, decision, then an Alpaca
 paper order for `buy`/`sell`, or no order for `hold`. Discovery data is included in
 the evidence. State contains `ticker`, `in_portfolio`, and `number_of_stocks`,
-loaded before the debate and refreshed after execution. A missing `portfolio.json`
-means no holdings; confirmed fills create/update it automatically.
+loaded before the debate and refreshed before the decision, at execution, and after execution.
 
-Configure IDUN, SEC and Alpaca credentials as described above before starting.
-The queue stops on an error or an unresolved order so that the next ticker cannot
-trade against uncertain holdings. Pending orders are reconciled at startup without
-resubmission. The queue is in memory: a new run reads all candidates again, including
-previously completed tickers. Run only one instance at a time.
+By default, each debate and final decision receives all paper-account positions,
+the candidate's filled share count, cash, buying power, and open orders with
+their requested and filled quantities. Before submitting a trade the pipeline
+rechecks positions and open orders, and verifies buys against current cash and
+buying power. Changed positions, changed orders, or insufficient funds trigger
+a fresh decision, up to three attempts. If required data is unavailable, the candidate stays queued.
+
+A broker-confirmed open order allows the next candidate to proceed. An accepted
+after-hours buy adds no shares until it fills. A partial fill appears as owned
+shares plus an outstanding order. The queue retains the broker client order ID
+until it has saved candidate completion, so restart recovery can finish that
+step without submitting a second order.
+
+Use `python -m src.main --candidates data/simen.json --portfolio-source json`
+for the original local-ledger decision inputs and order handling. Both modes
+trade through Alpaca paper. Broker mode leaves the local ledger untouched.
+Reconcile it before switching back to JSON. Run one queue per project copy.
 
 Analyze the latest SEC filing for a company:
 
@@ -330,3 +430,9 @@ This project is for research and educational purposes only. Nothing it produces 
 ## License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for details.
+
+At the end of an `--execute-review-all` run, the pipeline replaces `portfolio.json`
+with current Alpaca positions. Closed holdings are removed, and an empty account
+produces an empty list. Fetch or validation failures preserve the existing file.
+The local format supports whole, long positions. Fractional or short positions
+raise an error during this sync. An empty-queue rerun also refreshes the file.

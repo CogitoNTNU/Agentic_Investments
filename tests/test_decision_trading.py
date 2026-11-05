@@ -44,7 +44,7 @@ def setup_trading(monkeypatch, tmp_path):
 
 
 @pytest.mark.parametrize("action,expected", [("buy", 7), ("sell", 3)])
-def test_sends_market_order_and_records_fill(setup_trading, action, expected):
+def test_sends_cash_backed_buy_or_market_sell_and_records_fill(setup_trading, action, expected):
     client, _path, _ = setup_trading
     trading.execute_decision(
         Decision(ticker="AAPL", action=action, number_of_stocks=2), 5
@@ -53,6 +53,9 @@ def test_sends_market_order_and_records_fill(setup_trading, action, expected):
     assert request.symbol == "AAPL"
     assert request.qty == 2
     assert request.side == action
+    assert request.type == ("limit" if action == "buy" else "market")
+    if action == "buy":
+        assert request.limit_price == 102
     assert request.time_in_force == "day"
     assert request.client_order_id.startswith("decision-")
     assert portfolio.get_number_of_stocks("AAPL") == expected
@@ -98,7 +101,7 @@ def test_open_buy_orders_reserve_cash(setup_trading, quantity, allowed):
     # Only the 20 unfilled MSFT shares still need cash: 20 * $100 * 1.02 = $2040,
     # leaving $960, so 9 shares ($918) fit and 10 shares ($1020) do not.
     client.get_orders.return_value = [
-        SimpleNamespace(symbol="MSFT", qty="25", filled_qty="5", notional=None)
+        SimpleNamespace(symbol="MSFT", qty="25", filled_qty="5", notional=None, limit_price="102")
     ]
     decision = Decision(ticker="AAPL", action="buy", number_of_stocks=quantity)
     if allowed:
@@ -352,3 +355,60 @@ def test_old_saved_order_is_booked_during_closed_market(setup_trading):
     assert portfolio.get_number_of_stocks("EQT") == 20
     client.submit_order.assert_not_called()
     assert not trading._pending_path().exists()
+
+
+@pytest.mark.parametrize("is_open", [True, False])
+def test_broker_mode_ignores_local_ledger(setup_trading, is_open):
+    client, path, order = setup_trading
+    path.write_text("invalid local ledger")
+    client.get_clock.return_value = SimpleNamespace(is_open=is_open)
+    if not is_open:
+        client.submit_order.side_effect = lambda order_data: order("accepted", "0")
+    trading.execute_decision(
+        Decision(ticker="AAPL", action="sell", number_of_stocks=2),
+        expected_number_of_stocks=5, portfolio_source="alpaca",
+    )
+    client.submit_order.assert_called_once()
+    assert path.read_text() == "invalid local ledger"
+    assert not trading._pending_path().exists()
+
+
+def test_changed_broker_holding_blocks_submission(setup_trading):
+    client, _, _ = setup_trading
+    client.get_all_positions.return_value = []
+    with pytest.raises(ValueError, match="Holding changed"):
+        trading.execute_decision(
+            Decision(ticker="AAPL", action="sell", number_of_stocks=1),
+            expected_number_of_stocks=5, portfolio_source="alpaca",
+        )
+    client.submit_order.assert_not_called()
+
+def test_margin_buying_power_cannot_finance_purchase(setup_trading):
+    client, _, _ = setup_trading
+    client.get_account.return_value = SimpleNamespace(cash="100", buying_power="400000")
+    snapshot = trading.account_snapshot("AAPL")
+    with pytest.raises(trading.AccountChanged, match="Not enough cash"):
+        trading.execute_decision(
+            Decision(ticker="AAPL", action="buy", number_of_stocks=1), 5,
+            portfolio_source="alpaca", expected_account=snapshot,
+        )
+    client.submit_order.assert_not_called()
+
+
+def test_realized_cash_above_starting_balance_is_spendable(setup_trading, monkeypatch):
+    client, _, _ = setup_trading
+    client.get_account.return_value = SimpleNamespace(cash="110000", buying_power="220000")
+    monkeypatch.setattr(trading, "get_latest_prices", lambda _: {"AAPL": Decimal("2050")})
+    decision = Decision(ticker="AAPL", action="buy", number_of_stocks=50)
+    limit = trading._cash_backed_limit(client, decision, trading.account_snapshot("AAPL"))
+    assert limit * decision.number_of_stocks == Decimal("104550")
+
+
+def test_unpriced_open_market_buy_blocks_new_cash_commitment(setup_trading):
+    client, _, _ = setup_trading
+    client.get_orders.return_value = [
+        SimpleNamespace(qty="1", filled_qty="0", limit_price=None, notional=None)
+    ]
+    with pytest.raises(ValueError, match="Not enough cash"):
+        trading.execute_decision(Decision(ticker="AAPL", action="buy", number_of_stocks=1), 5)
+    client.submit_order.assert_not_called()

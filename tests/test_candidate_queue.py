@@ -34,7 +34,8 @@ def test_queue_finishes_each_candidate_before_starting_next(monkeypatch, tmp_pat
     events = []
     monkeypatch.setattr(trading, "sync_pending_order", lambda: events.append("sync"))
 
-    def process(candidate):
+    def process(candidate, portfolio_source, queue_source):
+        assert portfolio_source == "alpaca"
         ticker = candidate["ticker"]
         events.extend([f"research:{ticker}", f"decision:{ticker}"])
         return {"decision": {"ticker": ticker, "action": "hold", "number_of_stocks": 0}}
@@ -52,7 +53,7 @@ def test_failure_retains_current_candidate_and_stops_queue(monkeypatch, tmp_path
     monkeypatch.setattr(main, "load_candidates", lambda *args: queue)
     monkeypatch.setattr(trading, "sync_pending_order", lambda: None)
 
-    def fail(candidate):
+    def fail(candidate, portfolio_source, queue_source):
         raise TimeoutError("pending order")
 
     monkeypatch.setattr(main, "process_candidate", fail)
@@ -68,7 +69,8 @@ def test_restart_skips_completed_decisions_but_keeps_failed_ticker(monkeypatch, 
     monkeypatch.setattr(trading, "sync_pending_order", lambda: None)
     processed = []
 
-    def process(candidate):
+    def process(candidate, portfolio_source, queue_source):
+        assert portfolio_source == "alpaca"
         processed.append(candidate["ticker"])
         if candidate["ticker"] == "FDX":
             raise ValueError("Invalid research")
@@ -126,6 +128,7 @@ def test_candidate_passes_complete_research_and_discovery_to_debate(monkeypatch)
     ))
 
     def debate(state):
+        assert state["portfolio_source"] == "alpaca"
         packet = AnalysisPacket.model_validate(state["analysis_packet"])
         assert state["ticker"] == packet.ticker == "AAPL"
         evidence = {e.source: json.loads(e.statement) for e in packet.evidence}

@@ -104,6 +104,13 @@ def _serialize_rebuttal(
 
     return result
 
+def _debate_context(state: DebateState) -> dict:
+    context = {"analysis_packet": state["analysis_packet"]}
+    if "account_snapshot" in state:
+        context["account_snapshot"] = state["account_snapshot"]
+    return context
+
+
 def _run_rebuttal(
     state: DebateState,
     system_prompt: str,
@@ -120,7 +127,7 @@ def _run_rebuttal(
     ]
 
     payload = {
-        "analysis_packet": packet,
+        **_debate_context(state),
         "bull_analysis": state["bull_analysis"],
         "bear_analysis": state["bear_analysis"],
         "allowed_opposing_argument_ids": allowed_ids,
@@ -183,7 +190,7 @@ def bull_opening(state: DebateState) -> dict:
     thesis = _invoke(
         Thesis,
         BULL_PROMPT,
-        {"analysis_packet": packet}
+        _debate_context(state)
     )
     return {
         "bull_analysis": _serialize_thesis(
@@ -198,7 +205,7 @@ def bear_opening(state: DebateState) -> dict:
     thesis = _invoke(
         Thesis,
         BEAR_PROMPT,
-        {"analysis_packet": packet}
+        _debate_context(state)
     )
     return {
         "bear_analysis": _serialize_thesis(

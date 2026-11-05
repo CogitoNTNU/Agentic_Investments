@@ -2,6 +2,9 @@ from typing import TypedDict
 
 
 class DebateState(TypedDict, total=False):
+    account_snapshot: dict
+    queue_source: str
+    portfolio_source: str
     ticker: str
     in_portfolio: bool
     analysis_packet: dict

@@ -36,3 +36,6 @@ builder.add_edge(["bull_rebuttal", "bear_rebuttal"], "make_decision")
 builder.add_edge("make_decision", END)
 
 graph = builder.compile()
+
+# Reviews reuse the debate, then pass its result to the decision agent before execution.
+review_debate = builder.compile(interrupt_before=["make_decision"])

@@ -1,7 +1,7 @@
 """Submit paper orders, booking received orders immediately when the market is closed."""
 
 import json
-from decimal import Decimal
+from decimal import Decimal, ROUND_DOWN
 from time import monotonic, sleep
 from uuid import uuid4
 
@@ -20,6 +20,96 @@ def get_client():
     return get_trading_client()
 
 
+def get_holding(ticker: str, portfolio_source: str) -> int:
+    if portfolio_source == "json":
+        return portfolio.get_number_of_stocks(ticker)
+    if portfolio_source != "alpaca":
+        raise ValueError(f"Unknown portfolio source: {portfolio_source}")
+    for position in get_client().get_all_positions():
+        if position.symbol == ticker:
+            quantity = Decimal(str(position.qty))
+            if not quantity.is_finite() or quantity < 0 or quantity != quantity.to_integral_value():
+                raise ValueError(f"Expected a long, whole-share Alpaca position for {ticker}: {quantity}")
+            return int(quantity)
+    return 0
+
+
+class OrderRejected(RuntimeError):
+    """The broker definitively declined the order."""
+
+
+class AccountChanged(ValueError):
+    """The final decision needs a fresh broker snapshot."""
+
+
+def _quantity_text(value):
+    return None if value is None else format(Decimal(str(value)).normalize(), "f")
+
+
+def _cash_available(cash: Decimal, open_buys: list[dict]) -> Decimal:
+    """Reserve the maximum outstanding purchase cost, including partial fills."""
+    reserved = Decimal(0)
+    for order in open_buys:
+        if order["notional"] is not None:
+            # Reserve the full notional conservatively until the order closes.
+            reserved += Decimal(order["notional"])
+        elif order["limit_price"] is not None:
+            remaining = Decimal(order["qty"]) - Decimal(order["filled_qty"])
+            reserved += remaining * Decimal(order["limit_price"])
+        else:
+            # An existing share-based market buy has no maximum execution price.
+            return Decimal(0)
+    return max(Decimal(0), cash - reserved)
+
+
+def _buy_terms(order) -> dict:
+    return {
+        "qty": _quantity_text(order.qty), "filled_qty": _quantity_text(order.filled_qty),
+        "notional": _quantity_text(order.notional), "limit_price": _quantity_text(order.limit_price),
+    }
+
+
+def account_snapshot(ticker: str) -> dict:
+    from alpaca.trading.enums import QueryOrderStatus
+    from alpaca.trading.requests import GetOrdersRequest
+
+    client = get_client()
+    broker_positions = client.get_all_positions()
+    positions = {p.symbol: _quantity_text(p.qty) for p in broker_positions}
+    details = {}
+    for position in broker_positions:
+        value = getattr(position, "avg_entry_price", None)
+        if isinstance(value, (str, int, float, Decimal)):
+            average = Decimal(str(value))
+            if average.is_finite() and average > 0:
+                details[position.symbol] = {"avg_entry_price": str(average)}
+    quantity = Decimal(positions.get(ticker, "0"))
+    if not quantity.is_finite() or quantity < 0 or quantity != quantity.to_integral_value():
+        raise ValueError(f"Expected a long, whole-share position for {ticker}: {quantity}")
+    account = client.get_account()
+    buying_power = Decimal(str(account.buying_power))
+    cash = Decimal(str(account.cash))
+    if not buying_power.is_finite() or not cash.is_finite():
+        raise ValueError("Alpaca returned invalid account balances")
+    orders = client.get_orders(filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, limit=500))
+    if len(orders) >= 500:
+        raise ValueError("Cannot verify the complete list of open orders")
+    open_orders = [
+        {
+            "id": str(o.id), "symbol": o.symbol, "side": o.side, "status": o.status,
+            **_buy_terms(o),
+        }
+        for o in orders
+    ]
+    return {
+        "positions": positions, "current_number_of_stocks": int(quantity),
+        "buying_power": str(buying_power), "cash": str(cash),
+        "available_cash": str(_cash_available(cash, [o for o in open_orders if o["side"] == "buy"])),
+        "open_orders": sorted(open_orders, key=lambda o: o["id"]),
+        "position_details": details,
+    }
+
+
 def get_latest_prices(symbols: list[str]) -> dict[str, Decimal]:
     from alpaca.data.requests import StockLatestTradeRequest
 
@@ -31,36 +121,55 @@ def get_latest_prices(symbols: list[str]) -> dict[str, Decimal]:
     return {symbol: Decimal(str(trade.price)) for symbol, trade in trades.items()}
 
 
-def _check_cash(client, decision: Decision) -> None:
-    """Reject buys that would need margin, counting cash reserved by open buy orders."""
+class InsufficientCash(AccountChanged):
+    """A buy cannot fit the current cash budget."""
+
+
+def buy_limit_price(ticker):
+    price = get_latest_prices([ticker])[ticker] * PRICE_BUFFER
+    tick = Decimal("0.01") if price >= 1 else Decimal("0.0001")
+    limit = price.quantize(tick, rounding=ROUND_DOWN)
+    if not limit.is_finite() or limit <= 0:
+        raise ValueError(f"Invalid buy limit for {ticker}")
+    return limit
+
+
+def _cash_backed_limit(client, decision: Decision, snapshot: dict | None, *, limit: Decimal | None = None) -> Decimal:
+    """Return the buy limit only if cash covers every share at that price."""
     from alpaca.trading.enums import OrderSide, QueryOrderStatus
     from alpaca.trading.requests import GetOrdersRequest
 
-    open_buys = client.get_orders(
-        filter=GetOrdersRequest(status=QueryOrderStatus.OPEN, side=OrderSide.BUY)
-    )
-    prices = get_latest_prices(
-        sorted({decision.ticker, *(order.symbol for order in open_buys)})
-    )
-    reserved = Decimal(0)
-    for order in open_buys:
-        if order.qty is None:
-            reserved += Decimal(str(order.notional))
-        else:
-            remaining = Decimal(str(order.qty)) - Decimal(str(order.filled_qty or 0))
-            reserved += remaining * prices[order.symbol]
-    available = Decimal(str(client.get_account().cash)) - reserved * PRICE_BUFFER
-    cost = decision.number_of_stocks * prices[decision.ticker] * PRICE_BUFFER
+    if snapshot is None:
+        orders = client.get_orders(filter=GetOrdersRequest(
+            status=QueryOrderStatus.OPEN, side=OrderSide.BUY, limit=500
+        ))
+        if len(orders) >= 500:
+            raise ValueError("Cannot verify the complete list of open buy orders")
+        available = _cash_available(Decimal(client.get_account().cash), [_buy_terms(o) for o in orders])
+    else:
+        available = min(Decimal(snapshot["available_cash"]), Decimal(snapshot["buying_power"]))
+
+    limit = limit if limit is not None else buy_limit_price(decision.ticker)
+    cost = decision.number_of_stocks * limit
     if cost > available:
-        raise ValueError(
+        error = InsufficientCash if snapshot is not None else ValueError
+        raise error(
             f"Not enough cash to buy {decision.number_of_stocks} {decision.ticker}: "
-            f"needs ~${cost:.2f}, ${max(available, Decimal(0)):.2f} available "
-            "after open buy orders"
+            f"needs ${cost:.2f}, ${available:.2f} available after open buy orders"
         )
+    return limit
 
 
 def _pending_path():
     return portfolio.PORTFOLIO_PATH.with_suffix(".pending.json")
+
+
+def acknowledge_candidate(ticker, source) -> None:
+    path = _pending_path()
+    if path.exists():
+        receipt = json.loads(path.read_text(encoding="utf-8"))
+        if receipt.get("queue_source") == str(source) and receipt["decision"]["ticker"] == ticker:
+            path.unlink()
 
 
 def _validate_order(pending: dict, order) -> Decision:
@@ -89,7 +198,8 @@ def _book_received_order(pending: dict, order) -> None:
     updated = pending["previous_holding"] + delta
     # Absolute quantity also makes recovery safe if the write succeeded before a crash.
     portfolio.set_holding(decision.ticker, updated)
-    _pending_path().unlink()
+    if not pending.get("queue_source"):
+        _pending_path().unlink()
     print(
         f"[{decision.ticker}] Ordre mottatt utenfor åpningstid. "
         f"Registrert {decision.action.upper()} {decision.number_of_stocks} aksjer. "
@@ -100,6 +210,15 @@ def _book_received_order(pending: dict, order) -> None:
 
 def _finish_received_order(pending: dict, order) -> bool:
     status = getattr(order.status, "value", order.status)
+    if pending.get("portfolio_source") == "alpaca":
+        _validate_order(pending, order)
+        if status in {"rejected", "expired", "canceled"} and not Decimal(str(order.filled_qty or 0)):
+            _pending_path().unlink()
+            raise OrderRejected(f"Alpaca order {order.id} ended as {status} without fills")
+        # A queue-owned receipt survives until main has durably removed the candidate.
+        if not pending.get("queue_source"):
+            _pending_path().unlink()
+        return True
     if pending.get("book_on_acceptance") and status not in TERMINAL_STATUSES:
         _book_received_order(pending, order)
         return True
@@ -122,7 +241,8 @@ def _reconcile(pending: dict, order) -> bool:
             flush=True,
         )
     if status in TERMINAL_STATUSES:
-        _pending_path().unlink()
+        if not pending.get("queue_source") or status != "filled":
+            _pending_path().unlink()
         if status != "filled":
             raise RuntimeError(
                 f"Alpaca order {order.id} ended as {status}; "
@@ -132,7 +252,7 @@ def _reconcile(pending: dict, order) -> bool:
     return False
 
 
-def sync_pending_order() -> None:
+def sync_pending_order() -> dict | None:
     """Recover a pending order without ever submitting it again."""
     with portfolio._lock:
         if not _pending_path().exists():
@@ -149,6 +269,8 @@ def sync_pending_order() -> None:
                 f"Alpaca order {order.id} is still pending; confirmed fills were synced. "
                 "Call sync_pending_order() again later; no new order was submitted."
             )
+        if pending.get("queue_source") and _pending_path().exists():
+            return pending
 
 
 def execute_decision(
@@ -156,12 +278,23 @@ def execute_decision(
     expected_number_of_stocks: int,
     timeout: float = 30,
     poll_interval: float = 1,
-) -> None:
+    portfolio_source: str = "json",
+    expected_account: dict | None = None,
+    queue_source: str | None = None,
+    client_order_id: str | None = None,
+    reserved_cash: Decimal = Decimal(0),
+    buy_limit: Decimal | None = None,
+    review_order: bool = False,
+):
     """Book received orders immediately outside hours; await fills during trading."""
     decision = Decision.model_validate(decision)
     with portfolio._lock:
-        sync_pending_order()
-        current = portfolio.get_number_of_stocks(decision.ticker)
+        if sync_pending_order():
+            raise RuntimeError("A handled candidate needs queue recovery before another order")
+        if expected_account is not None:
+            current = expected_account["current_number_of_stocks"]
+        else:
+            current = get_holding(decision.ticker, portfolio_source)
         if current != expected_number_of_stocks:
             raise ValueError("Holding changed during decision; run the analysis again")
         if decision.action == "hold":
@@ -173,38 +306,45 @@ def execute_decision(
             raise ValueError("Cannot sell more stocks than the portfolio holds")
 
         from alpaca.trading.enums import OrderSide, TimeInForce
-        from alpaca.trading.requests import MarketOrderRequest
+        from alpaca.trading.requests import LimitOrderRequest, MarketOrderRequest
 
         client = get_client()
         book_on_acceptance = not client.get_clock().is_open
-        if not book_on_acceptance:
+        if not book_on_acceptance and portfolio_source == "json":
             print(f"[{decision.ticker}] Kontrollerer beholdning hos Alpaca", flush=True)
-            broker_quantity = next(
-                (
-                    Decimal(str(p.qty))
-                    for p in client.get_all_positions()
-                    if p.symbol == decision.ticker
-                ),
-                Decimal(0),
-            )
-            if broker_quantity != current:
+            if get_holding(decision.ticker, "alpaca") != current:
                 raise ValueError(
                     "Alpaca holding differs from portfolio.json; reconcile it before trading"
                 )
-        if decision.action == "buy":
-            _check_cash(client, decision)
-        client_order_id = f"decision-{uuid4().hex}"
-        request = MarketOrderRequest(
+        latest_account = None
+        if expected_account is not None:
+            latest_account = account_snapshot(decision.ticker)
+            for field in ("positions", "open_orders"):
+                if latest_account[field] != expected_account[field]:
+                    raise AccountChanged(f"Alpaca {field} changed during the decision")
+        client_order_id = client_order_id or f"decision-{uuid4().hex}"
+        fields = dict(
             symbol=decision.ticker,
             qty=decision.number_of_stocks,
             side=OrderSide(decision.action),
             time_in_force=TimeInForce.DAY,
             client_order_id=client_order_id,
         )
+        if decision.action == "buy":
+            if latest_account is not None:
+                latest_account["available_cash"] = str(max(
+                    Decimal(0), Decimal(latest_account["available_cash"]) - reserved_cash
+                ))
+            limit = _cash_backed_limit(client, decision, latest_account, limit=buy_limit)
+            request = LimitOrderRequest(**fields, limit_price=float(limit))
+        else:
+            request = MarketOrderRequest(**fields)
         pending = {
             "client_order_id": client_order_id,
             "decision": decision.model_dump(),
             "previous_holding": current,
+            "queue_source": queue_source,
+            "portfolio_source": portfolio_source,
             "book_on_acceptance": book_on_acceptance,
         }
         # Save before submission: even an ambiguous network failure can be recovered
@@ -225,7 +365,7 @@ def execute_decision(
             # errors and ambiguous server failures must retain the recovery record.
             if getattr(error, "status_code", None) in {400, 401, 403, 404, 422}:
                 path.unlink()
-                raise RuntimeError(
+                raise OrderRejected(
                     "Alpaca rejected the order; portfolio unchanged"
                 ) from error
             raise RuntimeError(
@@ -233,8 +373,12 @@ def execute_decision(
                 "Pending record retained; check Alpaca before retrying."
             ) from error
         print(f"[{decision.ticker}] Ordre {order.id} mottatt", flush=True)
+        if review_order:
+            _validate_order(pending, order)
+            path.unlink()
+            return order
         if _finish_received_order(pending, order):
-            return
+            return order
         print(f"[{decision.ticker}] Venter på bekreftet utførelse", flush=True)
         deadline = monotonic() + timeout
         while True:
